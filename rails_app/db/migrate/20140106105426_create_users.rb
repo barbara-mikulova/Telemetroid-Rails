@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :mail
       t.string :name
       t.string :comment
-      t.boolean :public_email
+      t.boolean :public_email, default: false
 
       t.timestamps
     end

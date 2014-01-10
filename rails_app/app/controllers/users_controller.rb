@@ -26,6 +26,10 @@ class UsersController < ApplicationController
     end
   end
   
+  def index
+    render json: User.all
+  end
+  
   def edit
     change = false;
     user = User.find(session[:id])
