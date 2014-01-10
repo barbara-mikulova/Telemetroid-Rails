@@ -55,10 +55,23 @@ class UsersController < ApplicationController
   def show
     user = User.find_by_username(params[:username])
     if (user)
-      render json: user
+      response = remove_fields(user)
+      render json: response
     else
       error_missing_entry("User can't be found")
     end
+  end
+  
+  def remove_fields(user)
+    hash = JSON.parse(user.to_json)
+    hash.delete("password")
+    hash.delete("created_at")
+    hash.delete("updated_at")
+    if !user.public_email
+      hash.delete("mail")
+    end
+    hash.delete("public_email")
+    return hash
   end
   
   def find
@@ -76,18 +89,13 @@ class UsersController < ApplicationController
           users = User.where("name LIKE ?", "%#{name}%")
         end
       end
-      if (mail)
-        if (users)
-          users = users.where({:public_email => true})
-          #users = users.where("mail = ?", "#{mail}#")
-        else
-          users = User.where({:public_email => true})
-          #users = User.where("mail = ?", "#{mail}#")
-        end
+      response = []
+      users.each do |user|
+        response.push(remove_fields(user))
       end
-      render json: users
+      render json: response
     else
-      error_missing_params("Username, Name, Note or E-mail must be provided")
+      error_missing_params("Username or Name must be provided")
     end
   end
   
