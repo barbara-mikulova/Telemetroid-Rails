@@ -7,7 +7,13 @@ class ApplicationController < ActionController::Base
   
   def require_login
     if (session[:id] == nil)
-      error_denied([session[:id].to_s, 'Please log in'])
+      error_denied('Please log in')
+    end
+  end
+  
+  def require_user_login
+    if (session[:type] != 'user')
+      error_denied('Please log in')
     end
   end
   

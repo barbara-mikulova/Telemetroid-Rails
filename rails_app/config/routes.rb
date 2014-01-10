@@ -11,10 +11,13 @@ Telemetroid::Application.routes.draw do
   get '/users/find' => 'users#find'
   
   post '/devices/new' => 'devices#create'
+  post 'devices/login' => 'sessions#device_login'
+  post 'devices/:name/edit' => 'devices#edit'
   
   get '/who' => 'sessions#who'
   get '/users' => 'users#index'
-  get '/devices' => 'devices#index'
+  get '/devices' => 'devices#full_index'
+  get '/users/:username/devices' => 'devices#index'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

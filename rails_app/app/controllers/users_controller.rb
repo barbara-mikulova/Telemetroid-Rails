@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   protect_from_forgery except: [:create, :change_password, :edit, :show, :find]
+  before_action :require_user_login
   skip_before_action :require_login, only: [:create]
+  skip_before_action :require_user_login, only: [:create]
   
   def create
     user = User.create(user_params)
