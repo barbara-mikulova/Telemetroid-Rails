@@ -45,3 +45,5 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'email_validator', :require => 'email_validator/strict'
+
+gem 'seed_dump'

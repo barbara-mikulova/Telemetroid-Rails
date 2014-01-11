@@ -1,6 +1,5 @@
 Telemetroid::Application.routes.draw do
   
-  post '/params' => 'params#show'
   get '/params' => 'params#show'
   post '/users/new' => 'users#create'
   post '/login' => 'sessions#login'
@@ -13,11 +12,25 @@ Telemetroid::Application.routes.draw do
   post '/devices/new' => 'devices#create'
   post 'devices/login' => 'sessions#device_login'
   post 'devices/:name/edit' => 'devices#edit'
+  get '/users/:username/devices' => 'devices#index'
+  
+  post '/feeds/new' => 'feeds#create'
+  get 'feeds/:identifier/admins' => 'feeds#index_admins'
+  post '/feeds/:identifier/admins/add' => 'feeds#add_admin'
+  post '/feeds/:identifier/admins/remove' => 'feeds#remove_admin'
+  get 'feeds/:identifier/users/write' => 'feeds#index_users_writers'
+  post '/feeds/:identifier/users/write/add' => 'feeds#add_user_write'
+  post '/feeds/:identifier/users/write/remove' => 'feeds#remove_user_write'
+  get 'feeds/:identifier/users/read' => 'feeds#index_users_readers'
+  post '/feeds/:identifier/users/read/add' => 'feeds#add_user_read'
+  post '/feeds/:identifier/users/read/remove' => 'feeds#remove_user_read'
   
   get '/who' => 'sessions#who'
   get '/users' => 'users#index'
   get '/devices' => 'devices#full_index'
-  get '/users/:username/devices' => 'devices#index'
+  get '/feeds' => 'feeds#full_index'
+  get '/params' => 'params#show'
+  post '/params' => 'params#show'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
