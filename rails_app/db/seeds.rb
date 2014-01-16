@@ -7,7 +7,8 @@ Device.create!([
   {identifier: "1235", name: "testovacie", password: "7t+LvIeQm+sNzlQAVAEIDW7nmjE=", comment: nil, current_track: 0, public: false, user_id: 1}
 ])
 Feed.create!([
-  {name: "1feed", comment: nil, private: true, identifier: "wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  {name: "1feed", comment: nil, private: true, identifier: "wO4gwNRcUtQNSiSLia26QrGtwjI="},
+  {name: "2feed", comment: nil, private: false, identifier: "wO4gwNRcUtQNSiSLia26QrGtwjI="}
 ])
 Reader.create!([
   {user_id: 1, feed_id: 5},
@@ -17,7 +18,7 @@ Reader.create!([
 User.create!([
   {username: "pixel", password: "asdasd", mail: "m.r@gmail.com", name: nil, comment: nil, public_email: false},
   {username: "druhy", password: "asdasd", mail: "druhy@gmail.com", name: "Sudruh Druhy", comment: nil, public_email: false},
-  {username: "treti", password: "asdasd", mail: "treti@gmail.com", name: nil, comment: nil, public_email: false}
+  {username: "treti", password: "asdasd", mail: "treti@gmail.com", name: nil, comment: nil, public_email: true}
 ])
 Writer.create!([
   {user_id: 3, feed_id: 5},

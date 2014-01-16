@@ -13557,3 +13557,120 @@ Processing by DevicesController#index as */*
 DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at D:/Ruby/telemetroid/rails_app/app/controllers/devices_controller.rb:57)
   [1m[36mDevice Load (0.0ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."public" = 't'[0m
 Completed 200 OK in 21ms (Views: 1.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/who" for 127.0.0.1 at 2014-01-13 15:21:58 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#who as */*
+  [1m[35mUser Load (35.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered text template (0.0ms)
+Completed 200 OK in 150ms (Views: 63.9ms | ActiveRecord: 36.4ms)
+
+
+Started GET "/devices/" for 127.0.0.1 at 2014-01-13 15:22:01 +0100
+Processing by DevicesController#full_index as */*
+  [1m[36mDevice Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
+Completed 200 OK in 79ms (Views: 35.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/pixel/devices" for 127.0.0.1 at 2014-01-13 15:22:11 +0100
+Processing by DevicesController#index as */*
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/rails_app/app/controllers/devices_controller.rb:57)
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."public" = 't'[0m
+Completed 200 OK in 36ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/logout" for 127.0.0.1 at 2014-01-13 15:22:46 +0100
+Processing by SessionsController#logout as */*
+  Parameters: {"username"=>"pixel"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2014-01-13 15:23:23 +0100
+Processing by SessionsController#login as */*
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/logout" for 127.0.0.1 at 2014-01-13 15:23:29 +0100
+Processing by SessionsController#logout as */*
+  Parameters: {"username"=>"pixel"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2014-01-13 15:23:34 +0100
+Processing by SessionsController#login as */*
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2014-01-13 15:23:41 +0100
+Processing by SessionsController#login as */*
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/who" for 127.0.0.1 at 2014-01-13 15:23:49 +0100
+Processing by SessionsController#who as */*
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/pixel/devices" for 127.0.0.1 at 2014-01-13 15:24:00 +0100
+Processing by DevicesController#index as */*
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/rails_app/app/controllers/devices_controller.rb:55)
+  [1m[36mDevice Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1[0m
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/druhy/devices" for 127.0.0.1 at 2014-01-13 15:24:14 +0100
+Processing by DevicesController#index as */*
+  Parameters: {"username"=>"druhy"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'druhy' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/rails_app/app/controllers/devices_controller.rb:57)
+  [1m[36mDevice Load (0.2ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 2 AND "devices"."public" = 't'[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2014-01-13 15:24:28 +0100
+Processing by SessionsController#login as */*
+  Parameters: {"username"=>"druhy", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'druhy' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/druhy/devices" for 127.0.0.1 at 2014-01-13 15:24:34 +0100
+Processing by DevicesController#index as */*
+  Parameters: {"username"=>"druhy"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'druhy' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/rails_app/app/controllers/devices_controller.rb:55)
+  [1m[35mDevice Load (0.8ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 2
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/pixel/devices" for 127.0.0.1 at 2014-01-13 15:24:42 +0100
+Processing by DevicesController#index as */*
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/rails_app/app/controllers/devices_controller.rb:57)
+  [1m[35mDevice Load (0.4ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."public" = 't'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/devices/" for 127.0.0.1 at 2014-01-13 15:24:52 +0100
+Processing by DevicesController#full_index as */*
+  [1m[36mDevice Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.5ms)
