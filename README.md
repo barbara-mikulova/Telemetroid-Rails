@@ -1,4 +1,4 @@
 Telemetroid
 ===========
 
-Android and Ruby on Rails solution for location sharing
+Ruby on Rails solution for location sharing (Android client needed)
