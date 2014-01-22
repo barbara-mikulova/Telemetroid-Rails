@@ -14282,3 +14282,861 @@ Started POST "/logout" for 192.168.0.180 at 2014-01-21 00:16:35 +0100
 Processing by SessionsController#logout as HTML
 Filter chain halted as :require_login rendered or redirected
 Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateWritingDevices (20140122165438)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "writing_devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "device_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_writing_devices_on_device_id" ON "writing_devices" ("device_id")
+  [1m[36m (0.3ms)[0m  [1mCREATE INDEX "index_writing_devices_on_feed_id" ON "writing_devices" ("feed_id")[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140122165438"]]
+  [1m[36m (271.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mReader Load (2.3ms)[0m  [1mSELECT "readers".* FROM "readers"[0m
+
+
+Started GET "/feeds" for 127.0.0.1 at 2014-01-22 18:12:44 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FeedsController#full_index as */*
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds"
+Completed 200 OK in 111ms (Views: 29.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write" for 127.0.0.1 at 2014-01-22 18:13:36 +0100
+
+AbstractController::ActionNotFound (The action 'index_writing_devices' could not be found for FeedsController):
+  actionpack (4.0.1) lib/abstract_controller/base.rb:131:in `process'
+  actionpack (4.0.1) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.1) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.1) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__4159486166815591968__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (3.3ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write" for 127.0.0.1 at 2014-01-22 18:13:55 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 2 AND "admins"."feed_id" = 1 LIMIT 1
+Filter chain halted as :require_admin rendered or redirected
+Completed 200 OK in 41ms (Views: 0.1ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write" for 127.0.0.1 at 2014-01-22 18:14:17 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (22.6ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+Completed 500 Internal Server Error in 150ms
+
+NameError (undefined local variable or method `device' for #<FeedsController:0x007f5ebc63b808>):
+  app/controllers/feeds_controller.rb:87:in `print_device_array'
+  app/controllers/feeds_controller.rb:76:in `index_writing_devices'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.6ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write" for 127.0.0.1 at 2014-01-22 18:14:52 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.2ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+Completed 200 OK in 17ms (Views: 0.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/pixel/devices" for 127.0.0.1 at 2014-01-22 18:15:17 +0100
+
+ActionController::RoutingError (No route matches [GET] "/pixel/devices"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (46.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (107.0ms)
+
+
+Started GET "/users/pixel/devices" for 127.0.0.1 at 2014-01-22 18:15:32 +0100
+Processing by DevicesController#index as */*
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[35mDevice Load (0.8ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."public" = 't'
+Completed 200 OK in 43ms (Views: 0.2ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-01-22 18:16:28 +0100
+
+AbstractController::ActionNotFound (The action 'add_writing_device' could not be found for FeedsController):
+  actionpack (4.0.1) lib/abstract_controller/base.rb:131:in `process'
+  actionpack (4.0.1) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.1) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.1) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__4159486166815591968__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.5ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-01-22 18:16:49 +0100
+Processing by FeedsController#add_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie zariadenie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+Can't verify CSRF token authenticity
+Filter chain halted as :require_login rendered or redirected
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-01-22 18:17:04 +0100
+Processing by FeedsController#add_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie zariadenie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 2 AND "admins"."feed_id" = 1 LIMIT 1
+Filter chain halted as :require_admin rendered or redirected
+Completed 200 OK in 19ms (Views: 0.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/admins" for 127.0.0.1 at 2014-01-22 18:17:27 +0100
+Processing by FeedsController#index_admins as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.7ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ?  [["feed_id", 1]]
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+  [1m[36m (286.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (188.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140106105426)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password" varchar(255), "mail" varchar(255), "name" varchar(255), "comment" varchar(255), "public_email" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140106105426"]]
+  [1m[36m (212.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateDevices (20140110143652)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (2.2ms)[0m  [1mCREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "identifier" varchar(255), "name" varchar(255), "password" varchar(255), "comment" varchar(255), "current_track" integer DEFAULT 0, "public" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.7ms)[0m  CREATE INDEX "index_devices_on_user_id" ON "devices" ("user_id")
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140110143652"]]
+  [1m[35m (228.1ms)[0m  commit transaction
+Migrating to CreateFeeds (20140111163612)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "feeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "comment" varchar(255), "private" boolean DEFAULT 't', "identifier" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111163612"]]
+  [1m[35m (240.0ms)[0m  commit transaction
+Migrating to CreateAdmins (20140111174657)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.1ms)[0m  CREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.8ms)[0m  [1mCREATE INDEX "index_admins_on_user_id" ON "admins" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  CREATE INDEX "index_admins_on_feed_id" ON "admins" ("feed_id")
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111174657"]]
+  [1m[35m (221.8ms)[0m  commit transaction
+Migrating to CreateWriters (20140111220236)
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "writers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.3ms)[0m  [1mCREATE INDEX "index_writers_on_user_id" ON "writers" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  CREATE INDEX "index_writers_on_feed_id" ON "writers" ("feed_id")
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111220236"]]
+  [1m[35m (222.2ms)[0m  commit transaction
+Migrating to CreateReaders (20140111222952)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "readers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.3ms)[0m  [1mCREATE INDEX "index_readers_on_user_id" ON "readers" ("user_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE INDEX "index_readers_on_feed_id" ON "readers" ("feed_id")
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111222952"]]
+  [1m[35m (210.9ms)[0m  commit transaction
+Migrating to CreateWritingDevices (20140122165438)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "writing_devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "device_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_writing_devices_on_device_id" ON "writing_devices" ("device_id")[0m
+  [1m[35m (0.4ms)[0m  CREATE INDEX "index_writing_devices_on_feed_id" ON "writing_devices" ("feed_id")
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140122165438"]]
+  [1m[35m (226.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.7ms)[0m  [1mINSERT INTO "admins" ("created_at", "feed_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 22 Jan 2014 17:18:58 UTC +00:00], ["feed_id", 1], ["updated_at", Wed, 22 Jan 2014 17:18:58 UTC +00:00], ["user_id", 1]]
+  [1m[35m (210.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.3ms)[0m  SELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1
+  [1m[36mDevice Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."user_id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "devices" ("created_at", "identifier", "name", "password", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Wed, 22 Jan 2014 17:18:59 UTC +00:00], ["identifier", "123"], ["name", "testovacie zariadenie"], ["password", "HAgzOTMcf6MIf1UibWQgNJrNb4A="], ["updated_at", Wed, 22 Jan 2014 17:18:59 UTC +00:00], ["user_id", 2]]
+  [1m[36m (225.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mDevice Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '1234' LIMIT 1[0m
+  [1m[35mDevice Exists (0.1ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."user_id" = 1) LIMIT 1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "devices" ("created_at", "identifier", "name", "password", "public", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 22 Jan 2014 17:18:59 UTC +00:00], ["identifier", "1234"], ["name", "testovacie zariadenie"], ["password", "IBRYreJ0oY/BIm8Ck73q24Ujjm8="], ["public", true], ["updated_at", Wed, 22 Jan 2014 17:18:59 UTC +00:00], ["user_id", 1]]
+  [1m[35m (201.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.6ms)[0m  SELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '1235' LIMIT 1
+  [1m[36mDevice Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie' AND "devices"."user_id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "devices" ("created_at", "identifier", "name", "password", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Wed, 22 Jan 2014 17:18:59 UTC +00:00], ["identifier", "1235"], ["name", "testovacie"], ["password", "7t+LvIeQm+sNzlQAVAEIDW7nmjE="], ["updated_at", Wed, 22 Jan 2014 17:18:59 UTC +00:00], ["user_id", 1]]
+  [1m[36m (193.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFeed Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "feeds" ("created_at", "identifier", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Wed, 22 Jan 2014 17:18:59 UTC +00:00], ["identifier", "wO4gwNRcUtQNSiSLia26QrGtwjI="], ["name", "1feed"], ["updated_at", Wed, 22 Jan 2014 17:18:59 UTC +00:00]]
+  [1m[36m (224.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "readers" ("created_at", "feed_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 22 Jan 2014 17:18:59 UTC +00:00], ["feed_id", 5], ["updated_at", Wed, 22 Jan 2014 17:18:59 UTC +00:00], ["user_id", 1]]
+  [1m[35m (195.8ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO "readers" ("created_at", "feed_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", Wed, 22 Jan 2014 17:19:00 UTC +00:00], ["feed_id", 5], ["updated_at", Wed, 22 Jan 2014 17:19:00 UTC +00:00], ["user_id", 2]]
+  [1m[36m (214.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "readers" ("created_at", "feed_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 22 Jan 2014 17:19:00 UTC +00:00], ["feed_id", 5], ["updated_at", Wed, 22 Jan 2014 17:19:00 UTC +00:00], ["user_id", 3]]
+  [1m[35m (231.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'm.r@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "mail", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 22 Jan 2014 17:19:00 UTC +00:00], ["mail", "m.r@gmail.com"], ["password", "asdasd"], ["updated_at", Wed, 22 Jan 2014 17:19:00 UTC +00:00], ["username", "pixel"]]
+  [1m[36m (280.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'druhy' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'druhy@gmail.com' LIMIT 1
+  [1m[36mSQL (3.1ms)[0m  [1mINSERT INTO "users" ("created_at", "mail", "name", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 22 Jan 2014 17:19:00 UTC +00:00], ["mail", "druhy@gmail.com"], ["name", "Sudruh Druhy"], ["password", "asdasd"], ["updated_at", Wed, 22 Jan 2014 17:19:00 UTC +00:00], ["username", "druhy"]]
+  [1m[35m (184.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'treti' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'treti@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("created_at", "mail", "password", "public_email", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Wed, 22 Jan 2014 17:19:01 UTC +00:00], ["mail", "treti@gmail.com"], ["password", "asdasd"], ["public_email", true], ["updated_at", Wed, 22 Jan 2014 17:19:01 UTC +00:00], ["username", "treti"]]
+  [1m[36m (196.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "writers" ("created_at", "feed_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 22 Jan 2014 17:19:01 UTC +00:00], ["feed_id", 5], ["updated_at", Wed, 22 Jan 2014 17:19:01 UTC +00:00], ["user_id", 3]]
+  [1m[35m (207.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "writers" ("created_at", "feed_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", Wed, 22 Jan 2014 17:19:01 UTC +00:00], ["feed_id", 5], ["updated_at", Wed, 22 Jan 2014 17:19:01 UTC +00:00], ["user_id", 2]]
+  [1m[36m (196.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "writers" ("created_at", "feed_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 22 Jan 2014 17:19:01 UTC +00:00], ["feed_id", 5], ["updated_at", Wed, 22 Jan 2014 17:19:01 UTC +00:00], ["user_id", 1]]
+  [1m[35m (206.9ms)[0m  commit transaction
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/admins" for 127.0.0.1 at 2014-01-22 18:19:07 +0100
+Processing by FeedsController#index_admins as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 92ms (Views: 0.3ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-01-22 18:19:14 +0100
+Processing by FeedsController#add_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie zariadenie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mAdmin Load (1.9ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 2 AND "admins"."feed_id" = 1 LIMIT 1[0m
+Filter chain halted as :require_admin rendered or redirected
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/admins" for 127.0.0.1 at 2014-01-22 18:19:24 +0100
+Processing by FeedsController#index_admins as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mAdmin Load (0.4ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/who" for 127.0.0.1 at 2014-01-22 18:19:31 +0100
+
+ActionController::RoutingError (No route matches [POST] "/who"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (31.6ms)
+
+
+Started GET "/who" for 127.0.0.1 at 2014-01-22 18:19:41 +0100
+Processing by SessionsController#who as */*
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered text template (0.0ms)
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2014-01-22 18:19:49 +0100
+Processing by SessionsController#login as */*
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-01-22 18:19:57 +0100
+Processing by FeedsController#add_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie zariadenie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.9ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie zariadenie' LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.4ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 2 AND "writing_devices"."feed_id" = 1 LIMIT 1
+Completed 500 Internal Server Error in 38ms
+
+NoMethodError (undefined method `device=' for #<WritingDevice:0x007f5ebca1a730>):
+  app/controllers/feeds_controller.rb:249:in `add_writing_device'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.7ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-01-22 18:20:35 +0100
+Processing by FeedsController#add_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie zariadenie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.8ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie zariadenie' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.2ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 2 AND "writing_devices"."feed_id" = 1 LIMIT 1
+Completed 500 Internal Server Error in 73ms
+
+NoMethodError (undefined method `writing_device=' for #<WritingDevice:0x007f5ebcaa2540>):
+  app/controllers/feeds_controller.rb:249:in `add_writing_device'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.3ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-01-22 18:21:27 +0100
+Processing by FeedsController#add_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie zariadenie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie zariadenie' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.2ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 2 AND "writing_devices"."feed_id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "writing_devices" ("created_at", "device_id", "feed_id", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Wed, 22 Jan 2014 17:21:27 UTC +00:00], ["device_id", 2], ["feed_id", 1], ["updated_at", Wed, 22 Jan 2014 17:21:27 UTC +00:00]]
+  [1m[36m (250.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFeed Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE ("feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' AND "feeds"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 361ms (Views: 0.6ms | ActiveRecord: 257.0ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-01-22 18:21:30 +0100
+Processing by FeedsController#add_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie zariadenie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.9ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.6ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie zariadenie' LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.4ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 2 AND "writing_devices"."feed_id" = 1 LIMIT 1
+Completed 500 Internal Server Error in 12ms
+
+TypeError (can't convert nil into String):
+  app/controllers/feeds_controller.rb:246:in `+'
+  app/controllers/feeds_controller.rb:246:in `add_writing_device'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.4ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-01-22 18:22:29 +0100
+Processing by FeedsController#add_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie zariadenie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.8ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie zariadenie' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.2ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 2 AND "writing_devices"."feed_id" = 1 LIMIT 1
+Completed 200 OK in 113ms (Views: 0.1ms | ActiveRecord: 6.7ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-01-22 18:22:53 +0100
+Processing by FeedsController#add_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie zariadenie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.3ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie zariadenie' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.2ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 2 AND "writing_devices"."feed_id" = 1 LIMIT 1
+Completed 200 OK in 80ms (Views: 0.1ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-01-22 18:23:05 +0100
+Processing by FeedsController#add_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.7ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.3ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mUser Load (4.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mDevice Load (1.0ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.4ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 3 AND "writing_devices"."feed_id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO "writing_devices" ("created_at", "device_id", "feed_id", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Wed, 22 Jan 2014 17:23:05 UTC +00:00], ["device_id", 3], ["feed_id", 1], ["updated_at", Wed, 22 Jan 2014 17:23:05 UTC +00:00]]
+  [1m[36m (321.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFeed Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE ("feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' AND "feeds"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 349ms (Views: 1.0ms | ActiveRecord: 330.3ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-01-22 18:23:08 +0100
+Processing by FeedsController#add_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.7ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.5ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.5ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 3 AND "writing_devices"."feed_id" = 1 LIMIT 1
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:23:13 +0100
+
+ActionController::RoutingError (No route matches [POST] "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (25.3ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:23:15 +0100
+
+ActionController::RoutingError (No route matches [POST] "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (29.4ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:23:24 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.7ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.8ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:23:35 +0100
+
+ActionController::RoutingError (No route matches [POST] "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (23.8ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-01-22 18:23:41 +0100
+Processing by FeedsController#add_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacieasdasd", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacieasdasd' LIMIT 1
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/remove" for 127.0.0.1 at 2014-01-22 18:23:47 +0100
+
+ActionController::RoutingError (No route matches [POST] "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/remove"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (25.7ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/remove" for 127.0.0.1 at 2014-01-22 18:24:11 +0100
+Processing by FeedsController#remove_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacieasdasd", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+Can't verify CSRF token authenticity
+Filter chain halted as :require_login rendered or redirected
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/remove" for 127.0.0.1 at 2014-01-22 18:24:27 +0100
+Processing by FeedsController#remove_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacieasdasd", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacieasdasd' LIMIT 1
+Completed 200 OK in 48ms (Views: 0.1ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/remove" for 127.0.0.1 at 2014-01-22 18:24:35 +0100
+Processing by FeedsController#remove_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.5ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mDevice Load (0.7ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.3ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 3 AND "writing_devices"."feed_id" = 1 LIMIT 1
+  [1m[36mWritingDevice Load (0.6ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+Completed 500 Internal Server Error in 41ms
+
+NoMethodError (undefined method `remove' for #<ActiveRecord::Associations::CollectionProxy::ActiveRecord_Associations_CollectionProxy_WritingDevice:0x007f5ebc2a6710>):
+  app/controllers/feeds_controller.rb:274:in `remove_writing_device'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.9ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/remove" for 127.0.0.1 at 2014-01-22 18:25:10 +0100
+Processing by FeedsController#remove_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (1.6ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mAdmin Load (0.6ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mDevice Load (0.2ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.2ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 3 AND "writing_devices"."feed_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "writing_devices" SET "feed_id" = NULL WHERE "writing_devices"."feed_id" = ? AND "writing_devices"."id" IN (2)[0m  [["feed_id", 1]]
+  [1m[35m (231.8ms)[0m  commit transaction
+  [1m[36mSQL (199.2ms)[0m  [1mDELETE FROM "writing_devices" WHERE "writing_devices"."id" = 2[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFeed Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE ("feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' AND "feeds"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  commit transaction
+  Rendered text template (0.1ms)
+Completed 200 OK in 518ms (Views: 1.9ms | ActiveRecord: 439.9ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/remove" for 127.0.0.1 at 2014-01-22 18:25:11 +0100
+Processing by FeedsController#remove_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.8ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.6ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mDevice Load (0.7ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.3ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 3 AND "writing_devices"."feed_id" = 1 LIMIT 1
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/remove" for 127.0.0.1 at 2014-01-22 18:25:14 +0100
+Processing by FeedsController#remove_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.7ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.6ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 3 AND "writing_devices"."feed_id" = 1 LIMIT 1
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/remove" for 127.0.0.1 at 2014-01-22 18:25:17 +0100
+Processing by FeedsController#remove_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie zariadenie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.6ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.5ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mDevice Load (0.4ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie zariadenie' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.4ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 2 AND "writing_devices"."feed_id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  UPDATE "writing_devices" SET "feed_id" = NULL WHERE "writing_devices"."feed_id" = ? AND "writing_devices"."id" IN (1)  [["feed_id", 1]]
+  [1m[36m (291.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (199.0ms)[0m  DELETE FROM "writing_devices" WHERE "writing_devices"."id" = 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mFeed Exists (0.3ms)[0m  SELECT 1 AS one FROM "feeds" WHERE ("feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' AND "feeds"."id" != 1) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 510ms (Views: 0.5ms | ActiveRecord: 494.7ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:25:24 +0100
+
+ActionController::RoutingError (No route matches [POST] "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (38.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (68.6ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:25:30 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.7ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.7ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.5ms)
