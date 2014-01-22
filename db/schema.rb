@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140111222952) do
+ActiveRecord::Schema.define(version: 20140122165438) do
 
   create_table "admins", force: true do |t|
     t.integer  "user_id"
@@ -76,5 +76,15 @@ ActiveRecord::Schema.define(version: 20140111222952) do
 
   add_index "writers", ["feed_id"], name: "index_writers_on_feed_id"
   add_index "writers", ["user_id"], name: "index_writers_on_user_id"
+
+  create_table "writing_devices", force: true do |t|
+    t.integer  "device_id"
+    t.integer  "feed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "writing_devices", ["device_id"], name: "index_writing_devices_on_device_id"
+  add_index "writing_devices", ["feed_id"], name: "index_writing_devices_on_feed_id"
 
 end

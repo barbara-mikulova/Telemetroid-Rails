@@ -24,6 +24,9 @@ Telemetroid::Application.routes.draw do
   get 'feeds/:identifier/users/read' => 'feeds#index_users_readers'
   post '/feeds/:identifier/users/read/add' => 'feeds#add_user_read'
   post '/feeds/:identifier/users/read/remove' => 'feeds#remove_user_read'
+  get 'feeds/:identifier/devices/write' => 'feeds#index_writing_devices'
+  post '/feeds/:identifier/devices/write/add' => 'feeds#add_writing_device'
+  post '/feeds/:identifier/devices/write/remove' => 'feeds#remove_writing_device'
   
   get '/who' => 'sessions#who'
   get '/users' => 'users#index'

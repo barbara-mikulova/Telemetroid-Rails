@@ -29,6 +29,11 @@ class ApplicationController < ActionController::Base
     return hash
   end
   
+  def remove_device_fields(device)
+    hash = JSON.parse(device.to_json)
+    return hash
+  end
+  
   def error_missing_params(messages)
     render_error_code(1, messages)
   end
