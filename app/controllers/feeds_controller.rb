@@ -1,10 +1,14 @@
 class FeedsController < ApplicationController
   
-  protect_from_forgery except: [:create, :add_admin, :remove_admin, :add_user_write, :remove_user_write,
-                                :add_user_read, :remove_user_read, :add_writing_device, :remove_writing_device]
+  protect_from_forgery except: [:create, :add_admin, :remove_admin, :add_user_write,
+                                :remove_user_write, :add_user_read, :remove_user_read,
+                                :add_writing_device, :remove_writing_device,
+                                :add_reading_device, :remove_reading_device]
+  
   before_action :require_user_login
   before_action :require_admin, :except => [:create, :index_admins, :index_users_writers,
-                                            :index_users_readers, :index_writing_devices, :full_index]
+                                            :index_users_readers, :index_writing_devices,
+                                            :index_reading_devices, :full_index]
   
   def require_admin
     feed = Feed.find_by_identifier(params[:identifier])
@@ -74,6 +78,16 @@ class FeedsController < ApplicationController
     if (feed)
       writing_devices = feed.writing_devices
       print_device_array(writing_devices)
+    else
+      cant_find_feed
+    end
+  end
+  
+  def index_reading_devices
+    feed = Feed.find_by_identifier(params[:identifier])
+    if (feed)
+      reading_devices = feed.reading_devices
+      print_device_array(reading_devices)
     else
       cant_find_feed
     end
@@ -277,6 +291,61 @@ class FeedsController < ApplicationController
             response_ok
           else
             error_missing_params(["Device " + device.name + " of user " + user.username + " can't write to this feed"])
+          end
+        else
+          cant_find_feed
+        end
+      else
+        error_missing_entry(["Can't find device " + params[:device_name] + " of user " + user.username])
+      end
+    else
+      cant_find_user
+    end
+  end
+  
+  def add_reading_device
+    user = User.find_by_username(params[:username])
+    if (user)
+      device = Device.find_by_user_id_and_name(user.id, params[:device_name])
+      if (device)
+        feed = Feed.find_by_identifier(params[:identifier])
+        if (feed)
+          reader = ReadingDevice.find_by_device_id_and_feed_id(device.id, feed.id)
+          if (reader)
+            error_duplicity(["Device " + device.name + " of user " + user.username + " can read feed already"])
+          else
+            reader = ReadingDevice.new
+            reader.device = device
+            feed.reading_devices.push(reader)
+            feed.save
+            response_ok
+          end
+        else
+          cant_find_feed
+        end
+      else
+        error_missing_entry(["Can't find device " + params[:device_name] + " of user " + user.username])
+      end
+    else
+      cant_find_user
+    end
+  end
+  
+  def remove_reading_device
+    user = User.find_by_username(params[:username])
+    if (user)
+      device = Device.find_by_user_id_and_name(user.id, params[:device_name])
+      if (device)
+        feed = Feed.find_by_identifier(params[:identifier])
+        if (feed)
+          reader = ReadingDevice.find_by_device_id_and_feed_id(device.id, feed.id)
+          if (reader)
+            feed.reading_devices.delete(reader)
+            reader.delete
+            feed.save
+            response_ok
+          else
+            error_missing_params(["Device " + device.name + " of user " + user.username + " can't read this feed"])
           end
         else
           cant_find_feed
