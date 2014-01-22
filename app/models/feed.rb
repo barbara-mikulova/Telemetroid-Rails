@@ -2,6 +2,7 @@ class Feed < ActiveRecord::Base
   has_many :admins
   has_many :writers
   has_many :readers
+  has_many :writing_devices
   
   validates :name, presence: true
   validates :identifier, presence: true, uniqueness: true

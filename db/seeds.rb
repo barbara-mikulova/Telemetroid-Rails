@@ -1,5 +1,5 @@
 Admin.create!([
-  {user_id: 3, feed_id: 5}
+  {user_id: 1, feed_id: 1}
 ])
 Device.create!([
   {identifier: "123", name: "testovacie zariadenie", password: "HAgzOTMcf6MIf1UibWQgNJrNb4A=", comment: nil, current_track: 0, public: false, user_id: 2},
@@ -8,7 +8,6 @@ Device.create!([
 ])
 Feed.create!([
   {name: "1feed", comment: nil, private: true, identifier: "wO4gwNRcUtQNSiSLia26QrGtwjI="},
-  {name: "2feed", comment: nil, private: false, identifier: "wO4gwNRcUtQNSiSLia26QrGtwjI="}
 ])
 Reader.create!([
   {user_id: 1, feed_id: 5},
