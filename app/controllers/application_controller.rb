@@ -29,9 +29,16 @@ class ApplicationController < ActionController::Base
     return hash
   end
   
-  def remove_device_fields(device)
-    hash = JSON.parse(device.to_json)
-    return hash
+  def remove_device_fields(input)
+    device = Device.find(input.device_id)
+    user = User.find(device.user_id)
+    if (device.public)
+      name = device.name
+    else
+      name = "private"
+    end
+    
+    return {'owner_name' => user.username, 'device_name' => name}
   end
   
   def error_missing_params(messages)
