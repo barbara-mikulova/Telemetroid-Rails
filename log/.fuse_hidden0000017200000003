@@ -15140,6 +15140,865 @@ Processing by FeedsController#index_writing_devices as */*
   [1m[35mFeed Load (0.7ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
   [1m[36mWritingDevice Load (0.7ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
 Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.5ms)
-  [1m[36mWritingDevice Load (1.9ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices"[0m
-  [1m[35mDevice Load (1.0ms)[0m  SELECT "devices".* FROM "devices"
-  [1m[36mWritingDevice Load (1.0ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices"[0m
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:29:54 +0100
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.3ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-01-22 18:30:03 +0100
+Processing by FeedsController#add_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie zariadenie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (1.5ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.3ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mDevice Load (0.4ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie zariadenie' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.2ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 2 AND "writing_devices"."feed_id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "writing_devices" ("created_at", "device_id", "feed_id", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Wed, 22 Jan 2014 17:30:03 UTC +00:00], ["device_id", 2], ["feed_id", 1], ["updated_at", Wed, 22 Jan 2014 17:30:03 UTC +00:00]]
+  [1m[36m (250.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFeed Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE ("feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' AND "feeds"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 331ms (Views: 0.9ms | ActiveRecord: 258.4ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:30:08 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.7ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.5ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:30:26 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.3ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+Completed 200 OK in 31ms (Views: 0.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:31:51 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.3ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 500 Internal Server Error in 76ms
+
+NoMethodError (undefined method `put' for {"id"=>3, "device_id"=>2, "feed_id"=>1}:Hash):
+  app/controllers/application_controller.rb:37:in `remove_device_fields'
+  app/controllers/feeds_controller.rb:85:in `block in print_device_array'
+  app/controllers/feeds_controller.rb:84:in `print_device_array'
+  app/controllers/feeds_controller.rb:76:in `index_writing_devices'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.7ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:32:02 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.3ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+Completed 500 Internal Server Error in 44ms
+
+NoMethodError (undefined method `add' for {"id"=>3, "device_id"=>2, "feed_id"=>1}:Hash):
+  app/controllers/application_controller.rb:37:in `remove_device_fields'
+  app/controllers/feeds_controller.rb:85:in `block in print_device_array'
+  app/controllers/feeds_controller.rb:84:in `print_device_array'
+  app/controllers/feeds_controller.rb:76:in `index_writing_devices'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.3ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:32:06 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.2ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mDevice Load (0.2ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 500 Internal Server Error in 41ms
+
+NoMethodError (undefined method `push' for {"id"=>3, "device_id"=>2, "feed_id"=>1}:Hash):
+  app/controllers/application_controller.rb:37:in `remove_device_fields'
+  app/controllers/feeds_controller.rb:85:in `block in print_device_array'
+  app/controllers/feeds_controller.rb:84:in `print_device_array'
+  app/controllers/feeds_controller.rb:76:in `index_writing_devices'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.1ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:32:16 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.2ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.4ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+Completed 500 Internal Server Error in 85ms
+
+NoMethodError (undefined method `insert' for {"id"=>3, "device_id"=>2, "feed_id"=>1}:Hash):
+  app/controllers/application_controller.rb:37:in `remove_device_fields'
+  app/controllers/feeds_controller.rb:85:in `block in print_device_array'
+  app/controllers/feeds_controller.rb:84:in `print_device_array'
+  app/controllers/feeds_controller.rb:76:in `index_writing_devices'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.8ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:32:25 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.4ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 500 Internal Server Error in 55ms
+
+NoMethodError (undefined method `insert' for {"id"=>3, "device_id"=>2, "feed_id"=>1}:Hash):
+  app/controllers/application_controller.rb:37:in `remove_device_fields'
+  app/controllers/feeds_controller.rb:85:in `block in print_device_array'
+  app/controllers/feeds_controller.rb:84:in `print_device_array'
+  app/controllers/feeds_controller.rb:76:in `index_writing_devices'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.2ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:32:30 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.3ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+Completed 200 OK in 46ms (Views: 1.4ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:33:25 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.3ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 200 OK in 70ms (Views: 1.5ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:33:36 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.9ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+Completed 200 OK in 59ms (Views: 0.3ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:33:55 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.2ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mDevice Load (0.2ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:34:00 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.7ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+Completed 500 Internal Server Error in 85ms
+
+NoMethodError (undefined method `insert' for {"id"=>3, "device_id"=>2, "feed_id"=>1}:Hash):
+  app/controllers/application_controller.rb:37:in `remove_device_fields'
+  app/controllers/feeds_controller.rb:85:in `block in print_device_array'
+  app/controllers/feeds_controller.rb:84:in `print_device_array'
+  app/controllers/feeds_controller.rb:76:in `index_writing_devices'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.0ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:34:16 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.3ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 200 OK in 45ms (Views: 1.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:36:09 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.3ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+Completed 500 Internal Server Error in 51ms
+
+NoMethodError (undefined method `+' for {"id"=>3, "device_id"=>2, "feed_id"=>1}:Hash):
+  app/controllers/application_controller.rb:37:in `remove_device_fields'
+  app/controllers/feeds_controller.rb:85:in `block in print_device_array'
+  app/controllers/feeds_controller.rb:84:in `print_device_array'
+  app/controllers/feeds_controller.rb:76:in `index_writing_devices'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.5ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:36:18 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.5ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mDevice Load (0.2ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 200 OK in 75ms (Views: 0.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:36:28 +0100
+
+SyntaxError (/mnt/windows_data/Ruby/telemetroid/app/controllers/application_controller.rb:37: syntax error, unexpected tASSOC, expecting '}'
+    hash.push {"key" => "val"}
+                       ^):
+  app/controllers/feeds_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.9ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:36:33 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.3ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+Completed 500 Internal Server Error in 78ms
+
+NoMethodError (undefined method `push' for {"id"=>3, "device_id"=>2, "feed_id"=>1}:Hash):
+  app/controllers/application_controller.rb:37:in `remove_device_fields'
+  app/controllers/feeds_controller.rb:85:in `block in print_device_array'
+  app/controllers/feeds_controller.rb:84:in `print_device_array'
+  app/controllers/feeds_controller.rb:76:in `index_writing_devices'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.1ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:36:44 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.2ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 200 OK in 42ms (Views: 0.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:37:01 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (1.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.3ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+Completed 500 Internal Server Error in 42ms
+
+TypeError (can't convert Hash into Array):
+  app/controllers/application_controller.rb:37:in `remove_device_fields'
+  app/controllers/feeds_controller.rb:85:in `block in print_device_array'
+  app/controllers/feeds_controller.rb:84:in `print_device_array'
+  app/controllers/feeds_controller.rb:76:in `index_writing_devices'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.3ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:37:25 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.3ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 200 OK in 76ms (Views: 1.5ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:37:47 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.6ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.6ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+Completed 500 Internal Server Error in 55ms
+
+NoMethodError (undefined method `inert' for [["id", 3], ["device_id", 2], ["feed_id", 1]]:Array):
+  app/controllers/application_controller.rb:37:in `remove_device_fields'
+  app/controllers/feeds_controller.rb:85:in `block in print_device_array'
+  app/controllers/feeds_controller.rb:84:in `print_device_array'
+  app/controllers/feeds_controller.rb:76:in `index_writing_devices'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.3ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:37:53 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.3ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 200 OK in 41ms (Views: 0.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:38:02 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.7ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.4ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.6ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+Completed 200 OK in 54ms (Views: 0.3ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:38:14 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.6ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.3ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mDevice Load (0.2ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 200 OK in 46ms (Views: 0.2ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:38:22 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.6ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.3ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+Completed 500 Internal Server Error in 87ms
+
+NoMethodError (undefined method `put' for [["id", 3], ["device_id", 2], ["feed_id", 1]]:Array):
+  app/controllers/application_controller.rb:37:in `remove_device_fields'
+  app/controllers/feeds_controller.rb:85:in `block in print_device_array'
+  app/controllers/feeds_controller.rb:84:in `print_device_array'
+  app/controllers/feeds_controller.rb:76:in `index_writing_devices'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.2ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:38:30 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.6ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.4ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 200 OK in 51ms (Views: 1.5ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:39:06 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.2ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+Completed 500 Internal Server Error in 57ms
+
+TypeError (can't convert Hash into String):
+  app/controllers/application_controller.rb:37:in `join'
+  app/controllers/application_controller.rb:37:in `remove_device_fields'
+  app/controllers/feeds_controller.rb:85:in `block in print_device_array'
+  app/controllers/feeds_controller.rb:84:in `print_device_array'
+  app/controllers/feeds_controller.rb:76:in `index_writing_devices'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.6ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:39:17 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.5ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 200 OK in 97ms (Views: 0.3ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:39:34 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.4ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+Completed 200 OK in 51ms (Views: 0.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:40:02 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.4ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mDevice Load (0.2ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 74ms (Views: 0.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:40:55 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.3ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 500 Internal Server Error in 43ms
+
+NoMethodError (undefined method `find' for nil:NilClass):
+  app/controllers/application_controller.rb:34:in `remove_device_fields'
+  app/controllers/feeds_controller.rb:85:in `block in print_device_array'
+  app/controllers/feeds_controller.rb:84:in `print_device_array'
+  app/controllers/feeds_controller.rb:76:in `index_writing_devices'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.5ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:41:05 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.4ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 61ms
+
+NameError (undefined local variable or method `messages' for #<FeedsController:0x007f5ebc6a4718>):
+  app/controllers/application_controller.rb:35:in `remove_device_fields'
+  app/controllers/feeds_controller.rb:85:in `block in print_device_array'
+  app/controllers/feeds_controller.rb:84:in `print_device_array'
+  app/controllers/feeds_controller.rb:76:in `index_writing_devices'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.5ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:41:16 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.5ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 73ms (Views: 0.1ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:41:32 +0100
+
+SyntaxError (/mnt/windows_data/Ruby/telemetroid/app/controllers/application_controller.rb:35: syntax error, unexpected ':', expecting tASSOC
+...veSupport::JSON.encode({'user': user.username, 'device': dev...
+...                               ^
+/mnt/windows_data/Ruby/telemetroid/app/controllers/application_controller.rb:35: syntax error, unexpected ':', expecting tCOLON2 or '[' or '.'
+...user': user.username, 'device': device.name})
+...                               ^
+/mnt/windows_data/Ruby/telemetroid/app/controllers/application_controller.rb:35: syntax error, unexpected '}', expecting keyword_end
+...sername, 'device': device.name})
+...                               ^):
+  app/controllers/feeds_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.8ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:41:57 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.3ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 53ms (Views: 0.1ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:42:17 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.6ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 88ms (Views: 0.2ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:42:29 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.4ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 81ms (Views: 0.2ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:42:35 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.2ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.3ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.8ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 61ms
+
+NameError (undefined local variable or method `userasd' for #<FeedsController:0x007f5ebcbb70e8>):
+  app/controllers/application_controller.rb:35:in `remove_device_fields'
+  app/controllers/feeds_controller.rb:85:in `block in print_device_array'
+  app/controllers/feeds_controller.rb:84:in `print_device_array'
+  app/controllers/feeds_controller.rb:76:in `index_writing_devices'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (38.9ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:43:05 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.2ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (1.1ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 74ms
+
+NameError (undefined local variable or method `userasd' for #<FeedsController:0x007f5ebc09bb78>):
+  app/controllers/application_controller.rb:35:in `remove_device_fields'
+  app/controllers/feeds_controller.rb:85:in `block in print_device_array'
+  app/controllers/feeds_controller.rb:84:in `print_device_array'
+  app/controllers/feeds_controller.rb:76:in `index_writing_devices'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (44.4ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:43:12 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.3ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 58ms (Views: 0.2ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:43:39 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.6ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.3ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 61ms (Views: 0.2ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/remove" for 127.0.0.1 at 2014-01-22 18:44:25 +0100
+Processing by FeedsController#remove_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.6ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mAdmin Load (0.5ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mDevice Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.4ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 3 AND "writing_devices"."feed_id" = 1 LIMIT 1[0m
+Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/remove" for 127.0.0.1 at 2014-01-22 18:44:35 +0100
+Processing by FeedsController#remove_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mAdmin Load (2.0ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mDevice Load (0.7ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.9ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 3 AND "writing_devices"."feed_id" = 1 LIMIT 1[0m
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:44:43 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.8ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (2.2ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:44:49 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.5ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.8ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/remove" for 127.0.0.1 at 2014-01-22 18:45:03 +0100
+Processing by FeedsController#remove_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mAdmin Load (0.5ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (3.5ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 3 AND "writing_devices"."feed_id" = 1 LIMIT 1[0m
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 5.3ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/remove" for 127.0.0.1 at 2014-01-22 18:45:22 +0100
+Processing by FeedsController#remove_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mAdmin Load (0.5ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.3ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 3 AND "writing_devices"."feed_id" = 1 LIMIT 1[0m
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:48:15 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.3ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.8ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:48:53 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.5ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 64ms (Views: 0.2ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:49:04 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.8ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.5ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 142ms (Views: 0.4ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:49:20 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.4ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.8ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 92ms (Views: 0.2ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:49:42 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.4ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 60ms (Views: 0.2ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/remove" for 127.0.0.1 at 2014-01-22 18:49:50 +0100
+Processing by FeedsController#remove_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie zariadenie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mAdmin Load (0.4ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie zariadenie' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.5ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 2 AND "writing_devices"."feed_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "writing_devices" SET "feed_id" = NULL WHERE "writing_devices"."feed_id" = ? AND "writing_devices"."id" IN (3)[0m  [["feed_id", 1]]
+  [1m[35m (268.3ms)[0m  commit transaction
+  [1m[36mSQL (186.6ms)[0m  [1mDELETE FROM "writing_devices" WHERE "writing_devices"."id" = 3[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFeed Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE ("feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' AND "feeds"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 492ms (Views: 0.9ms | ActiveRecord: 459.4ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:49:56 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.6ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (3.5ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-01-22 18:51:42 +0100
+Processing by FeedsController#add_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie zariadenie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie zariadenie' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.2ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 2 AND "writing_devices"."feed_id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "writing_devices" ("created_at", "device_id", "feed_id", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Wed, 22 Jan 2014 17:51:43 UTC +00:00], ["device_id", 2], ["feed_id", 1], ["updated_at", Wed, 22 Jan 2014 17:51:43 UTC +00:00]]
+  [1m[36m (220.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mFeed Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE ("feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' AND "feeds"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 319ms (Views: 0.9ms | ActiveRecord: 226.7ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:51:48 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.8ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWritingDevice Load (0.6ms)[0m  SELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?  [["feed_id", 1]]
+  [1m[36mDevice Load (0.4ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/devices" for 127.0.0.1 at 2014-01-22 18:52:08 +0100
+Processing by DevicesController#full_index as */*
+  [1m[36mDevice Load (0.4ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-01-22 18:52:24 +0100
+Processing by FeedsController#add_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"testovacie", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mAdmin Load (0.3ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'testovacie' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.4ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."device_id" = 3 AND "writing_devices"."feed_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "writing_devices" ("created_at", "device_id", "feed_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 22 Jan 2014 17:52:24 UTC +00:00], ["device_id", 3], ["feed_id", 1], ["updated_at", Wed, 22 Jan 2014 17:52:24 UTC +00:00]]
+  [1m[35m (269.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFeed Exists (0.3ms)[0m  SELECT 1 AS one FROM "feeds" WHERE ("feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' AND "feeds"."id" != 1) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 287ms (Views: 0.7ms | ActiveRecord: 273.1ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:52:27 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (1.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.4ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:53:33 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (2.2ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mDevice Load (0.4ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:53:49 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.4ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.6ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/" for 127.0.0.1 at 2014-01-22 18:56:14 +0100
+Processing by FeedsController#index_writing_devices as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWritingDevice Load (0.4ms)[0m  [1mSELECT "writing_devices".* FROM "writing_devices" WHERE "writing_devices"."feed_id" = ?[0m  [["feed_id", 1]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mDevice Load (0.7ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 1.8ms)
