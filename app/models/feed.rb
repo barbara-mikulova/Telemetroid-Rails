@@ -3,6 +3,7 @@ class Feed < ActiveRecord::Base
   has_many :writers
   has_many :readers
   has_many :writing_devices
+  has_many :reading_devices
   
   validates :name, presence: true
   validates :identifier, presence: true, uniqueness: true
