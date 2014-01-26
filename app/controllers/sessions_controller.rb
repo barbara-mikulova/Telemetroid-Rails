@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:type] = 'user'
       response_ok
     else
-      error_denied('wrong username or password')
+      error_denied(['wrong username or password'])
     end
   end
   
@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
       session[:type] = 'device'
       response_ok
     else
-      error_denied('wrong identifier or password')
+      error_denied(['wrong identifier or password'])
     end
   end
   

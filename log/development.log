@@ -15427,3 +15427,1107 @@ Processing by FeedsController#index_writing_devices as */*
   [1m[36mDevice Load (0.4ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 2]]
   [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
 Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-23 14:24:48 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 438ms (Views: 141.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/who" for 10.0.0.139 at 2014-01-23 14:26:55 +0100
+Processing by SessionsController#who as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-23 14:26:55 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 8ms (Views: 2.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-23 14:45:05 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 2.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/logout" for 10.0.0.139 at 2014-01-23 14:45:23 +0100
+Processing by SessionsController#logout as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 40ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-23 14:51:28 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 8ms (Views: 2.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/who" for 10.0.0.139 at 2014-01-23 14:51:30 +0100
+Processing by SessionsController#who as HTML
+  [1m[35mUser Load (38.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered text template (0.0ms)
+Completed 200 OK in 45ms (Views: 2.0ms | ActiveRecord: 38.1ms)
+
+
+Started GET "/who" for 10.0.0.139 at 2014-01-23 14:51:55 +0100
+Processing by SessionsController#who as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered text template (1.0ms)
+Completed 200 OK in 7ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-23 14:53:15 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 2.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/logout" for 10.0.0.139 at 2014-01-23 14:53:19 +0100
+Processing by SessionsController#logout as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-23 19:40:26 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 283ms (Views: 88.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/who" for 10.0.0.139 at 2014-01-23 19:41:01 +0100
+Processing by SessionsController#who as HTML
+  [1m[36mUser Load (64.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered text template (0.0ms)
+Completed 200 OK in 71ms (Views: 2.0ms | ActiveRecord: 64.6ms)
+
+
+Started POST "/logout" for 10.0.0.139 at 2014-01-23 19:41:30 +0100
+Processing by SessionsController#logout as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-23 19:41:47 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 1.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-25 11:41:43 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 214ms (Views: 90.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/logout" for 10.0.0.139 at 2014-01-25 11:41:52 +0100
+Processing by SessionsController#logout as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/params" for 10.0.0.139 at 2014-01-25 12:56:56 +0100
+Processing by ParamsController#show as HTML
+  Parameters: {"username"=>"username", "mail"=>"michal.raska@gmai.com", "comment"=>"poznamka", "name"=>"meno", "password"=>"[FILTERED]"}
+Filter chain halted as :require_login rendered or redirected
+Completed 200 OK in 14ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/params" for 10.0.0.139 at 2014-01-25 13:02:37 +0100
+Processing by ParamsController#show as HTML
+  Parameters: {"username"=>"username", "mail"=>"michal.raska@gmail.com", "comment"=>"Comment", "name"=>"Michal Raska", "password"=>"[FILTERED]"}
+Filter chain halted as :require_login rendered or redirected
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/params" for 10.0.0.139 at 2014-01-25 13:19:29 +0100
+Processing by ParamsController#show as HTML
+  Parameters: {"username"=>"barbarka", "mail"=>"barbara@praha6.cz", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+Filter chain halted as :require_login rendered or redirected
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-25 13:26:21 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"pixel", "mail"=>"michal.raska@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'michal.raska@gmail.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'michal.raska@gmail.com' LIMIT 1
+Completed 200 OK in 283ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-25 13:26:40 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"pixel", "mail"=>"m.r@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'm.r@gmail.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'm.r@gmail.com' LIMIT 1
+Completed 200 OK in 9ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-25 13:27:17 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"ja", "mail"=>"michal.raska@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'ja' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'michal.raska@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (84.0ms)[0m  INSERT INTO "users" ("comment", "created_at", "mail", "name", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["comment", ""], ["created_at", Sat, 25 Jan 2014 12:27:17 UTC +00:00], ["mail", "michal.raska@gmail.com"], ["name", ""], ["password", "asdasd"], ["updated_at", Sat, 25 Jan 2014 12:27:17 UTC +00:00], ["username", "ja"]]
+  [1m[36m (76.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."username" = 'ja' AND "users"."id" != 4) LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'michal.raska@gmail.com' AND "users"."id" != 4) LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."username" = 'ja' AND "users"."id" != 4) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'michal.raska@gmail.com' AND "users"."id" != 4) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 191ms (Views: 1.0ms | ActiveRecord: 162.8ms)
+
+
+Started GET "/users/" for 127.0.0.1 at 2014-01-25 13:29:00 +0100
+Processing by UsersController#index as */*
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 29ms (Views: 28.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-25 13:29:53 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"barbarka", "mail"=>"b.m@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'barbarka' LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'b.m@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("comment", "created_at", "mail", "name", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["comment", ""], ["created_at", Sat, 25 Jan 2014 12:29:53 UTC +00:00], ["mail", "b.m@gmail.com"], ["name", ""], ["password", "qsdasd"], ["updated_at", Sat, 25 Jan 2014 12:29:53 UTC +00:00], ["username", "barbarka"]]
+  [1m[36m (116.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."username" = 'barbarka' AND "users"."id" != 5) LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'b.m@gmail.com' AND "users"."id" != 5) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."username" = 'barbarka' AND "users"."id" != 5) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'b.m@gmail.com' AND "users"."id" != 5) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 142ms (Views: 1.0ms | ActiveRecord: 118.1ms)
+
+
+Started GET "/users/" for 127.0.0.1 at 2014-01-25 13:29:59 +0100
+Processing by UsersController#index as */*
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-25 13:44:29 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"ivo", "mail"=>"michal.raska@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'michal.raska@gmail.com' LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'michal.raska@gmail.com' LIMIT 1
+Completed 200 OK in 9ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-25 13:44:37 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"ivo", "mail"=>"ivo.raska@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'ivo.raska@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (25.4ms)[0m  INSERT INTO "users" ("comment", "created_at", "mail", "name", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["comment", ""], ["created_at", Sat, 25 Jan 2014 12:44:37 UTC +00:00], ["mail", "ivo.raska@gmail.com"], ["name", ""], ["password", "bubula"], ["updated_at", Sat, 25 Jan 2014 12:44:37 UTC +00:00], ["username", "ivo"]]
+  [1m[36m (86.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."username" = 'ivo' AND "users"."id" != 6) LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'ivo.raska@gmail.com' AND "users"."id" != 6) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."username" = 'ivo' AND "users"."id" != 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'ivo.raska@gmail.com' AND "users"."id" != 6) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 127ms (Views: 1.0ms | ActiveRecord: 114.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'ja' LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'ja' LIMIT 1
+  [1m[36mSQL (144.1ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = 4[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  [1m[36mSQL (127.3ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = 6[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'barbarka' LIMIT 1
+  [1m[36mSQL (691.2ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = 5[0m
+
+
+Started GET "/users/" for 127.0.0.1 at 2014-01-25 13:47:29 +0100
+Processing by UsersController#index as */*
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-25 13:48:39 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"barbarka", "mail"=>"n.n@g.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'barbarka' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'n.n@g.com' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("comment", "created_at", "mail", "name", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["comment", ""], ["created_at", Sat, 25 Jan 2014 12:48:39 UTC +00:00], ["mail", "n.n@g.com"], ["name", ""], ["password", "asdasd"], ["updated_at", Sat, 25 Jan 2014 12:48:39 UTC +00:00], ["username", "barbarka"]]
+  [1m[36m (106.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."username" = 'barbarka' AND "users"."id" != 7) LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'n.n@g.com' AND "users"."id" != 7) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."username" = 'barbarka' AND "users"."id" != 7) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'n.n@g.com' AND "users"."id" != 7) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 120ms (Views: 0.0ms | ActiveRecord: 108.6ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'barbarka' LIMIT 1[0m
+  [1m[35mSQL (96.2ms)[0m  DELETE FROM "users" WHERE "users"."id" = 7
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-25 13:56:36 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"barbarka", "mail"=>"b.m@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'barbarka' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'b.m@gmail.com' LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("comment", "created_at", "mail", "name", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["comment", ""], ["created_at", Sat, 25 Jan 2014 12:56:36 UTC +00:00], ["mail", "b.m@gmail.com"], ["name", ""], ["password", "asdasd"], ["updated_at", Sat, 25 Jan 2014 12:56:36 UTC +00:00], ["username", "barbarka"]]
+  [1m[35m (99.4ms)[0m  commit transaction
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."username" = 'barbarka' AND "users"."id" != 8) LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'b.m@gmail.com' AND "users"."id" != 8) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."username" = 'barbarka' AND "users"."id" != 8) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'b.m@gmail.com' AND "users"."id" != 8) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 112ms (Views: 1.0ms | ActiveRecord: 99.4ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-25 16:47:17 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 77ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/who" for 10.0.0.139 at 2014-01-25 16:48:09 +0100
+Processing by SessionsController#who as HTML
+  [1m[36mUser Load (43.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered text template (0.0ms)
+Completed 200 OK in 46ms (Views: 1.0ms | ActiveRecord: 43.3ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-25 17:03:34 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-25 17:05:26 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-25 17:06:47 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-25 17:11:20 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/who" for 10.0.0.139 at 2014-01-25 17:12:54 +0100
+Processing by SessionsController#who as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-25 17:45:56 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-25 17:49:12 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/params" for 10.0.0.139 at 2014-01-25 17:49:25 +0100
+Processing by ParamsController#show as HTML
+  Parameters: {"identifier"=>"352816054311082", "comment"=>"asdasd", "name"=>"tablet"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/params" for 10.0.0.139 at 2014-01-25 17:49:34 +0100
+Processing by ParamsController#show as HTML
+  Parameters: {"identifier"=>"352816054311082", "comment"=>"asdasd", "name"=>"tablet"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/params" for 10.0.0.139 at 2014-01-25 17:49:59 +0100
+Processing by ParamsController#show as HTML
+  Parameters: {"identifier"=>"352816054311082", "comment"=>"asdasd", "name"=>"tablet"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/params" for 10.0.0.139 at 2014-01-25 17:50:00 +0100
+Processing by ParamsController#show as HTML
+  Parameters: {"identifier"=>"352816054311082", "comment"=>"asdasd", "name"=>"tablet"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-25 17:50:46 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/params" for 10.0.0.139 at 2014-01-25 17:50:52 +0100
+Processing by ParamsController#show as HTML
+  Parameters: {"identifier"=>"352816054311082"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/params" for 10.0.0.139 at 2014-01-25 17:51:05 +0100
+Processing by ParamsController#show as HTML
+  Parameters: {"identifier"=>"352816054311082"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/params" for 10.0.0.139 at 2014-01-25 17:51:08 +0100
+Processing by ParamsController#show as HTML
+  Parameters: {"identifier"=>"352816054311082"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-25 17:52:13 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/params" for 10.0.0.139 at 2014-01-25 17:52:19 +0100
+Processing by ParamsController#show as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"1"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-25 18:03:16 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/devices/new" for 10.0.0.139 at 2014-01-25 18:03:29 +0100
+Processing by DevicesController#create as HTML
+  Parameters: {"identifier"=>"352816054311082", "comment"=>"asdasd", "public"=>"1", "name"=>"tablet"}
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mDevice Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1[0m
+  [1m[35mDevice Exists (0.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'tablet' AND "devices"."user_id" IS NULL) LIMIT 1
+  [1m[36mSQL (26.4ms)[0m  [1mINSERT INTO "devices" ("comment", "created_at", "identifier", "name", "password", "public", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["comment", "asdasd"], ["created_at", Sat, 25 Jan 2014 17:03:29 UTC +00:00], ["identifier", "352816054311082"], ["name", "tablet"], ["password", "9aSIP+uccgBBKuWpPSEkvGGUuHY="], ["public", true], ["updated_at", Sat, 25 Jan 2014 17:03:29 UTC +00:00]]
+  [1m[35m (102.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDevice Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '352816054311082' AND "devices"."id" != 4) LIMIT 1[0m
+  [1m[35mDevice Exists (0.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'tablet' AND "devices"."id" != 4 AND "devices"."user_id" = 1) LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "devices" SET "user_id" = ?, "updated_at" = ? WHERE "devices"."id" = 4[0m  [["user_id", 1], ["updated_at", Sat, 25 Jan 2014 17:03:29 UTC +00:00]]
+  [1m[35m (112.2ms)[0m  commit transaction
+Completed 200 OK in 541ms (Views: 0.0ms | ActiveRecord: 244.6ms)
+
+
+Started POST "/devices/new" for 10.0.0.139 at 2014-01-25 18:03:48 +0100
+Processing by DevicesController#create as HTML
+  Parameters: {"identifier"=>"352816054311082", "comment"=>"asdasd", "public"=>"1", "name"=>"tablet"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1
+  [1m[36mDevice Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'tablet' AND "devices"."user_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1[0m
+  [1m[35mDevice Exists (0.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'tablet' AND "devices"."user_id" = 1) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 200 OK in 101ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-25 18:06:41 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 74ms (Views: 30.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/devices/new" for 10.0.0.139 at 2014-01-25 18:06:54 +0100
+Processing by DevicesController#create as HTML
+  Parameters: {"identifier"=>"352816054311082", "comment"=>"asdasd", "public"=>"1", "name"=>"tablet"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1
+  [1m[36mDevice Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'tablet' AND "devices"."user_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mUser Load (5.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1[0m
+  [1m[35mDevice Exists (1.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'tablet' AND "devices"."user_id" = 1) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 200 OK in 78ms (Views: 1.0ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/devices/new" for 10.0.0.139 at 2014-01-25 18:07:06 +0100
+Processing by DevicesController#create as HTML
+  Parameters: {"identifier"=>"352816054311082", "comment"=>"asdasd", "public"=>"1", "name"=>"tablet"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDevice Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1[0m
+  [1m[35mDevice Exists (0.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'tablet' AND "devices"."user_id" IS NULL) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1
+  [1m[36mDevice Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'tablet' AND "devices"."user_id" = 1) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Completed 200 OK in 8ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-25 18:11:29 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/devices/new" for 10.0.0.139 at 2014-01-25 18:11:33 +0100
+Processing by DevicesController#create as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"1"}
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mDevice Load (0.0ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."name" = 'x6VJjLayBrDRyQ==' LIMIT 1[0m
+  [1m[35mDevice Exists (0.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1
+  [1m[36mDevice Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'x6VJjLayBrDRyQ==' AND "devices"."user_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1[0m
+  [1m[35mDevice Exists (0.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'x6VJjLayBrDRyQ==' AND "devices"."user_id" = 1) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 200 OK in 9ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/devices" for 127.0.0.1 at 2014-01-25 18:14:39 +0100
+Processing by DevicesController#full_index as */*
+  [1m[35mDevice Load (0.0ms)[0m  SELECT "devices".* FROM "devices"
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+  [1m[36mDevice Load (5.0ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (142.5ms)[0m  DELETE FROM "devices" WHERE "devices"."id" = 4
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-25 18:16:06 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/devices/new" for 10.0.0.139 at 2014-01-25 18:16:13 +0100
+Processing by DevicesController#create as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"false", "name"=>"tablet"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDevice Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1[0m
+  [1m[35mDevice Exists (0.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'tablet' AND "devices"."user_id" IS NULL) LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "devices" ("created_at", "identifier", "name", "password", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 25 Jan 2014 17:16:13 UTC +00:00], ["identifier", "352816054311082"], ["name", "tablet"], ["password", "IhnoEVBUkiHp/yduNnabxRapyM8="], ["updated_at", Sat, 25 Jan 2014 17:16:13 UTC +00:00]]
+  [1m[35m (93.3ms)[0m  commit transaction
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDevice Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '352816054311082' AND "devices"."id" != 5) LIMIT 1[0m
+  [1m[35mDevice Exists (0.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'tablet' AND "devices"."id" != 5 AND "devices"."user_id" = 1) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "devices" SET "user_id" = ?, "updated_at" = ? WHERE "devices"."id" = 5[0m  [["user_id", 1], ["updated_at", Sat, 25 Jan 2014 17:16:13 UTC +00:00]]
+  [1m[35m (100.7ms)[0m  commit transaction
+Completed 200 OK in 220ms (Views: 0.0ms | ActiveRecord: 195.0ms)
+
+
+Started POST "/devices/new" for 10.0.0.139 at 2014-01-25 18:16:25 +0100
+Processing by DevicesController#create as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"false", "name"=>"tablet"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1
+  [1m[36mDevice Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'tablet' AND "devices"."user_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1[0m
+  [1m[35mDevice Exists (0.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'tablet' AND "devices"."user_id" = 1) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 200 OK in 10ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+  [1m[36mDevice Load (1.0ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mDevice Load (1.0ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mSQL (94.1ms)[0m  [1mDELETE FROM "devices" WHERE "devices"."id" = 5[0m
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-25 18:17:53 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/devices/new" for 10.0.0.139 at 2014-01-25 18:18:12 +0100
+Processing by DevicesController#create as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"false", "name"=>"tablet"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1
+  [1m[36mDevice Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'tablet' AND "devices"."user_id" IS NULL) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "devices" ("created_at", "identifier", "name", "password", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sat, 25 Jan 2014 17:18:12 UTC +00:00], ["identifier", "352816054311082"], ["name", "tablet"], ["password", "SGelPttAdXsu/sj4HsbHu1GkxWE="], ["updated_at", Sat, 25 Jan 2014 17:18:12 UTC +00:00]]
+  [1m[36m (93.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '352816054311082' AND "devices"."id" != 6) LIMIT 1
+  [1m[36mDevice Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'tablet' AND "devices"."id" != 6 AND "devices"."user_id" = 1) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "devices" SET "user_id" = ?, "updated_at" = ? WHERE "devices"."id" = 6  [["user_id", 1], ["updated_at", Sat, 25 Jan 2014 17:18:13 UTC +00:00]]
+  [1m[36m (93.1ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 199ms (Views: 0.0ms | ActiveRecord: 189.8ms)
+  [1m[35mDevice Load (1.0ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mSQL (109.1ms)[0m  [1mDELETE FROM "devices" WHERE "devices"."id" = 6[0m
+  [1m[35mSQL (131.4ms)[0m  DELETE FROM "devices"
+  [1m[36m (200.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (118.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140106105426)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password" varchar(255), "mail" varchar(255), "name" varchar(255), "comment" varchar(255), "public_email" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140106105426"]]
+  [1m[36m (117.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateDevices (20140110143652)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "identifier" varchar(255), "name" varchar(255), "password" varchar(255), "comment" varchar(255), "current_track" integer DEFAULT 0, "public" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.0ms)[0m  CREATE INDEX "index_devices_on_user_id" ON "devices" ("user_id")
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140110143652"]]
+  [1m[35m (93.3ms)[0m  commit transaction
+Migrating to CreateFeeds (20140111163612)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  CREATE TABLE "feeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "comment" varchar(255), "private" boolean DEFAULT 't', "identifier" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111163612"]]
+  [1m[35m (111.5ms)[0m  commit transaction
+Migrating to CreateAdmins (20140111174657)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mCREATE INDEX "index_admins_on_user_id" ON "admins" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  CREATE INDEX "index_admins_on_feed_id" ON "admins" ("feed_id")
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111174657"]]
+  [1m[35m (127.1ms)[0m  commit transaction
+Migrating to CreateWriters (20140111220236)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "writers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_writers_on_user_id" ON "writers" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  CREATE INDEX "index_writers_on_feed_id" ON "writers" ("feed_id")
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111220236"]]
+  [1m[35m (128.0ms)[0m  commit transaction
+Migrating to CreateReaders (20140111222952)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "readers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mCREATE INDEX "index_readers_on_user_id" ON "readers" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  CREATE INDEX "index_readers_on_feed_id" ON "readers" ("feed_id")
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111222952"]]
+  [1m[35m (107.7ms)[0m  commit transaction
+Migrating to CreateWritingDevices (20140122165438)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "writing_devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "device_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mCREATE INDEX "index_writing_devices_on_device_id" ON "writing_devices" ("device_id")[0m
+  [1m[35m (0.0ms)[0m  CREATE INDEX "index_writing_devices_on_feed_id" ON "writing_devices" ("feed_id")
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140122165438"]]
+  [1m[35m (211.5ms)[0m  commit transaction
+Migrating to CreateReadingDevices (20140122182040)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "reading_devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "device_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mCREATE INDEX "index_reading_devices_on_device_id" ON "reading_devices" ("device_id")[0m
+  [1m[35m (0.0ms)[0m  CREATE INDEX "index_reading_devices_on_feed_id" ON "reading_devices" ("feed_id")
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140122182040"]]
+  [1m[35m (108.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-25 18:29:15 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"Bash", "mail"=>"lalaith6@centrum.sk", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'Bash' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'lalaith6@centrum.sk' LIMIT 1
+  [1m[36mSQL (7.0ms)[0m  [1mINSERT INTO "users" ("comment", "created_at", "mail", "name", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["comment", ""], ["created_at", Sat, 25 Jan 2014 17:29:15 UTC +00:00], ["mail", "lalaith6@centrum.sk"], ["name", ""], ["password", "barbara"], ["updated_at", Sat, 25 Jan 2014 17:29:15 UTC +00:00], ["username", "Bash"]]
+  [1m[35m (87.2ms)[0m  commit transaction
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."username" = 'Bash' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'lalaith6@centrum.sk' AND "users"."id" != 1) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."username" = 'Bash' AND "users"."id" != 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'lalaith6@centrum.sk' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 191ms (Views: 15.0ms | ActiveRecord: 95.2ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-25 18:29:31 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"Bash", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'Bash' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/devices/new" for 10.0.0.139 at 2014-01-25 18:30:13 +0100
+Processing by DevicesController#create as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"false", "name"=>"tablet"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDevice Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1[0m
+  [1m[35mDevice Exists (0.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'tablet' AND "devices"."user_id" IS NULL) LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "devices" ("created_at", "identifier", "name", "password", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 25 Jan 2014 17:30:13 UTC +00:00], ["identifier", "352816054311082"], ["name", "tablet"], ["password", "tCwXEvgOINQ0FkymlL2pprMR7b8="], ["updated_at", Sat, 25 Jan 2014 17:30:13 UTC +00:00]]
+  [1m[35m (94.2ms)[0m  commit transaction
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDevice Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '352816054311082' AND "devices"."id" != 1) LIMIT 1[0m
+  [1m[35mDevice Exists (0.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'tablet' AND "devices"."id" != 1 AND "devices"."user_id" = 1) LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "devices" SET "user_id" = ?, "updated_at" = ? WHERE "devices"."id" = 1[0m  [["user_id", 1], ["updated_at", Sat, 25 Jan 2014 17:30:13 UTC +00:00]]
+  [1m[35m (93.2ms)[0m  commit transaction
+Completed 200 OK in 240ms (Views: 0.0ms | ActiveRecord: 191.5ms)
+
+
+Started GET "/devices" for 127.0.0.1 at 2014-01-25 18:30:35 +0100
+Processing by DevicesController#full_index as */*
+  [1m[36mDevice Load (0.0ms)[0m  [1mSELECT "devices".* FROM "devices"[0m
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-01-25 18:30:46 +0100
+Processing by UsersController#index as */*
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.0ms)
+  [1m[36mDevice Load (5.0ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSQL (193.6ms)[0m  DELETE FROM "devices" WHERE "devices"."id" = 1
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-25 18:34:00 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+Completed 200 OK in 53ms (Views: 0.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-25 18:35:22 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"pixel", "mail"=>"michal.raska@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'michal.raska@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (8.0ms)[0m  INSERT INTO "users" ("comment", "created_at", "mail", "name", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["comment", ""], ["created_at", Sat, 25 Jan 2014 17:35:23 UTC +00:00], ["mail", "michal.raska@gmail.com"], ["name", ""], ["password", "asdasd"], ["updated_at", Sat, 25 Jan 2014 17:35:23 UTC +00:00], ["username", "pixel"]]
+  [1m[36m (148.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."username" = 'pixel' AND "users"."id" != 2) LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'michal.raska@gmail.com' AND "users"."id" != 2) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."username" = 'pixel' AND "users"."id" != 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'michal.raska@gmail.com' AND "users"."id" != 2) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 222ms (Views: 29.0ms | ActiveRecord: 157.1ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-25 18:35:29 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/devices/new" for 10.0.0.139 at 2014-01-25 18:35:38 +0100
+Processing by DevicesController#create as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"false", "name"=>"tablet"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1
+  [1m[36mDevice Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'tablet' AND "devices"."user_id" IS NULL) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "devices" ("created_at", "identifier", "name", "password", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sat, 25 Jan 2014 17:35:38 UTC +00:00], ["identifier", "352816054311082"], ["name", "tablet"], ["password", "ZruzHna3C6nhPeV0BaHETl10oRc="], ["updated_at", Sat, 25 Jan 2014 17:35:38 UTC +00:00]]
+  [1m[36m (131.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.0ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '352816054311082' AND "devices"."id" != 2) LIMIT 1
+  [1m[36mDevice Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'tablet' AND "devices"."id" != 2 AND "devices"."user_id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "devices" SET "user_id" = ?, "updated_at" = ? WHERE "devices"."id" = 2  [["user_id", 2], ["updated_at", Sat, 25 Jan 2014 17:35:38 UTC +00:00]]
+  [1m[36m (99.1ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 270ms (Views: 0.0ms | ActiveRecord: 231.4ms)
+
+
+Started GET "/devices" for 127.0.0.1 at 2014-01-25 18:37:13 +0100
+Processing by DevicesController#full_index as */*
+  [1m[35mDevice Load (0.0ms)[0m  SELECT "devices".* FROM "devices"
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-01-25 18:37:28 +0100
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/devices/login" for 10.0.0.139 at 2014-01-26 13:02:50 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#device_login as HTML
+  Parameters: {"identifier"=>"352816054311082", "password"=>"[FILTERED]"}
+  [1m[35mDevice Load (0.0ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 201ms (Views: 91.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/devices/login" for 10.0.0.139 at 2014-01-26 13:03:13 +0100
+Processing by SessionsController#device_login as HTML
+  Parameters: {"identifier"=>"352816054311082", "password"=>"[FILTERED]"}
+  [1m[36mDevice Load (0.0ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/devices/login" for 10.0.0.139 at 2014-01-26 13:03:37 +0100
+Processing by SessionsController#device_login as HTML
+  Parameters: {"identifier"=>"352816054311082", "password"=>"[FILTERED]"}
+  [1m[35mDevice Load (0.0ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/devices/login" for 10.0.0.139 at 2014-01-26 13:05:15 +0100
+Processing by SessionsController#device_login as HTML
+  Parameters: {"identifier"=>"352816054311082", "password"=>"[FILTERED]"}
+  [1m[36mDevice Load (0.0ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/devices/login" for 10.0.0.139 at 2014-01-26 13:05:36 +0100
+Processing by SessionsController#device_login as HTML
+  Parameters: {"identifier"=>"352816054311082", "password"=>"[FILTERED]"}
+  [1m[35mDevice Load (0.0ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/devices/login" for 10.0.0.139 at 2014-01-26 13:07:09 +0100
+Processing by SessionsController#device_login as HTML
+  Parameters: {"identifier"=>"352816054311082", "password"=>"[FILTERED]"}
+  [1m[36mDevice Load (1.0ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-26 16:56:52 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"barbarka", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'barbarka' LIMIT 1
+Completed 200 OK in 249ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-26 16:59:58 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"barbarka", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'barbarka' LIMIT 1[0m
+Completed 200 OK in 21ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-01-26 17:00:15 +0100
+Processing by UsersController#index as */*
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 72ms (Views: 71.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-26 17:00:26 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"Bash", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'Bash' LIMIT 1[0m
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-26 17:00:36 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"Bash", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'Bash' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/logout" for 10.0.0.139 at 2014-01-26 17:00:40 +0100
+Processing by SessionsController#logout as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-26 17:08:06 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"ivo", "mail"=>"raska.ivo@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (17.0ms)[0m  INSERT INTO "users" ("comment", "created_at", "mail", "name", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["comment", ""], ["created_at", Sun, 26 Jan 2014 16:08:08 UTC +00:00], ["mail", "raska.ivo@gmail.com"], ["name", ""], ["password", "bubula"], ["updated_at", Sun, 26 Jan 2014 16:08:08 UTC +00:00], ["username", "ivo"]]
+  [1m[36m (160.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."username" = 'ivo' AND "users"."id" != 3) LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'raska.ivo@gmail.com' AND "users"."id" != 3) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."username" = 'ivo' AND "users"."id" != 3) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'raska.ivo@gmail.com' AND "users"."id" != 3) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2465ms (Views: 1.0ms | ActiveRecord: 178.7ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-26 17:08:16 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"ivo", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/logout" for 10.0.0.139 at 2014-01-26 17:08:19 +0100
+Processing by SessionsController#logout as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-26 17:08:52 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"ivo", "mail"=>"raska.ivo@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1
+Completed 200 OK in 88ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-26 17:08:55 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"ivo", "mail"=>"raska.ivo@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1
+Completed 200 OK in 9ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-26 17:08:55 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"ivo", "mail"=>"raska.ivo@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1
+Completed 200 OK in 9ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-26 17:08:56 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"ivo", "mail"=>"raska.ivo@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1
+Completed 200 OK in 9ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-26 17:08:57 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"ivo", "mail"=>"raska.ivo@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1
+Completed 200 OK in 9ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-26 17:08:57 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"ivo", "mail"=>"raska.ivo@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1
+Completed 200 OK in 9ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-26 17:08:57 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"ivo", "mail"=>"raska.ivo@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1
+Completed 200 OK in 9ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-26 17:08:58 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"ivo", "mail"=>"raska.ivo@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1
+Completed 200 OK in 8ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-26 17:08:58 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"ivo", "mail"=>"raska.ivo@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1
+Completed 200 OK in 21ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-26 17:08:59 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"ivo", "mail"=>"raska.ivo@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1
+Completed 200 OK in 8ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-26 17:09:00 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"ivo", "mail"=>"raska.ivo@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1
+Completed 200 OK in 8ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for 10.0.0.139 at 2014-01-26 17:09:09 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"ivo", "mail"=>"raska.ivo@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'raska.ivo@gmail.com' LIMIT 1
+Completed 200 OK in 8ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/devices/login" for 10.0.0.139 at 2014-01-26 17:26:59 +0100
+Processing by SessionsController#device_login as HTML
+  Parameters: {"identifier"=>"352816054311082", "password"=>"[FILTERED]"}
+  [1m[36mDevice Load (0.0ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 13ms (Views: 1.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/devices/login" for 10.0.0.139 at 2014-01-26 17:27:50 +0100
+Processing by SessionsController#device_login as HTML
+  Parameters: {"identifier"=>"352816054311082", "password"=>"[FILTERED]"}
+  [1m[35mDevice Load (0.0ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '352816054311082' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-26 17:31:00 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"ivo", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-26 17:31:12 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"ivo", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/logout" for 10.0.0.139 at 2014-01-26 17:31:17 +0100
+Processing by SessionsController#logout as HTML
+  Rendered text template (1.0ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.0.0.139 at 2014-01-26 18:02:16 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"ivo", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.0ms)
