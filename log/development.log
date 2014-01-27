@@ -16679,3 +16679,232 @@ Processing by DevicesController#create as HTML
   [1m[36mDevice Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'asustek' AND "devices"."user_id" = 1) LIMIT 1[0m
   [1m[35m (0.0ms)[0m  rollback transaction
 Completed 200 OK in 25ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-01-27 22:40:13 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"ivo", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 259ms (Views: 114.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-01-27 22:43:10 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"ivo", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 35ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/change_pass" for 192.168.0.180 at 2014-01-27 22:43:39 +0100
+
+ActionController::RoutingError (No route matches [POST] "/change_pass"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (70.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (267.4ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-01-27 22:45:51 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"ivo", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-01-27 22:47:22 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"ivo", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/change_pass" for 192.168.0.180 at 2014-01-27 22:47:41 +0100
+
+ActionController::RoutingError (No route matches [POST] "/change_pass"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (60.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-01-27 22:49:10 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"ivo", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+Completed 200 OK in 34ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-01-27 22:49:16 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"ivo", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/change_password" for 192.168.0.180 at 2014-01-27 22:49:42 +0100
+Processing by UsersController#change_password as HTML
+  Parameters: {"old"=>"asdasd", "new"=>"asdasd"}
+  [1m[35mUser Load (209.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+Completed 200 OK in 214ms (Views: 0.0ms | ActiveRecord: 209.9ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-01-27 22:51:56 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"ivo", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+Completed 200 OK in 15ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-01-27 22:52:04 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"ivo", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/change_password" for 192.168.0.180 at 2014-01-27 22:52:15 +0100
+Processing by UsersController#change_password as HTML
+  Parameters: {"old"=>"asdasd", "new"=>"asdasd"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 200 OK in 8ms (Views: 4.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-01-27 22:54:42 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"ivo", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/change_password" for 192.168.0.180 at 2014-01-27 22:54:56 +0100
+Processing by UsersController#change_password as HTML
+  Parameters: {"old"=>"asdasd", "new"=>"asdasd"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/change_password" for 192.168.0.180 at 2014-01-27 22:55:02 +0100
+Processing by UsersController#change_password as HTML
+  Parameters: {"old"=>"bubula", "new"=>"asdasd"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."username" = 'ivo' AND "users"."id" != 3) LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'raska.ivo@gmail.com' AND "users"."id" != 3) LIMIT 1[0m
+  [1m[35mSQL (167.7ms)[0m  UPDATE "users" SET "password" = ?, "updated_at" = ? WHERE "users"."id" = 3  [["password", "asdasd"], ["updated_at", Mon, 27 Jan 2014 21:55:02 UTC +00:00]]
+  [1m[36m (85.2ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 584ms (Views: 1.0ms | ActiveRecord: 253.9ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-01-27 22:57:28 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"ivo", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+Completed 200 OK in 3ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-01-27 22:57:35 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"ivo", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/change_password" for 192.168.0.180 at 2014-01-27 22:57:46 +0100
+Processing by UsersController#change_password as HTML
+  Parameters: {"old"=>"asdasd", "new"=>"bubula"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."username" = 'ivo' AND "users"."id" != 3) LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'raska.ivo@gmail.com' AND "users"."id" != 3) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "users" SET "password" = ?, "updated_at" = ? WHERE "users"."id" = 3  [["password", "bubula"], ["updated_at", Mon, 27 Jan 2014 21:57:46 UTC +00:00]]
+  [1m[36m (104.9ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 114ms (Views: 1.0ms | ActiveRecord: 104.9ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-01-27 22:59:26 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"ivo", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'ivo' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/change_password" for 192.168.0.180 at 2014-01-27 22:59:35 +0100
+Processing by UsersController#change_password as HTML
+  Parameters: {"old"=>"bubula", "new"=>"asdasd"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."username" = 'ivo' AND "users"."id" != 3) LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'raska.ivo@gmail.com' AND "users"."id" != 3) LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "users" SET "password" = ?, "updated_at" = ? WHERE "users"."id" = 3[0m  [["password", "asdasd"], ["updated_at", Mon, 27 Jan 2014 21:59:35 UTC +00:00]]
+  [1m[35m (101.5ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 108ms (Views: 0.0ms | ActiveRecord: 104.5ms)
+
+
+Started GET "/who" for 192.168.0.180 at 2014-01-27 22:59:47 +0100
+Processing by SessionsController#who as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.0ms)

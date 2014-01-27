@@ -24,7 +24,7 @@ class UsersController < ApplicationController
         render_save_errors(user)
       end
     else
-      error_denied("Old password doesn't match")
+      error_denied(["Old password doesn't match"])
     end
   end
   
@@ -64,7 +64,7 @@ class UsersController < ApplicationController
       response = remove_user_fields(user)
       render json: response
     else
-      error_missing_entry("User can't be found")
+      error_missing_entry(["User can't be found"])
     end
   end
   
@@ -88,7 +88,7 @@ class UsersController < ApplicationController
       end
       render json: response
     else
-      error_missing_params("Username or Name must be provided")
+      error_missing_params(["Username or Name must be provided"])
     end
   end
   
