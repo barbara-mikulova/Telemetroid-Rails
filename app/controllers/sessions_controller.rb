@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   
   def login
     user = User.find_by_username(params[:username])
-    if (user && user.password == params[:password])
+    if user && user.password == params[:password]
       session[:id] = user.id
       session[:type] = 'user'
       response_ok
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   
   def device_login
     device = Device.find_by_identifier(params[:identifier])
-    if (device && device.password == params[:password])
+    if device && device.password == params[:password]
       session[:id] = device.id
       session[:type] = 'device'
       response_ok
@@ -26,11 +26,11 @@ class SessionsController < ApplicationController
   end
   
   def who
-    if (session[:id])
-      if (session[:type] == 'user')
+    if session[:id]
+      if session[:type] == 'user'
         render text: 'user ' + User.find(session[:id]).username
       end
-      if (session[:type] == 'device')
+      if session[:type] == 'device'
         render text: 'device ' + Device.find(session[:id]).name
       end
     else

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :require_user_login
   skip_before_action :require_login, only: [:create]
   skip_before_action :require_user_login, only: [:create]
-  
+
   def create
     user = User.create(user_params)
     if (user.valid?)
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       render_save_errors(user)
     end
   end
-  
+
   def change_password
     user = User.find(session[:id])
     if (user.password == params[:old])
@@ -27,11 +27,11 @@ class UsersController < ApplicationController
       error_denied(["Old password doesn't match"])
     end
   end
-  
+
   def index
     render json: User.all
   end
-  
+
   def edit
     change = false;
     user = User.find(session[:id])
@@ -39,8 +39,8 @@ class UsersController < ApplicationController
       user.name = params[:name]
       change = true;
     end
-    if (params[:note])
-      user.note = params[:note]
+    if (params[:comment])
+      user.comment = params[:comment]
       change = true;
     end
     if (params[:public_email])
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
       response_ok
     end
   end
-  
+
   def show
     user = User.find_by_username(params[:username])
     if (user)
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
       error_missing_entry(["User can't be found"])
     end
   end
-  
+
   def find
     if (params[:username] || params[:name] || params[:mail])
       username = params[:username]
@@ -91,9 +91,9 @@ class UsersController < ApplicationController
       error_missing_params(["Username or Name must be provided"])
     end
   end
-  
+
   def user_params
     params.permit(:username, :password, :mail, :name, :comment, :public_email)
   end
-  
+
 end
