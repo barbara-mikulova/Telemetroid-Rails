@@ -9,18 +9,8 @@ Device.create!([
 Feed.create!([
   {name: "1feed", comment: nil, private: true, identifier: "wO4gwNRcUtQNSiSLia26QrGtwjI="},
 ])
-Reader.create!([
-  {user_id: 1, feed_id: 5},
-  {user_id: 2, feed_id: 5},
-  {user_id: 3, feed_id: 5}
-])
 User.create!([
   {username: "pixel", password: "asdasd", mail: "m.r@gmail.com", name: nil, comment: nil, public_email: false},
   {username: "druhy", password: "asdasd", mail: "druhy@gmail.com", name: "Sudruh Druhy", comment: nil, public_email: false},
   {username: "treti", password: "asdasd", mail: "treti@gmail.com", name: nil, comment: nil, public_email: true}
-])
-Writer.create!([
-  {user_id: 3, feed_id: 5},
-  {user_id: 2, feed_id: 5},
-  {user_id: 1, feed_id: 5}
 ])
