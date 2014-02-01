@@ -65,7 +65,36 @@ class DevicesController < ApplicationController
       error_missing_entry("User with given username couldn't be found")
     end
   end
-  
+
+  def index_feeds_where_reader
+    device = Device.find_by_identifier(params[:identifier])
+    if device
+      readers = ReadingDevice.find_all_by_device_id(device.id)
+      result = []
+      readers.each do |reader|
+        result.push(remove_feed_fields(reader.feed))
+      end
+      render json: result
+    else
+      error_missing_entry(["Device can't be found"])
+    end
+  end
+
+  def index_feeds_where_writer
+    device = Device.find_by_identifier(params[:identifier])
+    if device
+      writers = WritingDevice.find_all_by_device_id(device.id)
+      result = []
+      writers.each do |writer|
+        result.push(remove_feed_fields(writer.feed))
+      end
+      render json: result
+    else
+      error_missing_entry(["Device can't be found"])
+    end
+  end
+
+  private
   def remove_fields(device)
     hash = JSON.parse(device.to_json)
     hash.delete("identifier")
