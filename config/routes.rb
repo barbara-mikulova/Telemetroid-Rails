@@ -39,7 +39,7 @@ Telemetroid::Application.routes.draw do
   get '/feeds/:identifier/keys/write' => 'feeds#show_write_key'
   get '/feeds/:identifier/keys/read' => 'feeds#show_read_key'
 
-  post '/feeds/:identifier/add' => 'shared_infos#add_one'
+  post '/feeds/:identifier/add_one' => 'shared_infos#add_one'
 
   get '/who' => 'sessions#who'
   get '/users' => 'users#index'
