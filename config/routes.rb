@@ -13,6 +13,9 @@ Telemetroid::Application.routes.draw do
   post 'devices/login' => 'sessions#device_login'
   post 'devices/:name/edit' => 'devices#edit'
   get '/users/:username/devices' => 'devices#index'
+  get '/users/:username/feeds/admin' => 'users#index_feeds_where_admin'
+  get '/users/:username/feeds/read' => 'users#index_feeds_where_reader'
+  get '/users/:username/feeds/write' => 'users#index_feeds_where_writer'
   
   post '/feeds/new' => 'feeds#create'
   get 'feeds/:identifier/admins' => 'feeds#index_admins'
