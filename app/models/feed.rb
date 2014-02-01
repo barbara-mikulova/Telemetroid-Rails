@@ -10,7 +10,8 @@ class Feed < ActiveRecord::Base
   
   before_validation :generate_identifier
   before_create :generate_keys
-  
+
+  private
   def generate_identifier
     if self.identifier
       return
@@ -22,16 +23,29 @@ class Feed < ActiveRecord::Base
     self.identifier = identifier
   end
 
-  private
   def generate_keys
-    if self.read_key
-      return
+    generate_read_key
+    generate_write_key
+  end
+
+  def generate_write_key
+    if !self.write_key
+      key = SecureRandom.urlsafe_base64(20)
+      while Feed.find_by_write_key(key) != nil
+        key = SecureRandom.urlsafe_base64(20)
+      end
+      self.write_key = key
     end
-    read_key = SecureRandom.urlsafe_base64(20)
-    while Feed.find_by_read_key(read_key) != nil
-      read_key = SecureRandom.urlsafe_base64(20)
+  end
+
+  def generate_read_key
+    if !self.read_key
+      key = SecureRandom.urlsafe_base64(20)
+      while Feed.find_by_read_key(read_key) != nil
+        key = SecureRandom.urlsafe_base64(20)
+      end
+      self.read_key = key
     end
-    self.read_key = read_key
   end
 
 end
