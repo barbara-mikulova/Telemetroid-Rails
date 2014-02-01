@@ -393,8 +393,9 @@ class FeedsController < ApplicationController
     user = User.find(session[:id])
     if Reader.find_by_feed_id_and_user_id(feed.id, user.id) == nil
       error_denied(["Can't show read key to someone who can't read that feed"])
-      p 'read access denied'
+      return false
     end
+    return true
   end
 
   def require_write_access
@@ -402,8 +403,9 @@ class FeedsController < ApplicationController
     user = User.find(session[:id])
     if Writer.find_by_feed_id_and_user_id(feed.id, user.id) == nil
       error_denied(["Can't show write key to someone who can't write to that feed"])
-      p 'write access denied'
+      return false
     end
+    return true
   end
 
 end
