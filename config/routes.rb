@@ -30,7 +30,9 @@ Telemetroid::Application.routes.draw do
   get 'feeds/:identifier/devices/read' => 'feeds#index_reading_devices'
   post '/feeds/:identifier/devices/read/add' => 'feeds#add_reading_device'
   post '/feeds/:identifier/devices/read/remove' => 'feeds#remove_reading_device'
-  
+  get '/feeds/:identifier/keys/write' => 'feeds#show_write_key'
+  get '/feeds/:identifier/keys/read' => 'feeds#show_read_key'
+
   get '/who' => 'sessions#who'
   get '/users' => 'users#index'
   get '/devices' => 'devices#full_index'
