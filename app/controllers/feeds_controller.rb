@@ -13,14 +13,7 @@ class FeedsController < ApplicationController
 
   before_action :require_read_access, :only => :show_read_key
   before_action :require_write_access, :only => :show_write_key
-  before_action :require_feed_existence, :only => [:index_admins, :index_users_readers,
-                                                  :index_users_writers, :index_reading_devices,
-                                                  :index_writing_devices, :add_admin, :remove_admin,
-                                                  :add_user_read, :remove_user_read, :add_user_write,
-                                                  :remove_user_write, :add_reading_device,
-                                                  :remove_reading_device, :add_writing_device,
-                                                  :remove_writing_device, :require_admin,
-                                                  :require_read_access, :require_write_access]
+  before_action :require_feed_existence, :except => [:create]
 
 
   def create
@@ -87,21 +80,7 @@ class FeedsController < ApplicationController
     print_device_array(reading_devices)
   end
 
-  def print_device_array(devices)
-    response = []
-    devices.each do |device|
-      response.push(remove_device_fields(device))
-    end
-    render json: response
-  end
 
-  def print_user_array(entries)
-    response = []
-    entries.each do |entry|
-      response.push(remove_user_fields(entry.user))
-    end
-    render json: response
-  end
 
   def add_admin
     user = User.find_by_username(params[:username])
@@ -351,6 +330,22 @@ class FeedsController < ApplicationController
   end
 
   private
+  def print_device_array(devices)
+    response = []
+    devices.each do |device|
+      response.push(remove_device_fields(device))
+    end
+    render json: response
+  end
+
+  def print_user_array(entries)
+    response = []
+    entries.each do |entry|
+      response.push(remove_user_fields(entry.user))
+    end
+    render json: response
+  end
+
   def cant_find_user
     error_missing_entry(["Can't find user " + params[:username]])
   end
