@@ -13,7 +13,7 @@ class FeedsController < ApplicationController
 
   before_action :require_read_access, :only => :show_read_key
   before_action :require_write_access, :only => :show_write_key
-  before_action :require_feed_existence, :except => [:create]
+  before_action :require_feed_existence, :except => [:create, :full_index]
 
 
   def create
