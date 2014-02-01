@@ -8,8 +8,7 @@ class Feed < ActiveRecord::Base
   validates :name, presence: true
   validates :identifier, presence: true, uniqueness: true
   
-  before_validation :generate_identifier
-  before_create :generate_keys
+  before_create :generate_keys, :generate_identifier
 
   private
   def generate_identifier
