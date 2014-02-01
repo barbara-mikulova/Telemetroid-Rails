@@ -92,6 +92,49 @@ class UsersController < ApplicationController
     end
   end
 
+  def index_feeds_where_admin
+    user = User.find_by_username(params[:username])
+    if user
+      admins = Admin.find_all_by_user_id(user.id)
+      result = []
+      admins.each do |admin|
+        result.push(remove_feed_fields(admin.feed))
+      end
+      render json: result
+    else
+      error_missing_entry(['User ' + params[:username] + "can't be found"])
+    end
+  end
+
+  def index_feeds_where_reader
+    user = User.find_by_username(params[:username])
+    if user
+      readers = Reader.find_all_by_user_id(user.id)
+      result = []
+      readers.each do |reader|
+        result.push(remove_feed_fields(reader.feed))
+      end
+      render json: result
+    else
+      error_missing_entry(['User ' + params[:username] + "can't be found"])
+    end
+  end
+
+  def index_feeds_where_writer
+    user = User.find_by_username(params[:username])
+    if user
+      writers = Writer.find_all_by_user_id(user.id)
+      result = []
+      writers.each do |writer|
+        result.push(remove_feed_fields(writer.feed))
+      end
+      render json: result
+    else
+      error_missing_entry(['User ' + params[:username] + "can't be found"])
+    end
+  end
+
+  private
   def user_params
     params.permit(:username, :password, :mail, :name, :comment, :public_email)
   end

@@ -37,8 +37,18 @@ class ApplicationController < ActionController::Base
     else
       name = "private"
     end
-
     return {'owner_name' => user.username, 'device_name' => name}
+  end
+
+  def remove_feed_fields(feed)
+    hash = JSON.parse(feed.to_json)
+    hash.delete('created_at')
+    hash.delete('updated_at')
+    hash.delete('comment')
+    hash.delete('write_key')
+    hash.delete('read_key')
+    hash.delete('private')
+    return hash
   end
 
   def error_missing_params(messages)
