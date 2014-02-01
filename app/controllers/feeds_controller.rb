@@ -13,6 +13,14 @@ class FeedsController < ApplicationController
 
   before_action :require_read_access, :only => :show_read_key
   before_action :require_write_access, :only => :show_write_key
+  before_action :require_feed_existence, :only => [:index_admins, :index_users_readers,
+                                                  :index_users_writers, :index_reading_devices,
+                                                  :index_writing_devices, :add_admin, :remove_admin,
+                                                  :add_user_read, :remove_user_read, :add_user_write,
+                                                  :remove_user_write, :add_reading_device,
+                                                  :remove_reading_device, :add_writing_device,
+                                                  :remove_writing_device, :require_admin,
+                                                  :require_read_access, :require_write_access]
 
 
   def create
@@ -35,16 +43,12 @@ class FeedsController < ApplicationController
 
   def index_admins
     feed = Feed.find_by_identifier(params[:identifier])
-    if feed
-      admins = feed.admins
-      response = []
-      admins.each do |admin|
-        response.push(remove_user_fields(admin.user))
-      end
-      render json: response
-    else
-      cant_find_feed
+    admins = feed.admins
+    response = []
+    admins.each do |admin|
+      response.push(remove_user_fields(admin.user))
     end
+    render json: response
   end
 
   def show_write_key
@@ -61,42 +65,26 @@ class FeedsController < ApplicationController
 
   def index_users_writers
     feed = Feed.find_by_identifier(params[:identifier])
-    if feed
-      writers = feed.writers
-      print_user_array(writers)
-    else
-      cant_find_feed
-    end
+    writers = feed.writers
+    print_user_array(writers)
   end
 
   def index_users_readers
     feed = Feed.find_by_identifier(params[:identifier])
-    if feed
-      readers = feed.readers
-      print_user_array(readers)
-    else
-      cant_find_feed
-    end
+    readers = feed.readers
+    print_user_array(readers)
   end
 
   def index_writing_devices
     feed = Feed.find_by_identifier(params[:identifier])
-    if feed
-      writing_devices = feed.writing_devices
-      print_device_array(writing_devices)
-    else
-      cant_find_feed
-    end
+    writing_devices = feed.writing_devices
+    print_device_array(writing_devices)
   end
 
   def index_reading_devices
     feed = Feed.find_by_identifier(params[:identifier])
-    if feed
-      reading_devices = feed.reading_devices
-      print_device_array(reading_devices)
-    else
-      cant_find_feed
-    end
+    reading_devices = feed.reading_devices
+    print_device_array(reading_devices)
   end
 
   def print_device_array(devices)
@@ -119,19 +107,15 @@ class FeedsController < ApplicationController
     user = User.find_by_username(params[:username])
     if user
       feed = Feed.find_by_identifier(params[:identifier])
-      if feed
-        admin = Admin.find_by_user_id_and_feed_id(user.id, feed.id)
-        if admin
-          error_duplicity([user.username + " is already admin"])
-        else
-          admin = Admin.new
-          admin.user = user
-          feed.admins.push(admin)
-          feed.save
-          response_ok
-        end
+      admin = Admin.find_by_user_id_and_feed_id(user.id, feed.id)
+      if admin
+        error_duplicity([user.username + " is already admin"])
       else
-        cant_find_feed
+        admin = Admin.new
+        admin.user = user
+        feed.admins.push(admin)
+        feed.save
+        response_ok
       end
     else
       cant_find_user
@@ -142,22 +126,18 @@ class FeedsController < ApplicationController
     user = User.find_by_username(params[:username])
     if user
       feed = Feed.find_by_identifier(params[:identifier])
-      if feed
-        if feed.admins.length < 2
-          error_denied(["At least one admin must be always present"])
-        else
-          admin = Admin.find_by_user_id_and_feed_id(user.id, feed.id)
-          if admin
-            feed.admins.delete(admin)
-            admin.delete
-            feed.save
-            response_ok
-          else
-            error_missing_params(["User " + user.username + " is not admin"])
-          end
-        end
+      if feed.admins.length < 2
+        error_denied(["At least one admin must be always present"])
       else
-        cant_find_feed
+        admin = Admin.find_by_user_id_and_feed_id(user.id, feed.id)
+        if admin
+          feed.admins.delete(admin)
+          admin.delete
+          feed.save
+          response_ok
+        else
+          error_missing_params(["User " + user.username + " is not admin"])
+        end
       end
     else
       cant_find_user
@@ -168,19 +148,15 @@ class FeedsController < ApplicationController
     user = User.find_by_username(params[:username])
     if user
       feed = Feed.find_by_identifier(params[:identifier])
-      if feed
-        writer = Writer.find_by_user_id_and_feed_id(user.id, feed.id)
-        if writer
-          error_duplicity([user.username + " can write to feed already"])
-        else
-          writer = Writer.new
-          writer.user = user
-          feed.writers.push(writer)
-          feed.save
-          response_ok
-        end
+      writer = Writer.find_by_user_id_and_feed_id(user.id, feed.id)
+      if writer
+        error_duplicity([user.username + " can write to feed already"])
       else
-        cant_find_feed
+        writer = Writer.new
+        writer.user = user
+        feed.writers.push(writer)
+        feed.save
+        response_ok
       end
     else
       cant_find_user
@@ -191,18 +167,14 @@ class FeedsController < ApplicationController
     user = User.find_by_username(params[:username])
     if user
       feed = Feed.find_by_identifier(params[:identifier])
-      if feed
-        writer = Writer.find_by_user_id_and_feed_id(user.id, feed.id)
-        if writer
-          feed.writers.delete(writer)
-          writer.delete
-          feed.save
-          response_ok
-        else
-          error_missing_params(["User " + user.username + " can't write to this feed"])
-        end
+      writer = Writer.find_by_user_id_and_feed_id(user.id, feed.id)
+      if writer
+        feed.writers.delete(writer)
+        writer.delete
+        feed.save
+        response_ok
       else
-        cant_find_feed
+        error_missing_params(["User " + user.username + " can't write to this feed"])
       end
     else
       cant_find_user
@@ -213,19 +185,15 @@ class FeedsController < ApplicationController
     user = User.find_by_username(params[:username])
     if user
       feed = Feed.find_by_identifier(params[:identifier])
-      if feed
-        reader = Reader.find_by_user_id_and_feed_id(user.id, feed.id)
-        if reader
-          error_duplicity([user.username + " can read feed already"])
-        else
-          reader = Reader.new
-          reader.user = user
-          feed.readers.push(reader)
-          feed.save
-          response_ok
-        end
+      reader = Reader.find_by_user_id_and_feed_id(user.id, feed.id)
+      if reader
+        error_duplicity([user.username + " can read feed already"])
       else
-        cant_find_feed
+        reader = Reader.new
+        reader.user = user
+        feed.readers.push(reader)
+        feed.save
+        response_ok
       end
     else
       cant_find_user
@@ -236,18 +204,14 @@ class FeedsController < ApplicationController
     user = User.find_by_username(params[:username])
     if user
       feed = Feed.find_by_identifier(params[:identifier])
-      if feed
-        reader = Reader.find_by_user_id_and_feed_id(user.id, feed.id)
-        if reader
-          feed.readers.delete(reader)
-          reader.delete
-          feed.save
-          response_ok
-        else
-          error_missing_params(["User " + user.username + " can't read this feed"])
-        end
+      reader = Reader.find_by_user_id_and_feed_id(user.id, feed.id)
+      if reader
+        feed.readers.delete(reader)
+        reader.delete
+        feed.save
+        response_ok
       else
-        cant_find_feed
+        error_missing_params(["User " + user.username + " can't read this feed"])
       end
     else
       error_missing_entry(["Can't find user " + params[:username]])
@@ -260,19 +224,15 @@ class FeedsController < ApplicationController
       device = Device.find_by_user_id_and_name(user.id, params[:device_name])
       if device
         feed = Feed.find_by_identifier(params[:identifier])
-        if feed
-          writer = WritingDevice.find_by_device_id_and_feed_id(device.id, feed.id)
-          if writer
-            error_duplicity(["Device " + device.name + " of user " + user.username + " can write to feed already"])
-          else
-            writer = WritingDevice.new
-            writer.device = device
-            feed.writing_devices.push(writer)
-            feed.save
-            response_ok
-          end
+        writer = WritingDevice.find_by_device_id_and_feed_id(device.id, feed.id)
+        if writer
+          error_duplicity(["Device " + device.name + " of user " + user.username + " can write to feed already"])
         else
-          cant_find_feed
+          writer = WritingDevice.new
+          writer.device = device
+          feed.writing_devices.push(writer)
+          feed.save
+          response_ok
         end
       else
         error_missing_entry(["Can't find device " + params[:device_name] + " of user " + user.username])
@@ -288,18 +248,14 @@ class FeedsController < ApplicationController
       device = Device.find_by_user_id_and_name(user.id, params[:device_name])
       if device
         feed = Feed.find_by_identifier(params[:identifier])
-        if feed
-          writer = WritingDevice.find_by_device_id_and_feed_id(device.id, feed.id)
-          if writer
-            feed.writing_devices.delete(writer)
-            writer.delete
-            feed.save
-            response_ok
-          else
-            error_missing_params(["Device " + device.name + " of user " + user.username + " can't write to this feed"])
-          end
+        writer = WritingDevice.find_by_device_id_and_feed_id(device.id, feed.id)
+        if writer
+          feed.writing_devices.delete(writer)
+          writer.delete
+          feed.save
+          response_ok
         else
-          cant_find_feed
+          error_missing_params(["Device " + device.name + " of user " + user.username + " can't write to this feed"])
         end
       else
         error_missing_entry(["Can't find device " + params[:device_name] + " of user " + user.username])
@@ -315,19 +271,15 @@ class FeedsController < ApplicationController
       device = Device.find_by_user_id_and_name(user.id, params[:device_name])
       if device
         feed = Feed.find_by_identifier(params[:identifier])
-        if feed
-          reader = ReadingDevice.find_by_device_id_and_feed_id(device.id, feed.id)
-          if reader
-            error_duplicity(["Device " + device.name + " of user " + user.username + " can read feed already"])
-          else
-            reader = ReadingDevice.new
-            reader.device = device
-            feed.reading_devices.push(reader)
-            feed.save
-            response_ok
-          end
+        reader = ReadingDevice.find_by_device_id_and_feed_id(device.id, feed.id)
+        if reader
+          error_duplicity(["Device " + device.name + " of user " + user.username + " can read feed already"])
         else
-          cant_find_feed
+          reader = ReadingDevice.new
+          reader.device = device
+          feed.reading_devices.push(reader)
+          feed.save
+          response_ok
         end
       else
         error_missing_entry(["Can't find device " + params[:device_name] + " of user " + user.username])
@@ -343,18 +295,14 @@ class FeedsController < ApplicationController
       device = Device.find_by_user_id_and_name(user.id, params[:device_name])
       if device
         feed = Feed.find_by_identifier(params[:identifier])
-        if feed
-          reader = ReadingDevice.find_by_device_id_and_feed_id(device.id, feed.id)
-          if reader
-            feed.reading_devices.delete(reader)
-            reader.delete
-            feed.save
-            response_ok
-          else
-            error_missing_params(["Device " + device.name + " of user " + user.username + " can't read this feed"])
-          end
+        reader = ReadingDevice.find_by_device_id_and_feed_id(device.id, feed.id)
+        if reader
+          feed.reading_devices.delete(reader)
+          reader.delete
+          feed.save
+          response_ok
         else
-          cant_find_feed
+          error_missing_params(["Device " + device.name + " of user " + user.username + " can't read this feed"])
         end
       else
         error_missing_entry(["Can't find device " + params[:device_name] + " of user " + user.username])
@@ -364,17 +312,11 @@ class FeedsController < ApplicationController
     end
   end
 
-  private
-  def cant_find_user
-    error_missing_entry(["Can't find user " + params[:username]])
-  end
-
-  def cant_find_feed
-    error_missing_entry(["Can't find feed"])
-  end
-
-  def feed_params
-    params.permit(:name, :comment, :public)
+  def require_feed_existence
+    feed = Feed.find_by_identifier(params[:identifier])
+    if not feed
+      cant_find_feed
+    end
   end
 
   def require_admin
@@ -407,5 +349,19 @@ class FeedsController < ApplicationController
     end
     return true
   end
+
+  private
+  def cant_find_user
+    error_missing_entry(["Can't find user " + params[:username]])
+  end
+
+  def cant_find_feed
+    error_missing_entry(["Can't find feed"])
+  end
+
+  def feed_params
+    params.permit(:name, :comment, :public)
+  end
+
 
 end
