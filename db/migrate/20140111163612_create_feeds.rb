@@ -5,6 +5,8 @@ class CreateFeeds < ActiveRecord::Migration
       t.string :comment
       t.boolean :private, default: true
       t.string :identifier
+      t.string :read_key
+      t.string :write_key
 
       t.timestamps
     end
