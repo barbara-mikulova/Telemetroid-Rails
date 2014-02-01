@@ -10,8 +10,11 @@ Telemetroid::Application.routes.draw do
   get '/users/find' => 'users#find'
   
   post '/devices/new' => 'devices#create'
-  post 'devices/login' => 'sessions#device_login'
-  post 'devices/:name/edit' => 'devices#edit'
+  post '/devices/login' => 'sessions#device_login'
+  post '/devices/:name/edit' => 'devices#edit'
+  get '/devices/:identifier/feeds/read' => 'devices#index_feeds_where_reader'
+  get '/devices/:identifier/feeds/write' => 'devices#index_feeds_where_writer'
+
   get '/users/:username/devices' => 'devices#index'
   get '/users/:username/feeds/admin' => 'users#index_feeds_where_admin'
   get '/users/:username/feeds/read' => 'users#index_feeds_where_reader'
