@@ -1,4 +1,4 @@
-class SharedInfosController <
+class SharedInfosController < ApplicationController
 
   def full_index
     infos = SharedInfo.all
