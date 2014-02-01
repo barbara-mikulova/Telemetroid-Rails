@@ -14,7 +14,7 @@ class Feed < ActiveRecord::Base
     if self.identifier
       return
     end
-    identifier = SecureRandom.base64(20)
+    identifier = SecureRandom.urlsafe_base64(20)
     while Feed.find_by_identifier(identifier) != nil
       identifier = SecureRandom.base64(20)
     end

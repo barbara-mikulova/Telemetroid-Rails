@@ -10,9 +10,9 @@ class Device < ActiveRecord::Base
   
   def generate_name_and_password
     if !self.name
-      new_name = SecureRandom.base64(10)
+      new_name = SecureRandom.base64(20)
       while Device.find_by_name(new_name) != nil
-        new_name = SecureRandom.base64(10)
+        new_name = SecureRandom.base64(20)
       end
       self.name = new_name
     end
