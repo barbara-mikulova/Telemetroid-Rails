@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     hash.delete("created_at")
     hash.delete("updated_at")
     current_user = User.find(session[:id])
-    if !user.public_email || !current_user.id == user.id
+    unless user.public_email || current_user.id == user.id
       hash.delete("mail")
     end
     return hash
