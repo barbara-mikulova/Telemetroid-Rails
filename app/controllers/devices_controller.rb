@@ -15,7 +15,7 @@ class DevicesController < ApplicationController
   end
   
   def edit
-    device = Device.find_by_user_id_and_name(session[:id], params[:device_name])
+    device = Device.find_by_user_id_and_name(session[:id], params[:name])
     if (device)
       change = false
       if (params[:new_name])

@@ -11,7 +11,7 @@ Telemetroid::Application.routes.draw do
   
   post '/devices/new' => 'devices#create'
   post '/devices/login' => 'sessions#device_login'
-  post '/devices/:device_name/edit' => 'devices#edit'
+  post '/devices/:name/edit' => 'devices#edit'
   get '/devices/:identifier/feeds/read' => 'devices#index_feeds_where_reader'
   get '/devices/:identifier/feeds/write' => 'devices#index_feeds_where_writer'
 
