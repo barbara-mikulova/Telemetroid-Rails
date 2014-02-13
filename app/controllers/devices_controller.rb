@@ -2,7 +2,7 @@ class DevicesController < ApplicationController
   
   protect_from_forgery except: [:create, :edit]
   before_action :require_user_login
-  
+
   def create
     device = Device.create(device_params)
     device.user = User.find(session[:id])
@@ -15,7 +15,7 @@ class DevicesController < ApplicationController
   end
   
   def edit
-    device = Device.find_by_user_id_and_name(session[:id], params[:name])
+    device = Device.find_by_user_id_and_name(session[:id], params[:device_name])
     if (device)
       change = false
       if (params[:new_name])

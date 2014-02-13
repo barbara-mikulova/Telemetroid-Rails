@@ -4,6 +4,7 @@
     <list default="true" id="47a59c33-59c8-4909-849c-d9667f2c748b" name="Default" comment="Upravene chybove spravy, pri edite usera, zmeney nazov ocakavaneho paramu">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/devices_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/devices_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="telemetroid.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,19 +36,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="devices_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="devices_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/devices_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="67" selection-start="469" selection-end="469" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="2142">
+            <state line="17" column="74" selection-start="474" selection-end="474" vertical-scroll-proportion="0.32553193" vertical-offset="0" max-vertical-offset="2142">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="routes.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="18" selection-start="468" selection-end="468" vertical-scroll-proportion="0.24893618" vertical-offset="0" max-vertical-offset="1962">
+            <state line="13" column="25" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1962">
               <folding />
             </state>
           </provider>
@@ -581,16 +582,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/devices_controller.rb">
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="67" selection-start="469" selection-end="469" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="2142">
+        <state line="13" column="25" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1962">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/devices_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="18" selection-start="468" selection-end="468" vertical-scroll-proportion="0.24893618" vertical-offset="0" max-vertical-offset="1962">
+        <state line="17" column="74" selection-start="474" selection-end="474" vertical-scroll-proportion="0.32553193" vertical-offset="0" max-vertical-offset="2142">
           <folding />
         </state>
       </provider>
