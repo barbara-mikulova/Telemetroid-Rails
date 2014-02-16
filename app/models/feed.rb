@@ -7,8 +7,8 @@ class Feed < ActiveRecord::Base
   
   validates :name, presence: true
   validates :identifier, presence: true, uniqueness: true
-  
-  before_create :generate_keys, :generate_identifier
+
+  before_validation :generate_keys, :generate_identifier
 
   private
   def generate_identifier
@@ -40,7 +40,7 @@ class Feed < ActiveRecord::Base
   def generate_read_key
     if !self.read_key
       key = SecureRandom.urlsafe_base64(20)
-      while Feed.find_by_read_key(read_key) != nil
+      while Feed.find_by_read_key(key) != nil
         key = SecureRandom.urlsafe_base64(20)
       end
       self.read_key = key

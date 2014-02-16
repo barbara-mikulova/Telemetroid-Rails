@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20140122182040) do
   create_table "feeds", force: true do |t|
     t.string   "name"
     t.string   "comment"
-    t.boolean  "private",    default: true
+    t.boolean  "public",     default: true
     t.string   "identifier"
     t.string   "read_key"
     t.string   "write_key"
