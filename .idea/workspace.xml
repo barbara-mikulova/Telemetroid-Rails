@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47a59c33-59c8-4909-849c-d9667f2c748b" name="Default" comment="Upravene chybove spravy, pri edite usera, zmeney nazov ocakavaneho paramu">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20140111163612_create_feeds.rb" afterPath="$PROJECT_DIR$/db/migrate/20140111163612_create_feeds.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/development.sqlite3" afterPath="$PROJECT_DIR$/db/development.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/development.log" afterPath="$PROJECT_DIR$/log/development.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/feed.rb" afterPath="$PROJECT_DIR$/app/models/feed.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/feeds_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/feeds_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="telemetroid.iws" />
@@ -27,19 +31,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="feeds_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="feeds_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/feeds_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="271" column="21" selection-start="7918" selection-end="7918" vertical-scroll-proportion="0.0" vertical-offset="4622" max-vertical-offset="5562">
+            <state line="34" column="14" selection-start="1869" selection-end="1869" vertical-scroll-proportion="0.12659575" vertical-offset="493" max-vertical-offset="5544">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="feed.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="feed.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/feed.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="245" selection-end="245" vertical-scroll-proportion="0.19148937" vertical-offset="0" max-vertical-offset="1008">
+            <state line="32" column="46" selection-start="792" selection-end="792" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1008">
               <folding />
             </state>
           </provider>
@@ -48,7 +52,16 @@
       <file leaf-file-name="20140111163612_create_feeds.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/migrate/20140111163612_create_feeds.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="23" selection-start="156" selection-end="156" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+            <state line="14" column="0" selection-start="288" selection-end="288" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seeds.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="38" selection-start="579" selection-end="579" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378">
               <folding />
             </state>
           </provider>
@@ -75,10 +88,8 @@
         <option value="$PROJECT_DIR$/test/controllers/devices_controller_test.rb" />
         <option value="$PROJECT_DIR$/app/models/device.rb" />
         <option value="$PROJECT_DIR$/drop_and_seed.sh" />
-        <option value="$PROJECT_DIR$/app/models/feed.rb" />
         <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
-        <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20140201161801_create_shared_infos.rb" />
         <option value="$PROJECT_DIR$/app/models/shared_info.rb" />
         <option value="$PROJECT_DIR$/app/controllers/shared_infos_controller.rb" />
@@ -86,6 +97,8 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/devices_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20140111163612_create_feeds.rb" />
+        <option value="$PROJECT_DIR$/db/seeds.rb" />
+        <option value="$PROJECT_DIR$/app/models/feed.rb" />
         <option value="$PROJECT_DIR$/app/controllers/feeds_controller.rb" />
       </list>
     </option>
@@ -122,7 +135,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -239,7 +252,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -437,6 +450,27 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/controllers/feeds_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="271" column="21" selection-start="7918" selection-end="7918" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5562">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/feed.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="245" selection-end="245" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1008">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140111163612_create_feeds.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="23" selection-start="156" selection-end="156" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/feeds_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="185" column="7" selection-start="5540" selection-end="5540" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5562">
           <folding />
         </state>
@@ -585,11 +619,6 @@
         <state line="0" column="6" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="2" selection-start="1002" selection-end="1002" vertical-scroll-proportion="0.4599659" vertical-offset="0" max-vertical-offset="587" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/admin.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="6" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600" />
@@ -630,21 +659,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140111163612_create_feeds.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="23" selection-start="156" selection-end="156" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+        <state line="14" column="0" selection-start="288" selection-end="288" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/feeds_controller.rb">
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="271" column="21" selection-start="7918" selection-end="7918" vertical-scroll-proportion="0.0" vertical-offset="4622" max-vertical-offset="5562">
+        <state line="9" column="38" selection-start="579" selection-end="579" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/feed.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="245" selection-end="245" vertical-scroll-proportion="0.19148937" vertical-offset="0" max-vertical-offset="1008">
+        <state line="32" column="46" selection-start="792" selection-end="792" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1008">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/feeds_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="14" selection-start="1869" selection-end="1869" vertical-scroll-proportion="0.12659575" vertical-offset="493" max-vertical-offset="5544">
           <folding />
         </state>
       </provider>

@@ -32,8 +32,7 @@ class FeedsController < ApplicationController
     admin.user = @user
     @feed.admins.push(admin)
     if @feed.save
-      response = {:identifier => @feed.identifier}
-      render json: response
+      response_ok
     else
       render_save_errors(@feed)
     end
