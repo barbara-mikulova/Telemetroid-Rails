@@ -3,7 +3,7 @@ class CreateFeeds < ActiveRecord::Migration
     create_table :feeds do |t|
       t.string :name
       t.string :comment
-      t.boolean :private, default: true
+      t.boolean :public, default: true
       t.string :identifier
       t.string :read_key
       t.string :write_key

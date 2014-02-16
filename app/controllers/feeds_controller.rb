@@ -269,8 +269,8 @@ class FeedsController < ApplicationController
   private
   def print_device_array(devices)
     response = []
-    devices.each do |@device|
-      response.push(remove_device_fields(@device))
+    devices.each do |device|
+      response.push(remove_device_fields(device))
     end
     render json: response
   end

@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47a59c33-59c8-4909-849c-d9667f2c748b" name="Default" comment="Upravene chybove spravy, pri edite usera, zmeney nazov ocakavaneho paramu">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/devices_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/devices_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20140111163612_create_feeds.rb" afterPath="$PROJECT_DIR$/db/migrate/20140111163612_create_feeds.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/feeds_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/feeds_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="telemetroid.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,25 +30,25 @@
       <file leaf-file-name="feeds_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/feeds_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="185" column="7" selection-start="5540" selection-end="5540" vertical-scroll-proportion="0.0" vertical-offset="2966" max-vertical-offset="5562">
+            <state line="271" column="21" selection-start="7918" selection-end="7918" vertical-scroll-proportion="0.0" vertical-offset="4622" max-vertical-offset="5562">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="devices_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/devices_controller.rb">
+      <file leaf-file-name="feed.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/feed.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="67" selection-start="469" selection-end="469" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="2142">
+            <state line="10" column="0" selection-start="245" selection-end="245" vertical-scroll-proportion="0.19148937" vertical-offset="0" max-vertical-offset="1008">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <file leaf-file-name="20140111163612_create_feeds.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20140111163612_create_feeds.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="18" selection-start="468" selection-end="468" vertical-scroll-proportion="0.24893618" vertical-offset="0" max-vertical-offset="1962">
+            <state line="5" column="23" selection-start="156" selection-end="156" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
               <folding />
             </state>
           </provider>
@@ -74,7 +75,6 @@
         <option value="$PROJECT_DIR$/test/controllers/devices_controller_test.rb" />
         <option value="$PROJECT_DIR$/app/models/device.rb" />
         <option value="$PROJECT_DIR$/drop_and_seed.sh" />
-        <option value="$PROJECT_DIR$/db/migrate/20140111163612_create_feeds.rb" />
         <option value="$PROJECT_DIR$/app/models/feed.rb" />
         <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
@@ -83,9 +83,10 @@
         <option value="$PROJECT_DIR$/app/models/shared_info.rb" />
         <option value="$PROJECT_DIR$/app/controllers/shared_infos_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/feeds_controller.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/devices_controller.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20140111163612_create_feeds.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/feeds_controller.rb" />
       </list>
     </option>
   </component>
@@ -121,7 +122,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="RailsProjectView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -137,6 +138,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="telemetroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemetroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemetroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemetroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemetroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -206,7 +239,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -372,12 +405,12 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299075" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -404,6 +437,27 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/controllers/feeds_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="185" column="7" selection-start="5540" selection-end="5540" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5562">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/devices_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="67" selection-start="469" selection-end="469" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="2142">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="18" selection-start="468" selection-end="468" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1962">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/feeds_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="331" column="0" selection-start="10098" selection-end="10098" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6084">
           <folding />
         </state>
@@ -411,9 +465,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="27" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.0" vertical-offset="698" max-vertical-offset="2664">
-          <folding />
-        </state>
+        <state line="63" column="27" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.0" vertical-offset="698" max-vertical-offset="2664" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
@@ -543,21 +595,11 @@
         <state line="0" column="6" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140111163612_create_feeds.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="25" selection-start="250" selection-end="250" vertical-scroll-proportion="0.22929937" vertical-offset="0" max-vertical-offset="628" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140110143652_create_devices.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="37" selection-start="297" selection-end="309" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/feed.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="245" selection-end="245" vertical-scroll-proportion="0.2866242" vertical-offset="0" max-vertical-offset="1008" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
@@ -567,30 +609,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/feeds_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="185" column="7" selection-start="5540" selection-end="5540" vertical-scroll-proportion="0.0" vertical-offset="2966" max-vertical-offset="5562">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="27" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.4638298" vertical-offset="698" max-vertical-offset="2664">
+        <state line="63" column="27" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.4638298" vertical-offset="698" max-vertical-offset="2664" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="18" selection-start="468" selection-end="468" vertical-scroll-proportion="0.24893618" vertical-offset="0" max-vertical-offset="1962">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/devices_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="67" selection-start="469" selection-end="469" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="2142">
+        <state line="17" column="67" selection-start="469" selection-end="469" vertical-scroll-proportion="0.15319149" vertical-offset="162" max-vertical-offset="2142">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140111163612_create_feeds.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="18" selection-start="468" selection-end="468" vertical-scroll-proportion="0.24893618" vertical-offset="0" max-vertical-offset="1962">
+        <state line="5" column="23" selection-start="156" selection-end="156" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/feeds_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="271" column="21" selection-start="7918" selection-end="7918" vertical-scroll-proportion="0.0" vertical-offset="4622" max-vertical-offset="5562">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/feed.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="245" selection-end="245" vertical-scroll-proportion="0.19148937" vertical-offset="0" max-vertical-offset="1008">
           <folding />
         </state>
       </provider>
