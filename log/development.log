@@ -20512,3 +20512,1602 @@ Processing by UsersController#show as */*
   [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
 Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 12:46:35 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 134ms (Views: 46.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 12:46:38 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:56)
+  [1m[35mDevice Load (1.0ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1
+Completed 200 OK in 96ms (Views: 0.3ms | ActiveRecord: 5.2ms)
+
+
+Started POST "/devices/Nove+Meno/edit" for 192.168.0.180 at 2014-02-13 12:46:54 +0100
+Processing by DevicesController#edit as HTML
+  Parameters: {"identifier"=>"352816054311082", "comment"=>"comcomcomcomcomocm", "public"=>"true", "name"=>"Jhgjhbjhbjbjhbbjh", "device_name"=>"Nove+Meno"}
+  [1m[36mDevice Load (0.4ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove+Meno' LIMIT 1[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 12:46:54 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:56)
+  [1m[36mDevice Load (0.8ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1[0m
+Completed 200 OK in 12ms (Views: 1.0ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/devices/Nove+Meno/edit" for 192.168.0.180 at 2014-02-13 12:48:15 +0100
+Processing by DevicesController#edit as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"true", "name"=>"sdfsdfsdvsdvsdvsdv", "device_name"=>"Nove+Meno"}
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove+Meno' LIMIT 1
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 12:48:16 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:56)
+  [1m[35mDevice Load (0.4ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1
+Completed 200 OK in 46ms (Views: 0.4ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/devices/Nove+Meno/edit" for 192.168.0.180 at 2014-02-13 12:48:51 +0100
+Processing by DevicesController#edit as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"true", "name"=>"edfsdsdvsdvsdg", "device_name"=>"Nove+Meno"}
+  [1m[36mDevice Load (0.2ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove+Meno' LIMIT 1[0m
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 12:48:51 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:56)
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1[0m
+Completed 200 OK in 47ms (Views: 0.3ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/devices/Nove+Meno/edit" for 192.168.0.180 at 2014-02-13 12:49:26 +0100
+Processing by DevicesController#edit as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"false", "name"=>"asfsdfsdfsdvsdfsdg", "device_name"=>"Nove+Meno"}
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove+Meno' LIMIT 1
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 12:49:27 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1
+Completed 200 OK in 45ms (Views: 0.3ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/devices/Nove+Meno/edit" for 192.168.0.180 at 2014-02-13 12:49:54 +0100
+Processing by DevicesController#edit as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"false", "name"=>"asasascascasd", "device_name"=>"Nove+Meno"}
+  [1m[36mDevice Load (0.2ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove+Meno' LIMIT 1[0m
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 12:49:54 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:58)
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1[0m
+Completed 200 OK in 35ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 12:51:29 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.1ms)
+Completed 200 OK in 9ms (Views: 1.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 12:51:31 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:58)
+  [1m[35mDevice Load (0.9ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1
+Completed 200 OK in 16ms (Views: 1.3ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/devices/Nove+Meno/edit" for 192.168.0.180 at 2014-02-13 12:51:42 +0100
+Processing by DevicesController#edit as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"false", "name"=>"asfasfadcsdcsdvsdv", "device_name"=>"Nove+Meno"}
+  [1m[36mDevice Load (0.8ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove+Meno' LIMIT 1[0m
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 12:51:42 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:58)
+  [1m[36mDevice Load (0.7ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1[0m
+Completed 200 OK in 11ms (Views: 1.1ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 12:53:46 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 12:53:53 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 12:53:54 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:58)
+  [1m[36mDevice Load (0.7ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1[0m
+Completed 200 OK in 14ms (Views: 1.4ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/devices/Nove+Meno/edit" for 192.168.0.180 at 2014-02-13 12:54:12 +0100
+Processing by DevicesController#edit as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"true", "name"=>"sdfsdfsdvsdgedg", "device_name"=>"Nove+Meno"}
+  [1m[35mDevice Load (0.9ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove+Meno' LIMIT 1
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 12:54:12 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:58)
+  [1m[35mDevice Load (0.7ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1
+Completed 200 OK in 12ms (Views: 0.9ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/devices/Nove+Meno/edit" for 192.168.0.180 at 2014-02-13 12:55:06 +0100
+Processing by DevicesController#edit as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"false", "name"=>"asfsdcsxvsdvsdvsfg", "device_name"=>"Nove+Meno"}
+  [1m[36mDevice Load (0.2ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove+Meno' LIMIT 1[0m
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/devices/Samsung%20Galaxy%20Tab/edit" for 127.0.0.1 at 2014-02-13 12:57:42 +0100
+Processing by DevicesController#edit as */*
+  Parameters: {"new_name"=>"Nove Meno", "device_name"=>"Samsung Galaxy Tab"}
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `url_decode' for ERB::Util:Module):
+  app/controllers/devices_controller.rb:18:in `edit'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (51.7ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 12:59:24 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 16ms (Views: 1.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 12:59:26 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:58)
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/devices/Nove+Meno/edit" for 192.168.0.180 at 2014-02-13 12:59:31 +0100
+Processing by DevicesController#edit as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"false", "name"=>"sdfsdddgdfgdfg", "device_name"=>"Nove+Meno"}
+  [1m[36mDevice Load (0.9ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove+Meno' LIMIT 1[0m
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/devices/Samsung%20Galaxy%20Tab/edit" for 127.0.0.1 at 2014-02-13 12:59:52 +0100
+Processing by DevicesController#edit as */*
+  Parameters: {"new_name"=>"Nove Meno", "device_name"=>"Samsung Galaxy Tab"}
+  [1m[35mDevice Load (0.4ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Samsung Galaxy Tab' LIMIT 1
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/devices/Nove%20Meno/edit" for 127.0.0.1 at 2014-02-13 12:59:59 +0100
+Processing by DevicesController#edit as */*
+  Parameters: {"new_name"=>"Nove Meno", "device_name"=>"Nove Meno"}
+  [1m[36mDevice Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove Meno' LIMIT 1[0m
+  Rendered text template (0.1ms)
+Completed 200 OK in 6ms (Views: 2.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/devices/Nove%20Meno/edit" for 127.0.0.1 at 2014-02-13 13:00:03 +0100
+Processing by DevicesController#edit as */*
+  Parameters: {"new_name"=>"Nove Meno", "device_name"=>"Nove Meno"}
+  [1m[35mDevice Load (0.5ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove Meno' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/devices/Nove+Meno/edit" for 127.0.0.1 at 2014-02-13 13:00:06 +0100
+Processing by DevicesController#edit as */*
+  Parameters: {"new_name"=>"Nove Meno", "device_name"=>"Nove+Meno"}
+  [1m[36mDevice Load (0.7ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove+Meno' LIMIT 1[0m
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/devices/Nove+Meno/edit" for 127.0.0.1 at 2014-02-13 13:05:48 +0100
+Processing by DevicesController#edit as */*
+  Parameters: {"new_name"=>"Nove Meno", "device_name"=>"Nove+Meno"}
+Completed 500 Internal Server Error in 2ms
+
+NameError (uninitialized constant DevicesController::HTMLEntities):
+  app/controllers/devices_controller.rb:18:in `edit'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.9ms)
+
+
+Started POST "/devices/Nove+Meno/edit" for 127.0.0.1 at 2014-02-13 13:06:07 +0100
+Processing by DevicesController#edit as */*
+  Parameters: {"new_name"=>"Nove Meno", "device_name"=>"Nove+Meno"}
+Completed 500 Internal Server Error in 3ms
+
+LoadError (cannot load such file -- htmlentities):
+  app/controllers/devices_controller.rb:18:in `edit'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.1ms)
+
+
+Started POST "/devices/Nove+Meno/edit" for 192.168.0.180 at 2014-02-13 13:06:27 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DevicesController#edit as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"false", "name"=>"sdfsdddgdfgdfg", "device_name"=>"Nove+Meno"}
+  [1m[35mDevice Load (0.4ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove+Meno' LIMIT 1
+Completed 200 OK in 46ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/devices/Nove+Meno/edit" for 127.0.0.1 at 2014-02-13 13:06:32 +0100
+Processing by DevicesController#edit as */*
+  Parameters: {"new_name"=>"Nove Meno", "device_name"=>"Nove+Meno"}
+  [1m[36mDevice Load (0.8ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove+Meno' LIMIT 1[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/devices/Nove+Meno/edit" for 127.0.0.1 at 2014-02-13 13:06:59 +0100
+Processing by DevicesController#edit as */*
+  Parameters: {"new_name"=>"Nove Meno", "device_name"=>"Nove+Meno"}
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove+Meno' LIMIT 1
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/devices/Nove+Meno/edit" for 127.0.0.1 at 2014-02-13 13:07:22 +0100
+Processing by DevicesController#edit as */*
+  Parameters: {"new_name"=>"Nove Meno", "device_name"=>"Nove+Meno"}
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove+Meno' LIMIT 1[0m
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/devices/Nove+Meno/edit" for 127.0.0.1 at 2014-02-13 13:07:56 +0100
+Processing by DevicesController#edit as */*
+  Parameters: {"new_name"=>"Nove Meno", "device_name"=>"Nove+Meno"}
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove+Meno' LIMIT 1
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 13:10:00 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.1ms)
+Completed 200 OK in 99ms (Views: 68.3ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 13:10:01 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:61)
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1[0m
+Completed 200 OK in 60ms (Views: 0.3ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/devices/Nove+Meno/edit" for 192.168.0.180 at 2014-02-13 13:10:09 +0100
+Processing by DevicesController#edit as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"false", "name"=>"sdfsdcsdcsdcsdf", "device_name"=>"Nove+Meno"}
+  [1m[35mDevice Load (1.0ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove+Meno' LIMIT 1
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 13:13:16 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.1ms)
+Completed 200 OK in 6ms (Views: 1.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 13:13:17 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:61)
+  [1m[36mDevice Load (0.7ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1[0m
+Completed 200 OK in 12ms (Views: 1.1ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 13:18:32 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.1ms)
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 13:18:33 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:61)
+  [1m[35mDevice Load (0.8ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1
+Completed 200 OK in 11ms (Views: 0.9ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 13:19:37 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (16.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 21ms (Views: 0.9ms | ActiveRecord: 16.6ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 13:19:39 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:61)
+  [1m[36mDevice Load (0.9ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1[0m
+Completed 200 OK in 11ms (Views: 0.9ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 13:20:44 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 59ms (Views: 0.8ms | ActiveRecord: 33.9ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 13:20:46 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:60)
+  [1m[35mDevice Load (0.8ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1
+Completed 200 OK in 41ms (Views: 0.6ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 13:21:48 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 107ms (Views: 0.7ms | ActiveRecord: 21.3ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 13:21:50 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:59)
+  [1m[36mDevice Load (1.1ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1[0m
+Completed 200 OK in 39ms (Views: 0.3ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/devices/Nove+Meno/edit" for 192.168.0.180 at 2014-02-13 13:21:53 +0100
+Processing by DevicesController#edit as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"false", "name"=>"dfbdvdvbfvb", "device_name"=>"Nove+Meno"}
+  [1m[35mDevice Load (1.1ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove+Meno' LIMIT 1
+Completed 200 OK in 23ms (Views: 0.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/devices/Nove%20Meno/edit" for 127.0.0.1 at 2014-02-13 13:27:12 +0100
+Processing by DevicesController#edit as */*
+  Parameters: {"new_name"=>"Nove Meno", "device_name"=>"Nove Meno"}
+Completed 500 Internal Server Error in 3ms
+
+NameError (undefined local variable or method `device' for #<DevicesController:0x007f31fc42d698>):
+  app/controllers/devices_controller.rb:18:in `edit'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (41.4ms)
+
+
+Started POST "/devices/Nove%20Meno/edit" for 127.0.0.1 at 2014-02-13 13:27:31 +0100
+Processing by DevicesController#edit as */*
+  Parameters: {"new_name"=>"Nove Meno", "device_name"=>"Nove Meno"}
+Completed 500 Internal Server Error in 6ms
+
+NameError (undefined local variable or method `coder' for #<DevicesController:0x007f31fc279068>):
+  app/controllers/devices_controller.rb:18:in `edit'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.9ms)
+
+
+Started POST "/devices/Nove%20Meno/edit" for 127.0.0.1 at 2014-02-13 13:27:42 +0100
+Processing by DevicesController#edit as */*
+  Parameters: {"new_name"=>"Nove Meno", "device_name"=>"Nove Meno"}
+  [1m[36mDevice Load (0.2ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove Meno' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 16ms (Views: 0.8ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 13:27:51 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 17ms (Views: 0.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 13:27:52 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[35mDevice Load (1.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1
+Completed 200 OK in 19ms (Views: 1.2ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 13:30:17 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.1ms)
+Completed 200 OK in 7ms (Views: 1.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 13:30:18 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[36mDevice Load (0.9ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1[0m
+Completed 200 OK in 14ms (Views: 1.3ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 13:32:43 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 13:32:45 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[35mDevice Load (1.0ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1
+Completed 200 OK in 12ms (Views: 0.9ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 13:35:28 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel pix", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel pix' LIMIT 1[0m
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 13:35:45 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 13:35:46 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[35mDevice Load (1.0ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1
+Completed 200 OK in 12ms (Views: 1.0ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/%2Fdevices/Nove%20Meno/%2Fedit" for 192.168.0.180 at 2014-02-13 13:35:51 +0100
+
+ActionController::RoutingError (No route matches [POST] "/%2Fdevices/Nove%20Meno/%2Fedit"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (26.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (121.3ms)
+
+
+Started POST "/%2Fdevices/Nove%20Meno/%2Fedit" for 192.168.0.180 at 2014-02-13 13:35:58 +0100
+
+ActionController::RoutingError (No route matches [POST] "/%2Fdevices/Nove%20Meno/%2Fedit"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.4ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (22.8ms)
+
+
+Started POST "/%2Fdevices/Nove%20Meno/%2Fedit" for 192.168.0.180 at 2014-02-13 13:35:59 +0100
+
+ActionController::RoutingError (No route matches [POST] "/%2Fdevices/Nove%20Meno/%2Fedit"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.4ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (21.7ms)
+
+
+Started POST "/%2Fdevices/Nove%20Meno/%2Fedit" for 192.168.0.180 at 2014-02-13 13:36:31 +0100
+
+ActionController::RoutingError (No route matches [POST] "/%2Fdevices/Nove%20Meno/%2Fedit"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (44.5ms)
+
+
+Started POST "/%2Fdevices/Nove%20Meno/%2Fedit" for 192.168.0.180 at 2014-02-13 13:36:33 +0100
+
+ActionController::RoutingError (No route matches [POST] "/%2Fdevices/Nove%20Meno/%2Fedit"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (22.0ms)
+
+
+Started POST "/%2Fdevices/Nove%20Meno/%2Fedit" for 192.168.0.180 at 2014-02-13 13:36:42 +0100
+
+ActionController::RoutingError (No route matches [POST] "/%2Fdevices/Nove%20Meno/%2Fedit"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (23.6ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 13:38:43 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.1ms)
+Completed 200 OK in 6ms (Views: 1.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 13:38:45 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[36mDevice Load (0.8ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1[0m
+Completed 200 OK in 12ms (Views: 1.0ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/devices/Nove%20Meno//edit" for 192.168.0.180 at 2014-02-13 13:38:48 +0100
+Processing by DevicesController#edit as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"false", "name"=>"sdfhsdfnnsdg", "device_name"=>"Nove Meno"}
+  [1m[35mDevice Load (0.9ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Nove Meno' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (1.1ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '352816054311082' AND "devices"."id" != 5) LIMIT 1
+  [1m[36mDevice Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'sdfhsdfnnsdg' AND "devices"."id" != 5 AND "devices"."user_id" = 1) LIMIT 1[0m
+  [1m[35mSQL (216.9ms)[0m  UPDATE "devices" SET "name" = ?, "public" = ?, "updated_at" = ? WHERE "devices"."id" = 5  [["name", "sdfhsdfnnsdg"], ["public", false], ["updated_at", Thu, 13 Feb 2014 12:38:48 UTC +00:00]]
+  [1m[36m (252.5ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.1ms)
+Completed 200 OK in 600ms (Views: 1.4ms | ActiveRecord: 472.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 13:41:26 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.1ms)
+Completed 200 OK in 8ms (Views: 1.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 13:41:28 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[35mDevice Load (1.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1
+Completed 200 OK in 17ms (Views: 1.2ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/devices/sdfhsdfnnsdg//edit" for 192.168.0.180 at 2014-02-13 13:41:43 +0100
+Processing by DevicesController#edit as HTML
+  Parameters: {"identifier"=>"352816054311082", "comment"=>"tablet, ground station", "public"=>"true", "name"=>"Galaxy Tab", "device_name"=>"sdfhsdfnnsdg"}
+  [1m[36mDevice Load (1.6ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'sdfhsdfnnsdg' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mDevice Exists (0.9ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '352816054311082' AND "devices"."id" != 5) LIMIT 1[0m
+  [1m[35mDevice Exists (0.3ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'Galaxy Tab' AND "devices"."id" != 5 AND "devices"."user_id" = 1) LIMIT 1
+  [1m[36mSQL (2.0ms)[0m  [1mUPDATE "devices" SET "name" = ?, "comment" = ?, "public" = ?, "updated_at" = ? WHERE "devices"."id" = 5[0m  [["name", "Galaxy Tab"], ["comment", "tablet, ground station"], ["public", true], ["updated_at", Thu, 13 Feb 2014 12:41:43 UTC +00:00]]
+  [1m[35m (222.4ms)[0m  commit transaction
+  Rendered text template (0.1ms)
+Completed 200 OK in 243ms (Views: 1.4ms | ActiveRecord: 227.4ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 13:44:19 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 13:44:20 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[36mDevice Load (1.2ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1[0m
+Completed 200 OK in 12ms (Views: 0.9ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/devices/Galaxy%20Tab//edit" for 192.168.0.180 at 2014-02-13 13:44:49 +0100
+Processing by DevicesController#edit as HTML
+  Parameters: {"identifier"=>"352816054311082", "comment"=>"tablet  mounted on ground station", "public"=>"true", "name"=>"Samsung Galaxy Tab", "device_name"=>"Galaxy Tab"}
+  [1m[35mDevice Load (0.9ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Galaxy Tab' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.6ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '352816054311082' AND "devices"."id" != 5) LIMIT 1
+  [1m[36mDevice Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'Samsung Galaxy Tab' AND "devices"."id" != 5 AND "devices"."user_id" = 1) LIMIT 1[0m
+  [1m[35mSQL (1.7ms)[0m  UPDATE "devices" SET "name" = ?, "comment" = ?, "updated_at" = ? WHERE "devices"."id" = 5  [["name", "Samsung Galaxy Tab"], ["comment", "tablet  mounted on ground station"], ["updated_at", Thu, 13 Feb 2014 12:44:49 UTC +00:00]]
+  [1m[36m (236.0ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 252ms (Views: 1.0ms | ActiveRecord: 239.8ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 13:45:44 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 13:45:45 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[35mDevice Load (0.8ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1
+Completed 200 OK in 13ms (Views: 1.5ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/devices/Samsung%20Galaxy%20Tab//edit" for 192.168.0.180 at 2014-02-13 13:45:51 +0100
+Processing by DevicesController#edit as HTML
+  Parameters: {"identifier"=>"352816054311082", "public"=>"false", "name"=>"Tablet", "device_name"=>"Samsung Galaxy Tab"}
+  [1m[36mDevice Load (0.6ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Samsung Galaxy Tab' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mDevice Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '352816054311082' AND "devices"."id" != 5) LIMIT 1[0m
+  [1m[35mDevice Exists (0.1ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'Tablet' AND "devices"."id" != 5 AND "devices"."user_id" = 1) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "devices" SET "name" = ?, "public" = ?, "updated_at" = ? WHERE "devices"."id" = 5[0m  [["name", "Tablet"], ["public", false], ["updated_at", Thu, 13 Feb 2014 12:45:51 UTC +00:00]]
+  [1m[35m (911.6ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 922ms (Views: 0.9ms | ActiveRecord: 913.1ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 13:45:53 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[35mDevice Load (0.8ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1
+Completed 200 OK in 12ms (Views: 1.0ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 13:54:04 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 129ms (Views: 1.0ms | ActiveRecord: 35.1ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 13:54:07 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[36mDevice Load (0.2ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1[0m
+Completed 200 OK in 39ms (Views: 0.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/devices/" for 127.0.0.1 at 2014-02-13 13:54:40 +0100
+
+ActionController::RoutingError (No route matches [POST] "/devices"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (29.4ms)
+
+
+Started GET "/devices/" for 127.0.0.1 at 2014-02-13 13:54:45 +0100
+Processing by DevicesController#full_index as */*
+  [1m[35mDevice Load (0.9ms)[0m  SELECT "devices".* FROM "devices"
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 13:57:45 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.1ms)
+Completed 200 OK in 6ms (Views: 1.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 13:57:46 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[36mDevice Load (0.8ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1[0m
+Completed 200 OK in 13ms (Views: 1.1ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/devices/Tablet//edit" for 192.168.0.180 at 2014-02-13 13:57:50 +0100
+Processing by DevicesController#edit as HTML
+  Parameters: {"identifier"=>"352816054311082", "comment"=>"tablet  mounted on ground station", "public"=>"true", "name"=>"Tablet", "device_name"=>"Tablet"}
+  [1m[35mDevice Load (0.9ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1 AND "devices"."name" = 'Tablet' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.5ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '352816054311082' AND "devices"."id" != 5) LIMIT 1
+  [1m[36mDevice Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'Tablet' AND "devices"."id" != 5 AND "devices"."user_id" = 1) LIMIT 1[0m
+  [1m[35mSQL (1.8ms)[0m  UPDATE "devices" SET "public" = ?, "updated_at" = ? WHERE "devices"."id" = 5  [["public", true], ["updated_at", Thu, 13 Feb 2014 12:57:50 UTC +00:00]]
+  [1m[36m (1025.8ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 1072ms (Views: 1.4ms | ActiveRecord: 1029.4ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 13:57:51 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[36mDevice Load (1.1ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1[0m
+Completed 200 OK in 15ms (Views: 1.2ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 14:00:08 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 14:00:09 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[35mDevice Load (0.7ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1
+Completed 200 OK in 12ms (Views: 1.1ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 14:00:46 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 14:00:48 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[36mDevice Load (0.7ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1[0m
+Completed 200 OK in 12ms (Views: 1.3ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 14:02:43 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 14:02:44 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[35mDevice Load (0.7ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1
+Completed 200 OK in 11ms (Views: 1.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 14:07:18 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[35mDevice Load (0.7ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1
+Completed 200 OK in 11ms (Views: 1.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/pixel/show" for 192.168.0.180 at 2014-02-13 14:07:22 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mUser Load (183.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 188ms (Views: 0.4ms | ActiveRecord: 184.1ms)
+
+
+Started POST "/logout" for 192.168.0.180 at 2014-02-13 14:07:29 +0100
+Processing by SessionsController#logout as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-13 14:17:10 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-13 14:17:11 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[36mDevice Load (1.0ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1[0m
+Completed 200 OK in 14ms (Views: 1.1ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-14 20:16:38 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 177ms (Views: 101.5ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-14 20:17:08 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 15ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/logout" for 192.168.0.180 at 2014-02-14 20:17:44 +0100
+Processing by SessionsController#logout as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-14 20:18:14 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-14 20:18:23 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at D:/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[35mDevice Load (1.0ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1
+Completed 200 OK in 127ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/logout" for 192.168.0.180 at 2014-02-14 20:18:41 +0100
+Processing by SessionsController#logout as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-14 20:18:48 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/logout" for 192.168.0.180 at 2014-02-14 20:18:52 +0100
+Processing by SessionsController#logout as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-14 20:23:54 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-14 20:24:04 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-14 20:24:15 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/logout" for 192.168.0.180 at 2014-02-14 20:24:18 +0100
+Processing by SessionsController#logout as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-14 20:24:27 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-14 20:24:41 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-14 20:24:48 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-16 16:53:49 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 167ms (Views: 78.5ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-16 17:02:28 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-16 17:05:44 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/feeds" for 127.0.0.1 at 2014-02-16 17:07:50 +0100
+
+ActionController::RoutingError (No route matches [POST] "/feeds"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (46.9ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (217.6ms)
+
+
+Started GET "/feeds" for 127.0.0.1 at 2014-02-16 17:07:57 +0100
+
+SyntaxError (D:/Ruby/telemetroid/app/controllers/feeds_controller.rb:272: formal argument cannot be an instance variable
+    devices.each do |@device|
+                            ^):
+  activesupport (4.0.1) lib/active_support/dependencies.rb:424:in `load'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:424:in `block in load_file'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:616:in `new_constants_in'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:423:in `load_file'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:324:in `require_or_load'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:463:in `load_missing_constant'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:226:in `const_get'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:226:in `block in constantize'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:224:in `each'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:224:in `inject'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:224:in `constantize'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:535:in `get'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:566:in `constantize'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:76:in `controller_reference'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:66:in `controller'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:44:in `call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.1) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__485737483__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (73.1ms)
+
+
+Started GET "/feeds" for 127.0.0.1 at 2014-02-16 17:10:22 +0100
+Processing by FeedsController#full_index as */*
+  [1m[36mFeed Load (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+Completed 200 OK in 141ms (Views: 103.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-16 17:16:29 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 14ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-16 17:26:44 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 16ms (Views: 1.0ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/feeds/new" for 192.168.0.180 at 2014-02-16 17:27:21 +0100
+Processing by FeedsController#create as HTML
+  Parameters: {"public"=>"true", "comment"=>"Kanal letiska", "name"=>"Top Gun Airport"}
+  [1m[35mUser Load (17.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 34ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute: public):
+  app/controllers/feeds_controller.rb:30:in `create'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (37.0ms)
+
+
+Started POST "/feeds/new" for 192.168.0.180 at 2014-02-16 17:27:33 +0100
+Processing by FeedsController#create as HTML
+  Parameters: {"public"=>"true", "comment"=>"Kanal letiska", "name"=>"Top Gun Airport"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 2ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute: public):
+  app/controllers/feeds_controller.rb:30:in `create'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (36.0ms)
+  [1m[36m (223.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (96.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140106105426)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password" varchar(255), "mail" varchar(255), "name" varchar(255), "comment" varchar(255), "public_email" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140106105426"]]
+  [1m[36m (201.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateDevices (20140110143652)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "identifier" varchar(255), "name" varchar(255), "password" varchar(255), "comment" varchar(255), "current_track" integer DEFAULT 0, "public" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.0ms)[0m  CREATE INDEX "index_devices_on_user_id" ON "devices" ("user_id")
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140110143652"]]
+  [1m[35m (164.5ms)[0m  commit transaction
+Migrating to CreateFeeds (20140111163612)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "feeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "comment" varchar(255), "public" boolean DEFAULT 't', "identifier" varchar(255), "read_key" varchar(255), "write_key" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111163612"]]
+  [1m[35m (115.1ms)[0m  commit transaction
+Migrating to CreateAdmins (20140111174657)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mCREATE INDEX "index_admins_on_user_id" ON "admins" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  CREATE INDEX "index_admins_on_feed_id" ON "admins" ("feed_id")
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111174657"]]
+  [1m[35m (111.1ms)[0m  commit transaction
+Migrating to CreateWriters (20140111220236)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "writers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mCREATE INDEX "index_writers_on_user_id" ON "writers" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  CREATE INDEX "index_writers_on_feed_id" ON "writers" ("feed_id")
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111220236"]]
+  [1m[35m (131.1ms)[0m  commit transaction
+Migrating to CreateReaders (20140111222952)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  CREATE TABLE "readers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mCREATE INDEX "index_readers_on_user_id" ON "readers" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  CREATE INDEX "index_readers_on_feed_id" ON "readers" ("feed_id")
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111222952"]]
+  [1m[35m (129.2ms)[0m  commit transaction
+Migrating to CreateWritingDevices (20140122165438)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  CREATE TABLE "writing_devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "device_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mCREATE INDEX "index_writing_devices_on_device_id" ON "writing_devices" ("device_id")[0m
+  [1m[35m (0.0ms)[0m  CREATE INDEX "index_writing_devices_on_feed_id" ON "writing_devices" ("feed_id")
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140122165438"]]
+  [1m[35m (145.1ms)[0m  commit transaction
+Migrating to CreateReadingDevices (20140122182040)
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "reading_devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "device_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mCREATE INDEX "index_reading_devices_on_device_id" ON "reading_devices" ("device_id")[0m
+  [1m[35m (0.0ms)[0m  CREATE INDEX "index_reading_devices_on_feed_id" ON "reading_devices" ("feed_id")
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140122182040"]]
+  [1m[35m (130.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-16 17:29:09 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+Completed 200 OK in 42ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users/new" for 192.168.0.180 at 2014-02-16 17:29:36 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"pixel", "mail"=>"michal.r@gmail.com", "comment"=>"", "name"=>"", "password"=>"[FILTERED]"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'michal.r@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (10.0ms)[0m  INSERT INTO "users" ("comment", "created_at", "mail", "name", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["comment", ""], ["created_at", Sun, 16 Feb 2014 16:29:36 UTC +00:00], ["mail", "michal.r@gmail.com"], ["name", ""], ["password", "asdasd"], ["updated_at", Sun, 16 Feb 2014 16:29:36 UTC +00:00], ["username", "pixel"]]
+  [1m[36m (126.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."username" = 'pixel' AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'michal.r@gmail.com' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."username" = 'pixel' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."mail" = 'michal.r@gmail.com' AND "users"."id" != 1) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 333ms (Views: 26.0ms | ActiveRecord: 138.3ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-16 17:29:36 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/pixel/devices" for 192.168.0.180 at 2014-02-16 17:29:53 +0100
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at D:/Ruby/telemetroid/app/controllers/devices_controller.rb:57)
+  [1m[35mDevice Load (0.0ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."user_id" = 1
+Completed 200 OK in 56ms (Views: 1.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/feeds/new" for 192.168.0.180 at 2014-02-16 17:30:27 +0100
+Processing by FeedsController#create as HTML
+  Parameters: {"public"=>"true", "comment"=>"Letisko Top Gun", "name"=>"Top Gun Airport"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFeed Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 200 OK in 246ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/feeds/new" for 192.168.0.180 at 2014-02-16 17:30:37 +0100
+Processing by FeedsController#create as HTML
+  Parameters: {"public"=>"true", "comment"=>"Letisko Top Gun", "name"=>"Top Gun Airport"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFeed Exists (1.0ms)[0m  SELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Completed 200 OK in 21ms (Views: 0.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/feeds/new" for 192.168.0.180 at 2014-02-16 17:31:41 +0100
+Processing by FeedsController#create as HTML
+  Parameters: {"public"=>"true", "comment"=>"Letisko Top Gun", "name"=>"Top Gun Airport"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFeed Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 200 OK in 73ms (Views: 0.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/feeds/new" for 192.168.0.180 at 2014-02-16 17:32:04 +0100
+Processing by FeedsController#create as HTML
+  Parameters: {"public"=>"true", "comment"=>"Letisko Top Gun", "name"=>"Top Gun Airport"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 14ms
+
+SyntaxError (D:/Ruby/telemetroid/app/models/feed.rb:16: syntax error, unexpected tPOW
+      p ********
+            ^):
+  app/controllers/feeds_controller.rb:30:in `create'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (42.0ms)
+
+
+Started POST "/feeds/new" for 192.168.0.180 at 2014-02-16 17:32:18 +0100
+Processing by FeedsController#create as HTML
+  Parameters: {"public"=>"true", "comment"=>"Letisko Top Gun", "name"=>"Top Gun Airport"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFeed Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 200 OK in 43ms (Views: 1.0ms | ActiveRecord: 3.0ms)
+  [1m[36mFeed Load (5.0ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFeed Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFeed Exists (0.0ms)[0m  SELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+
+
+Started POST "/feeds/new" for 192.168.0.180 at 2014-02-16 17:52:52 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FeedsController#create as HTML
+  Parameters: {"public"=>"false", "comment"=>"", "name"=>"Top Gun Airfield"}
+  [1m[35mUser Load (41.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFeed Exists (0.3ms)[0m  SELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 200 OK in 354ms (Views: 0.2ms | ActiveRecord: 45.7ms)
+
+
+Started POST "/login" for 192.168.0.180 at 2014-02-16 18:25:33 +0100
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.1ms)
+Completed 200 OK in 116ms (Views: 69.3ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/feeds/new" for 192.168.0.180 at 2014-02-16 18:25:41 +0100
+Processing by FeedsController#create as HTML
+  Parameters: {"public"=>"false", "comment"=>"", "name"=>"hkjjhgjhjhbj"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFeed Exists (0.3ms)[0m  SELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 200 OK in 41ms (Views: 0.1ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/feeds/new" for 192.168.0.180 at 2014-02-16 18:26:18 +0100
+Processing by FeedsController#create as HTML
+  Parameters: {"public"=>"false", "comment"=>"", "name"=>"hkjjhgjhjhbj"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFeed Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 200 OK in 57ms (Views: 0.1ms | ActiveRecord: 5.2ms)
+
+
+Started POST "/feeds/new" for 192.168.0.180 at 2014-02-16 18:27:13 +0100
+Processing by FeedsController#create as HTML
+  Parameters: {"public"=>"false", "comment"=>"", "name"=>"hkjjhgjhjhbj"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFeed Exists (1.2ms)[0m  SELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 200 OK in 51ms (Views: 0.1ms | ActiveRecord: 4.0ms)

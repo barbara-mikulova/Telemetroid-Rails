@@ -17,9 +17,10 @@ class DevicesController < ApplicationController
   def edit
     device = Device.find_by_user_id_and_name(session[:id], params[:device_name])
     if (device)
+      p device
       change = false
-      if (params[:new_name])
-        device.name = params[:new_name]
+      if (params[:name])
+        device.name = params[:name]
         change = true
       end
       if (params[:comment])
@@ -40,7 +41,8 @@ class DevicesController < ApplicationController
         response_ok
       end
     else
-      error_missing_entry("Device with given name couldn't be found")
+      p 'error'
+      error_missing_entry(["Device with given name couldn't be found"])
     end
   end
   
@@ -62,7 +64,7 @@ class DevicesController < ApplicationController
       end
       render json: response
     else
-      error_missing_entry("User with given username couldn't be found")
+      error_missing_entry(["User with given username couldn't be found"])
     end
   end
 
@@ -101,7 +103,6 @@ class DevicesController < ApplicationController
     hash.delete("password")
     hash.delete("created_at")
     hash.delete("updated_at")
-    hash.delete("public")
     hash.delete("current_track")
     return hash
   end
