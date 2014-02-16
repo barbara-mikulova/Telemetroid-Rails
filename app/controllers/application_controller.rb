@@ -44,7 +44,6 @@ class ApplicationController < ActionController::Base
     hash = JSON.parse(feed.to_json)
     hash.delete('created_at')
     hash.delete('updated_at')
-    hash.delete('comment')
     hash.delete('write_key')
     hash.delete('read_key')
     hash.delete('private')
