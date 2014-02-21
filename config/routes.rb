@@ -38,6 +38,8 @@ Telemetroid::Application.routes.draw do
   post '/feeds/:identifier/devices/read/remove' => 'feeds#remove_reading_device'
   get '/feeds/:identifier/keys/write' => 'feeds#show_write_key'
   get '/feeds/:identifier/keys/read' => 'feeds#show_read_key'
+  get '/feeds/:identifier/users/not_involved/' => 'feeds#not_involved_users'
+  get '/feeds/:identifier/users/not_involved/:username' => 'feeds#not_involved_users'
 
   get '/who' => 'sessions#who'
   get '/users' => 'users#index'

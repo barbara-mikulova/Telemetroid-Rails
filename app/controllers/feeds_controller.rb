@@ -1,10 +1,10 @@
 class FeedsController < ApplicationController
-  
+
   protect_from_forgery except: [:create, :add_admin, :remove_admin, :add_user_write,
                                 :remove_user_write, :add_user_read, :remove_user_read,
                                 :add_writing_device, :remove_writing_device,
                                 :add_reading_device, :remove_reading_device]
-  
+
   before_action :require_user_login
   before_action :require_admin, :except => [:create, :index_admins, :index_users_writers,
                                             :index_users_readers, :index_writing_devices,
@@ -36,6 +36,29 @@ class FeedsController < ApplicationController
     else
       render_save_errors(@feed)
     end
+  end
+
+  def not_involved_users
+    if params[:username]
+      users = User.where('username LIKE ?', "%#{params[:username]}%")
+    else
+      users = User.all
+    end
+    response = Array.new
+    users.each do |user|
+      reading = @feed.readers.find_by_user_id(user.id) != nil
+      writing = @feed.writers.find_by_user_id(user.id) != nil
+      admin = @feed.admins.find_by_user_id(user.id) != nil
+      response.push(
+          {
+              :username => user.username,
+              :reading => reading,
+              :writing => writing,
+              :admin => admin
+          }
+      )
+    end
+    render json: response;
   end
 
   def full_index
