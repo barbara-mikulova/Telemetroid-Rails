@@ -28201,3 +28201,1795 @@ Processing by SharedDataController#full_index as */*
 Completed 200 OK in 39ms (Views: 37.6ms | ActiveRecord: 0.4ms)
   [1m[36mSharedData Load (2.5ms)[0m  [1mSELECT "shared_data".* FROM "shared_data" WHERE "shared_data"."id" = ? LIMIT 1[0m  [["id", 6]]
   [1m[35mFeed Load (0.7ms)[0m  SELECT "feeds".* FROM "feeds" INNER JOIN "feeds_shared_data" ON "feeds"."id" = "feeds_shared_data"."feed_id" WHERE "feeds_shared_data"."shared_data_id" = ?  [["shared_data_id", 6]]
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 15:51:32 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWriter Load (0.4ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+Completed 500 Internal Server Error in 77ms
+
+NoMethodError (undefined method `+' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:47:in `block in get_feeds_from_ids'
+  app/controllers/shared_data_controller.rb:42:in `each'
+  app/controllers/shared_data_controller.rb:42:in `get_feeds_from_ids'
+  app/controllers/shared_data_controller.rb:19:in `insert'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.6ms)
+
+
+Started GET "/feeds" for 127.0.0.1 at 2014-02-22 15:51:54 +0100
+Processing by FeedsController#full_index as */*
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 15:54:47 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+Completed 500 Internal Server Error in 1ms
+
+ArgumentError (wrong number of arguments (0 for 2)):
+  app/controllers/shared_data_controller.rb:39:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.4ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 15:57:15 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+Completed 500 Internal Server Error in 4ms
+
+NameError (undefined local variable or method `device' for #<SharedDataController:0x007fdec89c4330>):
+  app/controllers/shared_data_controller.rb:42:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.9ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 15:57:24 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `user' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:42:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.1ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 15:58:19 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `user' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:42:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.2ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 15:59:11 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1
+Completed 500 Internal Server Error in 32ms
+
+ActionView::MissingTemplate (Missing template shared_data/insert, application/insert with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/mnt/windows_data/Ruby/telemetroid/app/views"
+):
+  actionpack (4.0.1) lib/action_view/path_set.rb:46:in `find'
+  actionpack (4.0.1) lib/action_view/lookup_context.rb:115:in `find'
+  actionpack (4.0.1) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionpack (4.0.1) lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  actionpack (4.0.1) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionpack (4.0.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.1) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.1) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.1) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.1) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.1) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.1) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /usr/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  activesupport (4.0.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.1) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.1) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.1) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.1) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:423:in `_run__1884511744499637240__process_action__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.1) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.1) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.1) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.1) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.1) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.1) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__2161144082389835223__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.6ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:00:13 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `user' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:40:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.2ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:00:42 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `user' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:40:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.7ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:01:32 +0100
+
+ActionController::RoutingError (undefined local variable or method `only' for SharedDataController:Class):
+  app/controllers/shared_data_controller.rb:7:in `<class:SharedDataController>'
+  app/controllers/shared_data_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (149.6ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:01:59 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `user' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:40:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.6ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:02:26 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+Completed 500 Internal Server Error in 14ms
+
+TypeError (can't convert Device into String):
+  app/controllers/shared_data_controller.rb:57:in `+'
+  app/controllers/shared_data_controller.rb:57:in `require_device_existence'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.1ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:02:34 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mDevice Load (0.4ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1
+Completed 500 Internal Server Error in 46ms
+
+ActionView::MissingTemplate (Missing template shared_data/insert, application/insert with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/mnt/windows_data/Ruby/telemetroid/app/views"
+):
+  actionpack (4.0.1) lib/action_view/path_set.rb:46:in `find'
+  actionpack (4.0.1) lib/action_view/lookup_context.rb:115:in `find'
+  actionpack (4.0.1) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionpack (4.0.1) lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  actionpack (4.0.1) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionpack (4.0.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.1) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.1) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.1) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.1) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.1) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.1) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /usr/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  activesupport (4.0.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.1) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.1) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.1) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.1) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:423:in `_run__1884511744499637240__process_action__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.1) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.1) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.1) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.1) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.1) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.1) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__2161144082389835223__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.5ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:03:04 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `user' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:40:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (48.1ms)
+
+
+Started GET "/feeds" for 127.0.0.1 at 2014-02-22 16:04:32 +0100
+Processing by FeedsController#full_index as */*
+  [1m[36mFeed Load (2.7ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+Completed 200 OK in 22ms (Views: 9.2ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-02-22 16:04:47 +0100
+Processing by FeedsController#add_writing_device as */*
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mAdmin Load (0.3ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT 1[0m
+Completed 500 Internal Server Error in 32ms
+
+TypeError (can't convert nil into String):
+  app/controllers/feeds_controller.rb:309:in `+'
+  app/controllers/feeds_controller.rb:309:in `cant_find_user'
+  app/controllers/feeds_controller.rb:248:in `require_user_existence'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.3ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-02-22 16:05:09 +0100
+Processing by FeedsController#add_writing_device as */*
+  Parameters: {"username"=>"test", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mAdmin Load (0.6ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'test' LIMIT 1[0m
+Filter chain halted as :require_user_existence rendered or redirected
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-02-22 16:05:17 +0100
+Processing by FeedsController#add_writing_device as */*
+  Parameters: {"username"=>"pixel", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.6ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mAdmin Load (0.4ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."name" IS NULL AND "devices"."user_id" = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 32ms
+
+TypeError (can't convert nil into String):
+  app/controllers/feeds_controller.rb:317:in `+'
+  app/controllers/feeds_controller.rb:317:in `cant_find_device'
+  app/controllers/feeds_controller.rb:256:in `require_device_existence'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.5ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI=/devices/write/add" for 127.0.0.1 at 2014-02-22 16:05:23 +0100
+Processing by FeedsController#add_writing_device as */*
+  Parameters: {"username"=>"pixel", "device_name"=>"test", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (3.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mAdmin Load (0.5ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mDevice Load (0.4ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."name" = 'test' AND "devices"."user_id" = 1 LIMIT 1[0m
+Filter chain halted as :require_device_existence rendered or redirected
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:05:39 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `user' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:40:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.2ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:06:33 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `user' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:40:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.1ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:06:42 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `user' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:40:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.9ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:06:45 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mDevice Load (0.5ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWriter Load (0.3ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 1]]
+Completed 500 Internal Server Error in 93ms
+
+NoMethodError (undefined method `+' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:50:in `block in get_writable_feeds'
+  app/controllers/shared_data_controller.rb:41:in `each'
+  app/controllers/shared_data_controller.rb:41:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.7ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:06:59 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `user' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:40:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (23.0ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:07:42 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `user' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:40:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.9ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:08:04 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mFeed Load (1.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mWriter Load (0.4ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 1]]
+Completed 500 Internal Server Error in 110ms
+
+NoMethodError (undefined method `+' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:51:in `block in get_writable_feeds'
+  app/controllers/shared_data_controller.rb:42:in `each'
+  app/controllers/shared_data_controller.rb:42:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.6ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:09:35 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mFeed Load (1.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+Filter chain halted as :get_writable_feeds rendered or redirected
+Completed 200 OK in 23ms (Views: 0.9ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:09:55 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+Filter chain halted as :get_writable_feeds rendered or redirected
+Completed 200 OK in 38ms (Views: 0.9ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:10:02 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7AXXX"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7AXXX"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7AXXX' LIMIT 1[0m
+Filter chain halted as :get_writable_feeds rendered or redirected
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:10:10 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mFeed Load (0.7ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+Filter chain halted as :get_writable_feeds rendered or redirected
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:10:25 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mFeed Load (0.7ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mFeed Load (0.8ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+Filter chain halted as :get_writable_feeds rendered or redirected
+Completed 200 OK in 43ms (Views: 0.3ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:10:45 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+Completed 500 Internal Server Error in 34ms
+
+NameError (undefined local variable or method `user' for #<SharedDataController:0x00000003f61ac8>):
+  app/controllers/shared_data_controller.rb:48:in `block in get_writable_feeds'
+  app/controllers/shared_data_controller.rb:42:in `each'
+  app/controllers/shared_data_controller.rb:42:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.3ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:11:04 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.4ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.7ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWriter Load (0.7ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+Completed 500 Internal Server Error in 80ms
+
+NoMethodError (undefined method `+' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:51:in `block in get_writable_feeds'
+  app/controllers/shared_data_controller.rb:42:in `each'
+  app/controllers/shared_data_controller.rb:42:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.3ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:11:45 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.8ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWriter Load (0.5ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+  [1m[35mWriter Load (0.2ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 2]]
+Filter chain halted as :get_writable_feeds rendered or redirected
+Completed 200 OK in 87ms (Views: 0.6ms | ActiveRecord: 7.6ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:12:06 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWriter Load (0.5ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mFeed Load (1.4ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+  [1m[35mWriter Load (0.4ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 2]]
+Filter chain halted as :get_writable_feeds rendered or redirected
+Completed 200 OK in 120ms (Views: 0.2ms | ActiveRecord: 8.7ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:12:34 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1
+Filter chain halted as :get_writable_feeds rendered or redirected
+Completed 200 OK in 82ms (Views: 1.0ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:12:47 +0100
+
+SyntaxError (/mnt/windows_data/Ruby/telemetroid/app/controllers/shared_data_controller.rb:82: syntax error, unexpected $end, expecting keyword_end):
+  activesupport (4.0.1) lib/active_support/dependencies.rb:424:in `load'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:424:in `block in load_file'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:616:in `new_constants_in'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:423:in `load_file'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:324:in `require_or_load'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:463:in `load_missing_constant'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:226:in `const_get'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:226:in `block in constantize'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:224:in `each'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:224:in `inject'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:224:in `constantize'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:535:in `get'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:566:in `constantize'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:76:in `controller_reference'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:66:in `controller'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:44:in `call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.1) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__2161144082389835223__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.0ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:12:53 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1
+Filter chain halted as :get_writable_feeds rendered or redirected
+Completed 200 OK in 66ms (Views: 1.0ms | ActiveRecord: 7.7ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:13:51 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.8ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWriter Load (0.3ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+  [1m[35mWriter Load (0.2ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 2]]
+Filter chain halted as :get_writable_feeds rendered or redirected
+Completed 200 OK in 74ms (Views: 0.2ms | ActiveRecord: 8.1ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:14:52 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWriter Load (0.2ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+Completed 500 Internal Server Error in 114ms
+
+NoMethodError (undefined method `+' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:51:in `block in get_writable_feeds'
+  app/controllers/shared_data_controller.rb:42:in `each'
+  app/controllers/shared_data_controller.rb:42:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.3ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:15:21 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWriter Load (0.3ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+Completed 500 Internal Server Error in 90ms
+
+NoMethodError (undefined method `+' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:52:in `block in get_writable_feeds'
+  app/controllers/shared_data_controller.rb:42:in `each'
+  app/controllers/shared_data_controller.rb:42:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.5ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:15:40 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWriter Load (0.3ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+Completed 500 Internal Server Error in 56ms
+
+NoMethodError (undefined method `+' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:52:in `block in get_writable_feeds'
+  app/controllers/shared_data_controller.rb:42:in `each'
+  app/controllers/shared_data_controller.rb:42:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.9ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:16:19 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.4ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWriter Load (0.3ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+Completed 500 Internal Server Error in 6ms
+
+NoMethodError (undefined method `+' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:52:in `block in get_writable_feeds'
+  app/controllers/shared_data_controller.rb:42:in `each'
+  app/controllers/shared_data_controller.rb:42:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.4ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.7ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:16:52 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (3.8ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWriter Load (0.3ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+Completed 500 Internal Server Error in 63ms
+
+NoMethodError (undefined method `+' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:52:in `block in get_writable_feeds'
+  app/controllers/shared_data_controller.rb:42:in `each'
+  app/controllers/shared_data_controller.rb:42:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.4ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:17:33 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWriter Load (0.3ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+Completed 500 Internal Server Error in 57ms
+
+NoMethodError (undefined method `+' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:52:in `block in get_writable_feeds'
+  app/controllers/shared_data_controller.rb:42:in `each'
+  app/controllers/shared_data_controller.rb:42:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.1ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:17:48 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mWriter Load (0.3ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+  [1m[35mWriter Load (0.2ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 2]]
+Filter chain halted as :get_writable_feeds rendered or redirected
+Completed 200 OK in 72ms (Views: 0.2ms | ActiveRecord: 5.9ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:18:16 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+Completed 500 Internal Server Error in 27ms
+
+NoMethodError (undefined method `user' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:40:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.2ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:18:52 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+Completed 500 Internal Server Error in 33ms
+
+NoMethodError (undefined method `user' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:47:in `block in get_writable_feeds'
+  app/controllers/shared_data_controller.rb:41:in `each'
+  app/controllers/shared_data_controller.rb:41:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.7ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:19:30 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+Completed 500 Internal Server Error in 29ms
+
+NoMethodError (undefined method `user' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:48:in `block in get_writable_feeds'
+  app/controllers/shared_data_controller.rb:42:in `each'
+  app/controllers/shared_data_controller.rb:42:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.4ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.9ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:20:24 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mFeed Load (0.2ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mWriter Load (0.3ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+  [1m[35mWriter Load (0.2ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 2]]
+Filter chain halted as :get_writable_feeds rendered or redirected
+Completed 200 OK in 116ms (Views: 0.2ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/users/pixel/feeds/admin" for 192.168.0.180 at 2014-02-22 16:20:46 +0100
+Processing by UsersController#index_feeds_where_admin as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index_feeds_where_admin at /mnt/windows_data/Ruby/telemetroid/app/controllers/users_controller.rb:98)
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = ? ORDER BY "feeds"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = ? ORDER BY "feeds"."id" ASC LIMIT 1  [["id", 2]]
+Completed 200 OK in 18ms (Views: 0.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/users/not_involved" for 192.168.0.180 at 2014-02-22 16:20:53 +0100
+Processing by FeedsController#not_involved_users as HTML
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (1.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (1.1ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mReader Load (1.2ms)[0m  [1mSELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 1 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mWriter Load (0.9ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 1 LIMIT 1  [["feed_id", 1]]
+  [1m[36mAdmin Load (0.9ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 1 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mReader Load (0.7ms)[0m  SELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mWriter Load (0.4ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mAdmin Load (0.6ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mReader Load (0.5ms)[0m  [1mSELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 3 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mWriter Load (0.7ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 3 LIMIT 1  [["feed_id", 1]]
+  [1m[36mAdmin Load (0.8ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 3 LIMIT 1[0m  [["feed_id", 1]]
+Completed 200 OK in 62ms (Views: 1.1ms | ActiveRecord: 11.9ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/users/write/add" for 192.168.0.180 at 2014-02-22 16:20:57 +0100
+Processing by FeedsController#add_user_write as HTML
+  Parameters: {"username"=>"druhy", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (1.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mAdmin Load (1.1ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'druhy' LIMIT 1[0m
+  [1m[35mWriter Load (0.9ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."user_id" = 2 AND "writers"."feed_id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO "writers" ("created_at", "feed_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", Sat, 22 Feb 2014 15:20:57 UTC +00:00], ["feed_id", 1], ["updated_at", Sat, 22 Feb 2014 15:20:57 UTC +00:00], ["user_id", 2]]
+  [1m[36m (269.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFeed Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE ("feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' AND "feeds"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  commit transaction
+  Rendered text template (0.1ms)
+Completed 200 OK in 323ms (Views: 1.9ms | ActiveRecord: 278.9ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/users/not_involved" for 192.168.0.180 at 2014-02-22 16:20:57 +0100
+Processing by FeedsController#not_involved_users as HTML
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (1.5ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.7ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mReader Load (0.7ms)[0m  [1mSELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 1 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mWriter Load (0.6ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 1 LIMIT 1  [["feed_id", 1]]
+  [1m[36mAdmin Load (0.6ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 1 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mReader Load (1.1ms)[0m  SELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mWriter Load (0.6ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mAdmin Load (0.6ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mReader Load (0.5ms)[0m  [1mSELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 3 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mWriter Load (0.5ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 3 LIMIT 1  [["feed_id", 1]]
+  [1m[36mAdmin Load (0.4ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 3 LIMIT 1[0m  [["feed_id", 1]]
+Completed 200 OK in 41ms (Views: 1.1ms | ActiveRecord: 8.6ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:23:21 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mWriter Load (0.3ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1
+  [1m[36mWriter Load (0.5ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 2]]
+Filter chain halted as :get_writable_feeds rendered or redirected
+Completed 200 OK in 102ms (Views: 0.2ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:24:40 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mWriter Load (0.4ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mFeed Load (0.9ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1
+  [1m[36mWriter Load (0.2ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 2]]
+Filter chain halted as :get_writable_feeds rendered or redirected
+Completed 200 OK in 117ms (Views: 0.2ms | ActiveRecord: 6.1ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:25:14 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1
+  [1m[36mFeed Load (0.8ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mWriter Load (0.7ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1
+  [1m[36mWriter Load (0.3ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Feb 2014 15:25:14 UTC +00:00], ["device_id", 1], ["json_data", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nlat: 48.12315\nlong: 17.123456\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:24\n"], ["time_stamp", "2014-02-22 12:26"], ["track_id", 4], ["updated_at", Sat, 22 Feb 2014 15:25:14 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  INSERT INTO "feeds_shared_data" ("shared_data_id", "feed_id") VALUES (7, 1)
+  [1m[36m (327.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mDevice Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '123' AND "devices"."id" != 1) LIMIT 1[0m
+  [1m[35mDevice Exists (0.3ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."id" != 1 AND "devices"."user_id" = 2) LIMIT 1
+  [1m[36mSQL (1.7ms)[0m  [1mUPDATE "devices" SET "current_track" = ?, "updated_at" = ? WHERE "devices"."id" = 1[0m  [["current_track", 4], ["updated_at", Sat, 22 Feb 2014 15:25:14 UTC +00:00]]
+  [1m[35m (231.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.7ms)[0m  INSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 22 Feb 2014 15:25:15 UTC +00:00], ["device_id", 1], ["json_data", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nlat: 48.12145\nlong: 17.123789\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:25\n"], ["time_stamp", "2014-02-22 12:27"], ["track_id", 4], ["updated_at", Sat, 22 Feb 2014 15:25:15 UTC +00:00]]
+  [1m[36m (1.7ms)[0m  [1mINSERT INTO "feeds_shared_data" ("shared_data_id", "feed_id") VALUES (8, 1)[0m
+  [1m[35m (268.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.7ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '123' AND "devices"."id" != 1) LIMIT 1
+  [1m[36mDevice Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."id" != 1 AND "devices"."user_id" = 2) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  commit transaction
+Completed 200 OK in 1000ms (Views: 0.3ms | ActiveRecord: 847.8ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:29:29 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mFeed Load (1.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mWriter Load (0.4ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mFeed Load (0.8ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+  [1m[35mWriter Load (0.2ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 2]]
+Completed 500 Internal Server Error in 131ms
+
+TypeError (can't convert Fixnum into String):
+  app/controllers/shared_data_controller.rb:23:in `sub'
+  app/controllers/shared_data_controller.rb:23:in `insert'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.9ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:30:44 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mWriter Load (0.5ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+  [1m[35mWriter Load (0.3ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 2]]
+Completed 500 Internal Server Error in 73ms
+
+ArgumentError (comparison of Fixnum with Hash failed):
+  app/controllers/shared_data_controller.rb:23:in `insert'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (41.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (54.8ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:31:00 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.4ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mWriter Load (0.8ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+  [1m[35mWriter Load (0.6ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 2]]
+Completed 500 Internal Server Error in 111ms
+
+TypeError (can't convert Fixnum into String):
+  app/controllers/shared_data_controller.rb:23:in `sub'
+  app/controllers/shared_data_controller.rb:23:in `insert'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.8ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:31:07 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.9ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mWriter Load (0.5ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mFeed Load (0.9ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+  [1m[35mWriter Load (0.7ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 2]]
+Completed 500 Internal Server Error in 102ms
+
+ArgumentError (wrong number of arguments (1 for 1..2)):
+  app/controllers/shared_data_controller.rb:23:in `sub'
+  app/controllers/shared_data_controller.rb:23:in `insert'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.1ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:31:33 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mWriter Load (0.3ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+  [1m[35mWriter Load (0.3ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 2]]
+Completed 500 Internal Server Error in 95ms
+
+NoMethodError (undefined method `substring' for "Write successful only for feeds: 1feed, ":String):
+  app/controllers/shared_data_controller.rb:23:in `insert'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.4ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:32:53 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mWriter Load (0.3ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+  [1m[35mWriter Load (0.4ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 2]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (4.2ms)[0m  INSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 22 Feb 2014 15:32:53 UTC +00:00], ["device_id", 1], ["json_data", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nlat: 48.12315\nlong: 17.123456\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:24\n"], ["time_stamp", "2014-02-22 12:26"], ["track_id", 5], ["updated_at", Sat, 22 Feb 2014 15:32:53 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "feeds_shared_data" ("shared_data_id", "feed_id") VALUES (9, 1)[0m
+  [1m[35m (317.1ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.4ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '123' AND "devices"."id" != 1) LIMIT 1
+  [1m[36mDevice Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."id" != 1 AND "devices"."user_id" = 2) LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m  UPDATE "devices" SET "current_track" = ?, "updated_at" = ? WHERE "devices"."id" = 1  [["current_track", 5], ["updated_at", Sat, 22 Feb 2014 15:32:53 UTC +00:00]]
+  [1m[36m (232.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Feb 2014 15:32:53 UTC +00:00], ["device_id", 1], ["json_data", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nlat: 48.12145\nlong: 17.123789\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:25\n"], ["time_stamp", "2014-02-22 12:27"], ["track_id", 5], ["updated_at", Sat, 22 Feb 2014 15:32:53 UTC +00:00]]
+  [1m[35m (1.5ms)[0m  INSERT INTO "feeds_shared_data" ("shared_data_id", "feed_id") VALUES (10, 1)
+  [1m[36m (233.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mDevice Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '123' AND "devices"."id" != 1) LIMIT 1[0m
+  [1m[35mDevice Exists (0.3ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."id" != 1 AND "devices"."user_id" = 2) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 946ms (Views: 0.3ms | ActiveRecord: 805.5ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:33:05 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mDevice Load (2.8ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mWriter Load (1.3ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mFeed Load (0.8ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1
+  [1m[36mWriter Load (0.8ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Feb 2014 15:33:05 UTC +00:00], ["device_id", 1], ["json_data", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nlat: 48.12315\nlong: 17.123456\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:24\n"], ["time_stamp", "2014-02-22 12:26"], ["track_id", 6], ["updated_at", Sat, 22 Feb 2014 15:33:05 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  INSERT INTO "feeds_shared_data" ("shared_data_id", "feed_id") VALUES (11, 1)
+  [1m[36m (290.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mDevice Exists (1.1ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '123' AND "devices"."id" != 1) LIMIT 1[0m
+  [1m[35mDevice Exists (0.3ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."id" != 1 AND "devices"."user_id" = 2) LIMIT 1
+  [1m[36mSQL (2.6ms)[0m  [1mUPDATE "devices" SET "current_track" = ?, "updated_at" = ? WHERE "devices"."id" = 1[0m  [["current_track", 6], ["updated_at", Sat, 22 Feb 2014 15:33:06 UTC +00:00]]
+  [1m[35m (302.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 22 Feb 2014 15:33:06 UTC +00:00], ["device_id", 1], ["json_data", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nlat: 48.12145\nlong: 17.123789\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:25\n"], ["time_stamp", "2014-02-22 12:27"], ["track_id", 6], ["updated_at", Sat, 22 Feb 2014 15:33:06 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "feeds_shared_data" ("shared_data_id", "feed_id") VALUES (12, 1)[0m
+  [1m[35m (250.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.6ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '123' AND "devices"."id" != 1) LIMIT 1
+  [1m[36mDevice Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."id" != 1 AND "devices"."user_id" = 2) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Completed 200 OK in 1014ms (Views: 0.2ms | ActiveRecord: 866.7ms)
+
+
+Started GET "/users/pixel/feeds/admin" for 192.168.0.180 at 2014-02-22 16:33:16 +0100
+Processing by UsersController#index_feeds_where_admin as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index_feeds_where_admin at /mnt/windows_data/Ruby/telemetroid/app/controllers/users_controller.rb:98)
+  [1m[35mAdmin Load (1.1ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = ? ORDER BY "feeds"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = ? ORDER BY "feeds"."id" ASC LIMIT 1  [["id", 2]]
+Completed 200 OK in 62ms (Views: 0.3ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/users/not_involved" for 192.168.0.180 at 2014-02-22 16:33:18 +0100
+Processing by FeedsController#not_involved_users as HTML
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.9ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.8ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mReader Load (1.1ms)[0m  [1mSELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 1 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mWriter Load (1.3ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 1 LIMIT 1  [["feed_id", 1]]
+  [1m[36mAdmin Load (0.9ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 1 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mReader Load (1.1ms)[0m  SELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mWriter Load (0.5ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mAdmin Load (0.8ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mReader Load (0.6ms)[0m  [1mSELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 3 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mWriter Load (1.1ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 3 LIMIT 1  [["feed_id", 1]]
+  [1m[36mAdmin Load (1.0ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 3 LIMIT 1[0m  [["feed_id", 1]]
+Completed 200 OK in 65ms (Views: 1.8ms | ActiveRecord: 13.2ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/users/write/remove" for 192.168.0.180 at 2014-02-22 16:33:21 +0100
+Processing by FeedsController#remove_user_write as HTML
+  Parameters: {"username"=>"druhy", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.9ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mAdmin Load (0.7ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'druhy' LIMIT 1[0m
+  [1m[35mWriter Load (0.8ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."user_id" = 2 AND "writers"."feed_id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.1ms)[0m  UPDATE "writers" SET "feed_id" = NULL WHERE "writers"."feed_id" = ? AND "writers"."id" IN (1)  [["feed_id", 1]]
+  [1m[36m (322.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (218.8ms)[0m  DELETE FROM "writers" WHERE "writers"."id" = 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mFeed Exists (0.7ms)[0m  SELECT 1 AS one FROM "feeds" WHERE ("feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' AND "feeds"."id" != 1) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.1ms)
+Completed 200 OK in 578ms (Views: 1.8ms | ActiveRecord: 547.7ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/users/not_involved" for 192.168.0.180 at 2014-02-22 16:33:22 +0100
+Processing by FeedsController#not_involved_users as HTML
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (1.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mAdmin Load (0.8ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mReader Load (1.2ms)[0m  SELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 1 LIMIT 1  [["feed_id", 1]]
+  [1m[36mWriter Load (0.6ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 1 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mAdmin Load (0.7ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 1 LIMIT 1  [["feed_id", 1]]
+  [1m[36mReader Load (0.5ms)[0m  [1mSELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mWriter Load (0.5ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mAdmin Load (0.5ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 2 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mReader Load (0.5ms)[0m  SELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 3 LIMIT 1  [["feed_id", 1]]
+  [1m[36mWriter Load (0.5ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 3 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mAdmin Load (0.6ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 3 LIMIT 1  [["feed_id", 1]]
+Completed 200 OK in 39ms (Views: 1.0ms | ActiveRecord: 8.4ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:33:24 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.7ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mFeed Load (0.7ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mWriter Load (0.2ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mFeed Load (0.6ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+  [1m[35mWriter Load (0.3ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 22 Feb 2014 15:33:24 UTC +00:00], ["device_id", 1], ["json_data", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nlat: 48.12315\nlong: 17.123456\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:24\n"], ["time_stamp", "2014-02-22 12:26"], ["track_id", 7], ["updated_at", Sat, 22 Feb 2014 15:33:24 UTC +00:00]]
+  [1m[36m (337.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mDevice Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '123' AND "devices"."id" != 1) LIMIT 1[0m
+  [1m[35mDevice Exists (0.1ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."id" != 1 AND "devices"."user_id" = 2) LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "devices" SET "current_track" = ?, "updated_at" = ? WHERE "devices"."id" = 1[0m  [["current_track", 7], ["updated_at", Sat, 22 Feb 2014 15:33:25 UTC +00:00]]
+  [1m[35m (362.3ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 22 Feb 2014 15:33:25 UTC +00:00], ["device_id", 1], ["json_data", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nlat: 48.12145\nlong: 17.123789\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:25\n"], ["time_stamp", "2014-02-22 12:27"], ["track_id", 7], ["updated_at", Sat, 22 Feb 2014 15:33:25 UTC +00:00]]
+  [1m[36m (246.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mDevice Exists (0.9ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '123' AND "devices"."id" != 1) LIMIT 1[0m
+  [1m[35mDevice Exists (0.3ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."id" != 1 AND "devices"."user_id" = 2) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 1015ms (Views: 0.3ms | ActiveRecord: 957.1ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:33:43 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mWriter Load (0.3ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mFeed Load (0.7ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1
+  [1m[36mWriter Load (1.1ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Feb 2014 15:33:43 UTC +00:00], ["device_id", 1], ["json_data", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nlat: 48.12315\nlong: 17.123456\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:24\n"], ["time_stamp", "2014-02-22 12:26"], ["track_id", 8], ["updated_at", Sat, 22 Feb 2014 15:33:43 UTC +00:00]]
+  [1m[35m (303.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.8ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '123' AND "devices"."id" != 1) LIMIT 1
+  [1m[36mDevice Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."id" != 1 AND "devices"."user_id" = 2) LIMIT 1[0m
+  [1m[35mSQL (1.9ms)[0m  UPDATE "devices" SET "current_track" = ?, "updated_at" = ? WHERE "devices"."id" = 1  [["current_track", 8], ["updated_at", Sat, 22 Feb 2014 15:33:43 UTC +00:00]]
+  [1m[36m (218.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (3.8ms)[0m  [1mINSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Feb 2014 15:33:44 UTC +00:00], ["device_id", 1], ["json_data", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nlat: 48.12145\nlong: 17.123789\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:25\n"], ["time_stamp", "2014-02-22 12:27"], ["track_id", 8], ["updated_at", Sat, 22 Feb 2014 15:33:44 UTC +00:00]]
+  [1m[35m (233.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.6ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '123' AND "devices"."id" != 1) LIMIT 1
+  [1m[36mDevice Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."id" != 1 AND "devices"."user_id" = 2) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  commit transaction
+Completed 200 OK in 957ms (Views: 0.3ms | ActiveRecord: 775.6ms)
+
+
+Started POST "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/users/write/add" for 192.168.0.180 at 2014-02-22 16:34:06 +0100
+Processing by FeedsController#add_user_write as HTML
+  Parameters: {"username"=>"druhy", "identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mAdmin Load (0.4ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'druhy' LIMIT 1
+  [1m[36mWriter Load (1.3ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."user_id" = 2 AND "writers"."feed_id" = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (3.1ms)[0m  [1mINSERT INTO "writers" ("created_at", "feed_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 22 Feb 2014 15:34:07 UTC +00:00], ["feed_id", 1], ["updated_at", Sat, 22 Feb 2014 15:34:07 UTC +00:00], ["user_id", 2]]
+  [1m[35m (298.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mFeed Exists (0.7ms)[0m  SELECT 1 AS one FROM "feeds" WHERE ("feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' AND "feeds"."id" != 1) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 427ms (Views: 0.8ms | ActiveRecord: 310.2ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/users/not_involved" for 192.168.0.180 at 2014-02-22 16:34:07 +0100
+Processing by FeedsController#not_involved_users as HTML
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (1.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mAdmin Load (0.7ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mReader Load (0.8ms)[0m  SELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 1 LIMIT 1  [["feed_id", 1]]
+  [1m[36mWriter Load (0.9ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 1 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mAdmin Load (0.7ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 1 LIMIT 1  [["feed_id", 1]]
+  [1m[36mReader Load (0.7ms)[0m  [1mSELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mWriter Load (0.7ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mAdmin Load (1.1ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 2 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mReader Load (0.9ms)[0m  SELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 3 LIMIT 1  [["feed_id", 1]]
+  [1m[36mWriter Load (1.2ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 3 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mAdmin Load (0.8ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 3 LIMIT 1  [["feed_id", 1]]
+Completed 200 OK in 63ms (Views: 1.2ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/feeds/d5JWHATo4I3j4EN-XWBwvmLlh7A/users/not_involved" for 192.168.0.180 at 2014-02-22 16:34:10 +0100
+Processing by FeedsController#not_involved_users as HTML
+  Parameters: {"identifier"=>"d5JWHATo4I3j4EN-XWBwvmLlh7A"}
+  [1m[36mFeed Load (0.9ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+  [1m[35mAdmin Load (0.7ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mReader Load (0.9ms)[0m  [1mSELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 1 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35mWriter Load (1.0ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 1 LIMIT 1  [["feed_id", 2]]
+  [1m[36mAdmin Load (0.5ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 1 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35mReader Load (0.5ms)[0m  SELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 2 LIMIT 1  [["feed_id", 2]]
+  [1m[36mWriter Load (0.6ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35mAdmin Load (0.7ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 2 LIMIT 1  [["feed_id", 2]]
+  [1m[36mReader Load (0.4ms)[0m  [1mSELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 3 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35mWriter Load (0.5ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 3 LIMIT 1  [["feed_id", 2]]
+  [1m[36mAdmin Load (0.4ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 3 LIMIT 1[0m  [["feed_id", 2]]
+Completed 200 OK in 36ms (Views: 0.9ms | ActiveRecord: 7.9ms)
+
+
+Started POST "/feeds/d5JWHATo4I3j4EN-XWBwvmLlh7A/users/write/add" for 192.168.0.180 at 2014-02-22 16:34:12 +0100
+Processing by FeedsController#add_user_write as HTML
+  Parameters: {"username"=>"druhy", "identifier"=>"d5JWHATo4I3j4EN-XWBwvmLlh7A"}
+  [1m[35mFeed Load (1.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1
+  [1m[36mAdmin Load (0.8ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'druhy' LIMIT 1[0m
+  [1m[35mWriter Load (1.8ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."user_id" = 2 AND "writers"."feed_id" = 2 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.3ms)[0m  INSERT INTO "writers" ("created_at", "feed_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", Sat, 22 Feb 2014 15:34:12 UTC +00:00], ["feed_id", 2], ["updated_at", Sat, 22 Feb 2014 15:34:12 UTC +00:00], ["user_id", 2]]
+  [1m[36m (249.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFeed Exists (1.1ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE ("feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' AND "feeds"."id" != 2) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 284ms (Views: 1.1ms | ActiveRecord: 260.1ms)
+
+
+Started GET "/feeds/d5JWHATo4I3j4EN-XWBwvmLlh7A/users/not_involved" for 192.168.0.180 at 2014-02-22 16:34:13 +0100
+Processing by FeedsController#not_involved_users as HTML
+  Parameters: {"identifier"=>"d5JWHATo4I3j4EN-XWBwvmLlh7A"}
+  [1m[36mFeed Load (1.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+  [1m[35mAdmin Load (0.8ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."user_id" = 1 AND "admins"."feed_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mReader Load (0.5ms)[0m  [1mSELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 1 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35mWriter Load (0.6ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 1 LIMIT 1  [["feed_id", 2]]
+  [1m[36mAdmin Load (0.7ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 1 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35mReader Load (0.7ms)[0m  SELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 2 LIMIT 1  [["feed_id", 2]]
+  [1m[36mWriter Load (0.6ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35mAdmin Load (0.5ms)[0m  SELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 2 LIMIT 1  [["feed_id", 2]]
+  [1m[36mReader Load (0.5ms)[0m  [1mSELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 3 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35mWriter Load (0.5ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 3 LIMIT 1  [["feed_id", 2]]
+  [1m[36mAdmin Load (0.5ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE "admins"."feed_id" = ? AND "admins"."user_id" = 3 LIMIT 1[0m  [["feed_id", 2]]
+Completed 200 OK in 36ms (Views: 0.9ms | ActiveRecord: 7.7ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:34:16 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mDevice Load (0.8ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mWriter Load (0.2ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mFeed Load (0.2ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1
+  [1m[36mWriter Load (0.5ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Feb 2014 15:34:16 UTC +00:00], ["device_id", 1], ["json_data", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nlat: 48.12315\nlong: 17.123456\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:24\n"], ["time_stamp", "2014-02-22 12:26"], ["track_id", 9], ["updated_at", Sat, 22 Feb 2014 15:34:16 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  INSERT INTO "feeds_shared_data" ("shared_data_id", "feed_id") VALUES (17, 1)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds_shared_data" ("shared_data_id", "feed_id") VALUES (17, 2)[0m
+  [1m[35m (288.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.7ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '123' AND "devices"."id" != 1) LIMIT 1
+  [1m[36mDevice Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."id" != 1 AND "devices"."user_id" = 2) LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m  UPDATE "devices" SET "current_track" = ?, "updated_at" = ? WHERE "devices"."id" = 1  [["current_track", 9], ["updated_at", Sat, 22 Feb 2014 15:34:17 UTC +00:00]]
+  [1m[36m (242.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Feb 2014 15:34:17 UTC +00:00], ["device_id", 1], ["json_data", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nlat: 48.12145\nlong: 17.123789\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:25\n"], ["time_stamp", "2014-02-22 12:27"], ["track_id", 9], ["updated_at", Sat, 22 Feb 2014 15:34:17 UTC +00:00]]
+  [1m[35m (1.4ms)[0m  INSERT INTO "feeds_shared_data" ("shared_data_id", "feed_id") VALUES (18, 1)
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "feeds_shared_data" ("shared_data_id", "feed_id") VALUES (18, 2)[0m
+  [1m[35m (255.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.8ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '123' AND "devices"."id" != 1) LIMIT 1
+  [1m[36mDevice Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."id" != 1 AND "devices"."user_id" = 2) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  commit transaction
+Completed 200 OK in 938ms (Views: 0.3ms | ActiveRecord: 801.6ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:34:38 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mWriter Load (0.3ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 1]]
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1[0m
+  [1m[35mWriter Load (0.2ms)[0m  SELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1  [["feed_id", 2]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 22 Feb 2014 15:34:38 UTC +00:00], ["device_id", 1], ["json_data", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nlat: 48.12315\nlong: 17.123456\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:24\n"], ["time_stamp", "2014-02-22 12:26"], ["track_id", 10], ["updated_at", Sat, 22 Feb 2014 15:34:38 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "feeds_shared_data" ("shared_data_id", "feed_id") VALUES (19, 1)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds_shared_data" ("shared_data_id", "feed_id") VALUES (19, 2)
+  [1m[36m (300.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mDevice Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '123' AND "devices"."id" != 1) LIMIT 1[0m
+  [1m[35mDevice Exists (0.3ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."id" != 1 AND "devices"."user_id" = 2) LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "devices" SET "current_track" = ?, "updated_at" = ? WHERE "devices"."id" = 1[0m  [["current_track", 10], ["updated_at", Sat, 22 Feb 2014 15:34:38 UTC +00:00]]
+  [1m[35m (241.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.6ms)[0m  INSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 22 Feb 2014 15:34:38 UTC +00:00], ["device_id", 1], ["json_data", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nlat: 48.12145\nlong: 17.123789\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:25\n"], ["time_stamp", "2014-02-22 12:27"], ["track_id", 10], ["updated_at", Sat, 22 Feb 2014 15:34:38 UTC +00:00]]
+  [1m[36m (1.8ms)[0m  [1mINSERT INTO "feeds_shared_data" ("shared_data_id", "feed_id") VALUES (20, 1)[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "feeds_shared_data" ("shared_data_id", "feed_id") VALUES (20, 2)
+  [1m[36m (239.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mDevice Exists (0.9ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '123' AND "devices"."id" != 1) LIMIT 1[0m
+  [1m[35mDevice Exists (0.3ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."id" != 1 AND "devices"."user_id" = 2) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.1ms)
+Completed 200 OK in 981ms (Views: 2.0ms | ActiveRecord: 803.1ms)
+
+
+Started POST "/data" for 127.0.0.1 at 2014-02-22 16:34:46 +0100
+
+ActionController::RoutingError (No route matches [POST] "/data"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (50.8ms)
+
+
+Started GET "/data" for 127.0.0.1 at 2014-02-22 16:34:51 +0100
+Processing by SharedDataController#full_index as */*
+  [1m[35mSharedData Load (0.4ms)[0m  SELECT "shared_data".* FROM "shared_data"
+Completed 200 OK in 173ms (Views: 172.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:35:20 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123asd", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123asd", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.8ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123asd' LIMIT 1[0m
+Completed 500 Internal Server Error in 4ms
+
+TypeError (can't convert nil into String):
+  app/controllers/shared_data_controller.rb:69:in `+'
+  app/controllers/shared_data_controller.rb:69:in `cant_find_device'
+  app/controllers/shared_data_controller.rb:51:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (23.6ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:35:36 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123asd", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123asd", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123asd' LIMIT 1
+Completed 500 Internal Server Error in 9ms
+
+NoMethodError (undefined method `username' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:69:in `cant_find_device'
+  app/controllers/shared_data_controller.rb:51:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.4ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:35:57 +0100
+
+SyntaxError (/mnt/windows_data/Ruby/telemetroid/app/controllers/shared_data_controller.rb:69: syntax error, unexpected ')', expecting ']'
+/mnt/windows_data/Ruby/telemetroid/app/controllers/shared_data_controller.rb:85: syntax error, unexpected $end, expecting keyword_end):
+  activesupport (4.0.1) lib/active_support/dependencies.rb:424:in `load'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:424:in `block in load_file'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:616:in `new_constants_in'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:423:in `load_file'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:324:in `require_or_load'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:463:in `load_missing_constant'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:226:in `const_get'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:226:in `block in constantize'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:224:in `each'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:224:in `inject'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:224:in `constantize'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:535:in `get'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:566:in `constantize'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:76:in `controller_reference'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:66:in `controller'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:44:in `call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.1) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__2161144082389835223__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.7ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:36:12 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123asd", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123asd", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123asd' LIMIT 1[0m
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+Completed 500 Internal Server Error in 35ms
+
+NoMethodError (undefined method `user' for nil:NilClass):
+  app/controllers/shared_data_controller.rb:59:in `block in get_writable_feeds'
+  app/controllers/shared_data_controller.rb:53:in `each'
+  app/controllers/shared_data_controller.rb:53:in `get_writable_feeds'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.4ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:36:41 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123asd", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123asd", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123asd' LIMIT 1[0m
+Filter chain halted as :get_writable_feeds rendered or redirected
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:37:01 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123asd", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123asd", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mDevice Load (0.7ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123asd' LIMIT 1
+Filter chain halted as :get_writable_feeds rendered or redirected
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:37:12 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123asd", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123asd", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123asd' LIMIT 1[0m
+Filter chain halted as :get_writable_feeds rendered or redirected
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/data/insert" for 127.0.0.1 at 2014-02-22 16:37:18 +0100
+Processing by SharedDataController#insert as */*
+  Parameters: {"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}], "shared_datum"=>{"deviceIdentifier"=>"123", "trackType"=>"new", "feedsIdentifiers"=>["wO4gwNRcUtQNSiSLia26QrGtwjI=", "d5JWHATo4I3j4EN-XWBwvmLlh7A"], "entries"=>[{"timeStamp"=>"2014-02-22 12:26", "data"=>{"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}}, {"timeStamp"=>"2014-02-22 12:27", "data"=>{"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}}]}}
+  [1m[35mDevice Load (0.5ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mWriter Load (0.6ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mFeed Load (0.6ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'd5JWHATo4I3j4EN-XWBwvmLlh7A' LIMIT 1
+  [1m[36mWriter Load (0.3ms)[0m  [1mSELECT "writers".* FROM "writers" WHERE "writers"."feed_id" = ? AND "writers"."user_id" = 2 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Feb 2014 15:37:19 UTC +00:00], ["device_id", 1], ["json_data", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nlat: 48.12315\nlong: 17.123456\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:24\n"], ["time_stamp", "2014-02-22 12:26"], ["track_id", 11], ["updated_at", Sat, 22 Feb 2014 15:37:19 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  INSERT INTO "feeds_shared_data" ("shared_data_id", "feed_id") VALUES (21, 1)
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "feeds_shared_data" ("shared_data_id", "feed_id") VALUES (21, 2)[0m
+  [1m[35m (375.1ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.7ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '123' AND "devices"."id" != 1) LIMIT 1
+  [1m[36mDevice Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."id" != 1 AND "devices"."user_id" = 2) LIMIT 1[0m
+  [1m[35mSQL (2.4ms)[0m  UPDATE "devices" SET "current_track" = ?, "updated_at" = ? WHERE "devices"."id" = 1  [["current_track", 11], ["updated_at", Sat, 22 Feb 2014 15:37:19 UTC +00:00]]
+  [1m[36m (249.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Feb 2014 15:37:19 UTC +00:00], ["device_id", 1], ["json_data", "--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess\nlat: 48.12145\nlong: 17.123789\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:25\n"], ["time_stamp", "2014-02-22 12:27"], ["track_id", 11], ["updated_at", Sat, 22 Feb 2014 15:37:19 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  INSERT INTO "feeds_shared_data" ("shared_data_id", "feed_id") VALUES (22, 1)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds_shared_data" ("shared_data_id", "feed_id") VALUES (22, 2)[0m
+  [1m[35m (253.2ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.9ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."identifier" = '123' AND "devices"."id" != 1) LIMIT 1
+  [1m[36mDevice Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."id" != 1 AND "devices"."user_id" = 2) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  commit transaction
+  Rendered text template (0.1ms)
+Completed 200 OK in 1079ms (Views: 2.2ms | ActiveRecord: 895.3ms)
+
+
+Started GET "/data" for 127.0.0.1 at 2014-02-22 16:37:26 +0100
+Processing by SharedDataController#full_index as */*
+  [1m[36mSharedData Load (0.4ms)[0m  [1mSELECT "shared_data".* FROM "shared_data"[0m
+Completed 200 OK in 173ms (Views: 171.7ms | ActiveRecord: 0.4ms)
