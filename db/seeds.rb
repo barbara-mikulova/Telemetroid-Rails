@@ -1,5 +1,6 @@
 Admin.create!([
-  {user_id: 1, feed_id: 1}
+  {user_id: 1, feed_id: 1},
+  {user_id: 1, feed_id: 2}
 ])
 Device.create!([
   {identifier: "123", name: "testovacie zariadenie", password: "HAgzOTMcf6MIf1UibWQgNJrNb4A=", comment: nil, current_track: 0, public: false, user_id: 2},
@@ -7,10 +8,25 @@ Device.create!([
   {identifier: "1235", name: "testovacie", password: "7t+LvIeQm+sNzlQAVAEIDW7nmjE=", comment: nil, current_track: 0, public: false, user_id: 1}
 ])
 Feed.create!([
-  {name: "1feed", comment: nil, public: true, identifier: "wO4gwNRcUtQNSiSLia26QrGtwjI="},
+  {name: "1feed", comment: nil, public: true, identifier: "wO4gwNRcUtQNSiSLia26QrGtwjI=", read_key: "rNBOF_93HELCRv_Zo9PHbcLB6QQ", write_key: "EKtZrSOzihrdU01RrLq_KBt1JHU"},
+  {name: "2. feed", comment: "", public: true, identifier: "O_3Jt-B522nnA6ySStrBxlQ5YwY", read_key: "Rl2-fmT7Lk_W_t3vmih7ii4c-sY", write_key: "eP9wbfJEcnwAgUCdg72afIZQ4cM"}
+])
+Reader.create!([
+  {user_id: 1, feed_id: 1},
+  {user_id: 1, feed_id: 2}
+])
+SharedData.create!([
+  {time_stamp: "2014-02-22 12:26", json_data: {"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}, track_id: 0, device_id: 1},
+  {time_stamp: "2014-02-22 12:27", json_data: {"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}, track_id: 0, device_id: 1},
+  {time_stamp: "2014-02-22 12:26", json_data: {"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}, track_id: 0, device_id: 1},
+  {time_stamp: "2014-02-22 12:27", json_data: {"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}, track_id: 0, device_id: 1}
 ])
 User.create!([
   {username: "pixel", password: "asdasd", mail: "m.r@gmail.com", name: nil, comment: nil, public_email: false},
   {username: "druhy", password: "asdasd", mail: "druhy@gmail.com", name: "Sudruh Druhy", comment: nil, public_email: false},
   {username: "treti", password: "asdasd", mail: "treti@gmail.com", name: nil, comment: nil, public_email: true}
+])
+Writer.create!([
+  {user_id: 1, feed_id: 1},
+  {user_id: 1, feed_id: 2}
 ])

@@ -29993,3 +29993,249 @@ Started GET "/data" for 127.0.0.1 at 2014-02-22 16:37:26 +0100
 Processing by SharedDataController#full_index as */*
   [1m[36mSharedData Load (0.4ms)[0m  [1mSELECT "shared_data".* FROM "shared_data"[0m
 Completed 200 OK in 173ms (Views: 171.7ms | ActiveRecord: 0.4ms)
+  [1m[36m (286.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (236.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140106105426)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password" varchar(255), "mail" varchar(255), "name" varchar(255), "comment" varchar(255), "public_email" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140106105426"]]
+  [1m[36m (233.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateDevices (20140110143652)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "identifier" varchar(255), "name" varchar(255), "password" varchar(255), "comment" varchar(255), "current_track" integer DEFAULT 1, "public" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.4ms)[0m  CREATE INDEX "index_devices_on_user_id" ON "devices" ("user_id")
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140110143652"]]
+  [1m[35m (289.8ms)[0m  commit transaction
+Migrating to CreateFeeds (20140111163612)
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.8ms)[0m  CREATE TABLE "feeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "comment" varchar(255), "public" boolean DEFAULT 't', "identifier" varchar(255), "read_key" varchar(255), "write_key" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111163612"]]
+  [1m[35m (267.8ms)[0m  commit transaction
+Migrating to CreateAdmins (20140111174657)
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.3ms)[0m  [1mCREATE INDEX "index_admins_on_user_id" ON "admins" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  CREATE INDEX "index_admins_on_feed_id" ON "admins" ("feed_id")
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111174657"]]
+  [1m[35m (314.5ms)[0m  commit transaction
+Migrating to CreateWriters (20140111220236)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE "writers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.3ms)[0m  [1mCREATE INDEX "index_writers_on_user_id" ON "writers" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  CREATE INDEX "index_writers_on_feed_id" ON "writers" ("feed_id")
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111220236"]]
+  [1m[35m (309.6ms)[0m  commit transaction
+Migrating to CreateReaders (20140111222952)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "readers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_readers_on_user_id" ON "readers" ("user_id")[0m
+  [1m[35m (0.4ms)[0m  CREATE INDEX "index_readers_on_feed_id" ON "readers" ("feed_id")
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111222952"]]
+  [1m[35m (363.6ms)[0m  commit transaction
+Migrating to CreateWritingDevices (20140122165438)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "writing_devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "device_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.3ms)[0m  [1mCREATE INDEX "index_writing_devices_on_device_id" ON "writing_devices" ("device_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE INDEX "index_writing_devices_on_feed_id" ON "writing_devices" ("feed_id")
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140122165438"]]
+  [1m[35m (273.7ms)[0m  commit transaction
+Migrating to CreateReadingDevices (20140122182040)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "reading_devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "device_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_reading_devices_on_device_id" ON "reading_devices" ("device_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE INDEX "index_reading_devices_on_feed_id" ON "reading_devices" ("feed_id")
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140122182040"]]
+  [1m[35m (371.9ms)[0m  commit transaction
+Migrating to CreateSharedData (20140222113013)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "shared_data" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "time_stamp" varchar(255), "json_data" text, "track_id" integer, "device_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.4ms)[0m  [1mCREATE INDEX "index_shared_data_on_device_id" ON "shared_data" ("device_id")[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140222113013"]]
+  [1m[36m (254.8ms)[0m  [1mcommit transaction[0m
+Migrating to FeedsSharedData (20140222115100)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (2.2ms)[0m  [1mCREATE TABLE "feeds_shared_data" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "shared_data_id" integer, "feed_id" integer) [0m
+  [1m[35m (0.4ms)[0m  CREATE INDEX "index_feeds_shared_data_on_shared_data_id" ON "feeds_shared_data" ("shared_data_id")
+  [1m[36m (0.4ms)[0m  [1mCREATE INDEX "index_feeds_shared_data_on_feed_id" ON "feeds_shared_data" ("feed_id")[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140222115100"]]
+  [1m[36m (286.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (5.9ms)[0m  [1mINSERT INTO "admins" ("created_at", "feed_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 22 Feb 2014 16:04:20 UTC +00:00], ["feed_id", 1], ["updated_at", Sat, 22 Feb 2014 16:04:20 UTC +00:00], ["user_id", 1]]
+  [1m[35m (298.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.4ms)[0m  SELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1
+  [1m[36mDevice Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."user_id" = 2) LIMIT 1[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "devices" ("created_at", "current_track", "identifier", "name", "password", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Sat, 22 Feb 2014 16:04:21 UTC +00:00], ["current_track", 0], ["identifier", "123"], ["name", "testovacie zariadenie"], ["password", "HAgzOTMcf6MIf1UibWQgNJrNb4A="], ["updated_at", Sat, 22 Feb 2014 16:04:21 UTC +00:00], ["user_id", 2]]
+  [1m[36m (217.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mDevice Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '1234' LIMIT 1[0m
+  [1m[35mDevice Exists (0.3ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'druhe testovacie zariadenie' AND "devices"."user_id" = 1) LIMIT 1
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "devices" ("created_at", "current_track", "identifier", "name", "password", "public", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Feb 2014 16:04:21 UTC +00:00], ["current_track", 0], ["identifier", "1234"], ["name", "druhe testovacie zariadenie"], ["password", "IBRYreJ0oY/BIm8Ck73q24Ujjm8="], ["public", true], ["updated_at", Sat, 22 Feb 2014 16:04:21 UTC +00:00], ["user_id", 1]]
+  [1m[35m (235.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.6ms)[0m  SELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '1235' LIMIT 1
+  [1m[36mDevice Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie' AND "devices"."user_id" = 1) LIMIT 1[0m
+  [1m[35mSQL (2.2ms)[0m  INSERT INTO "devices" ("created_at", "current_track", "identifier", "name", "password", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Sat, 22 Feb 2014 16:04:21 UTC +00:00], ["current_track", 0], ["identifier", "1235"], ["name", "testovacie"], ["password", "7t+LvIeQm+sNzlQAVAEIDW7nmjE="], ["updated_at", Sat, 22 Feb 2014 16:04:21 UTC +00:00], ["user_id", 1]]
+  [1m[36m (223.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."read_key" = 'NykurSzV6t2pVseE_EgtrYG8rvQ' LIMIT 1[0m
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."write_key" = 'i9aIkPRMqaoY3rMo5xlJitPXzhE' LIMIT 1
+  [1m[36mFeed Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "feeds" ("created_at", "identifier", "name", "read_key", "updated_at", "write_key") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 22 Feb 2014 16:04:21 UTC +00:00], ["identifier", "wO4gwNRcUtQNSiSLia26QrGtwjI="], ["name", "1feed"], ["read_key", "NykurSzV6t2pVseE_EgtrYG8rvQ"], ["updated_at", Sat, 22 Feb 2014 16:04:21 UTC +00:00], ["write_key", "i9aIkPRMqaoY3rMo5xlJitPXzhE"]]
+  [1m[36m (232.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'm.r@gmail.com' LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "users" ("created_at", "mail", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Feb 2014 16:04:22 UTC +00:00], ["mail", "m.r@gmail.com"], ["password", "asdasd"], ["updated_at", Sat, 22 Feb 2014 16:04:22 UTC +00:00], ["username", "pixel"]]
+  [1m[35m (240.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'druhy' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'druhy@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "users" ("created_at", "mail", "name", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 22 Feb 2014 16:04:22 UTC +00:00], ["mail", "druhy@gmail.com"], ["name", "Sudruh Druhy"], ["password", "asdasd"], ["updated_at", Sat, 22 Feb 2014 16:04:22 UTC +00:00], ["username", "druhy"]]
+  [1m[36m (247.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'treti' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'treti@gmail.com' LIMIT 1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "users" ("created_at", "mail", "password", "public_email", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Feb 2014 16:04:22 UTC +00:00], ["mail", "treti@gmail.com"], ["password", "asdasd"], ["public_email", true], ["updated_at", Sat, 22 Feb 2014 16:04:22 UTC +00:00], ["username", "treti"]]
+  [1m[35m (242.9ms)[0m  commit transaction
+  [1m[36m (211.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (265.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140106105426)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password" varchar(255), "mail" varchar(255), "name" varchar(255), "comment" varchar(255), "public_email" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140106105426"]]
+  [1m[36m (320.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateDevices (20140110143652)
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "identifier" varchar(255), "name" varchar(255), "password" varchar(255), "comment" varchar(255), "current_track" integer DEFAULT 1, "public" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.5ms)[0m  CREATE INDEX "index_devices_on_user_id" ON "devices" ("user_id")
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140110143652"]]
+  [1m[35m (276.6ms)[0m  commit transaction
+Migrating to CreateFeeds (20140111163612)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  CREATE TABLE "feeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "comment" varchar(255), "public" boolean DEFAULT 't', "identifier" varchar(255), "read_key" varchar(255), "write_key" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111163612"]]
+  [1m[35m (268.2ms)[0m  commit transaction
+Migrating to CreateAdmins (20140111174657)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.9ms)[0m  [1mCREATE INDEX "index_admins_on_user_id" ON "admins" ("user_id")[0m
+  [1m[35m (0.4ms)[0m  CREATE INDEX "index_admins_on_feed_id" ON "admins" ("feed_id")
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111174657"]]
+  [1m[35m (273.2ms)[0m  commit transaction
+Migrating to CreateWriters (20140111220236)
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "writers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.9ms)[0m  [1mCREATE INDEX "index_writers_on_user_id" ON "writers" ("user_id")[0m
+  [1m[35m (0.4ms)[0m  CREATE INDEX "index_writers_on_feed_id" ON "writers" ("feed_id")
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111220236"]]
+  [1m[35m (240.8ms)[0m  commit transaction
+Migrating to CreateReaders (20140111222952)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "readers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.4ms)[0m  [1mCREATE INDEX "index_readers_on_user_id" ON "readers" ("user_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_readers_on_feed_id" ON "readers" ("feed_id")
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111222952"]]
+  [1m[35m (251.5ms)[0m  commit transaction
+Migrating to CreateWritingDevices (20140122165438)
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  CREATE TABLE "writing_devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "device_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.4ms)[0m  [1mCREATE INDEX "index_writing_devices_on_device_id" ON "writing_devices" ("device_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_writing_devices_on_feed_id" ON "writing_devices" ("feed_id")
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140122165438"]]
+  [1m[35m (285.4ms)[0m  commit transaction
+Migrating to CreateReadingDevices (20140122182040)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "reading_devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "device_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.4ms)[0m  [1mCREATE INDEX "index_reading_devices_on_device_id" ON "reading_devices" ("device_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_reading_devices_on_feed_id" ON "reading_devices" ("feed_id")
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140122182040"]]
+  [1m[35m (274.5ms)[0m  commit transaction
+Migrating to CreateSharedData (20140222113013)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "shared_data" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "time_stamp" varchar(255), "json_data" text, "track_id" integer, "device_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.5ms)[0m  [1mCREATE INDEX "index_shared_data_on_device_id" ON "shared_data" ("device_id")[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140222113013"]]
+  [1m[36m (276.0ms)[0m  [1mcommit transaction[0m
+Migrating to FeedsSharedData (20140222115100)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (2.0ms)[0m  [1mCREATE TABLE "feeds_shared_data" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "shared_data_id" integer, "feed_id" integer) [0m
+  [1m[35m (0.4ms)[0m  CREATE INDEX "index_feeds_shared_data_on_shared_data_id" ON "feeds_shared_data" ("shared_data_id")
+  [1m[36m (0.4ms)[0m  [1mCREATE INDEX "index_feeds_shared_data_on_feed_id" ON "feeds_shared_data" ("feed_id")[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140222115100"]]
+  [1m[36m (252.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (5.8ms)[0m  [1mINSERT INTO "admins" ("created_at", "feed_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Sat, 22 Feb 2014 16:09:32 UTC +00:00], ["feed_id", 1], ["updated_at", Sat, 22 Feb 2014 16:09:32 UTC +00:00], ["user_id", 1]]
+  [1m[35m (246.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.5ms)[0m  SELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1
+  [1m[36mDevice Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."user_id" = 2) LIMIT 1[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "devices" ("created_at", "current_track", "identifier", "name", "password", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Sat, 22 Feb 2014 16:09:32 UTC +00:00], ["current_track", 0], ["identifier", "123"], ["name", "testovacie zariadenie"], ["password", "HAgzOTMcf6MIf1UibWQgNJrNb4A="], ["updated_at", Sat, 22 Feb 2014 16:09:32 UTC +00:00], ["user_id", 2]]
+  [1m[36m (229.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mDevice Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '1234' LIMIT 1[0m
+  [1m[35mDevice Exists (0.2ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'druhe testovacie zariadenie' AND "devices"."user_id" = 1) LIMIT 1
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "devices" ("created_at", "current_track", "identifier", "name", "password", "public", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Feb 2014 16:09:32 UTC +00:00], ["current_track", 0], ["identifier", "1234"], ["name", "druhe testovacie zariadenie"], ["password", "IBRYreJ0oY/BIm8Ck73q24Ujjm8="], ["public", true], ["updated_at", Sat, 22 Feb 2014 16:09:32 UTC +00:00], ["user_id", 1]]
+  [1m[35m (256.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.7ms)[0m  SELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '1235' LIMIT 1
+  [1m[36mDevice Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie' AND "devices"."user_id" = 1) LIMIT 1[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO "devices" ("created_at", "current_track", "identifier", "name", "password", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Sat, 22 Feb 2014 16:09:33 UTC +00:00], ["current_track", 0], ["identifier", "1235"], ["name", "testovacie"], ["password", "7t+LvIeQm+sNzlQAVAEIDW7nmjE="], ["updated_at", Sat, 22 Feb 2014 16:09:33 UTC +00:00], ["user_id", 1]]
+  [1m[36m (312.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFeed Load (1.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."read_key" = 'rNBOF_93HELCRv_Zo9PHbcLB6QQ' LIMIT 1[0m
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."write_key" = 'EKtZrSOzihrdU01RrLq_KBt1JHU' LIMIT 1
+  [1m[36mFeed Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO "feeds" ("created_at", "identifier", "name", "read_key", "updated_at", "write_key") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 22 Feb 2014 16:09:33 UTC +00:00], ["identifier", "wO4gwNRcUtQNSiSLia26QrGtwjI="], ["name", "1feed"], ["read_key", "rNBOF_93HELCRv_Zo9PHbcLB6QQ"], ["updated_at", Sat, 22 Feb 2014 16:09:33 UTC +00:00], ["write_key", "EKtZrSOzihrdU01RrLq_KBt1JHU"]]
+  [1m[36m (257.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (1.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'm.r@gmail.com' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "users" ("created_at", "mail", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Feb 2014 16:09:33 UTC +00:00], ["mail", "m.r@gmail.com"], ["password", "asdasd"], ["updated_at", Sat, 22 Feb 2014 16:09:33 UTC +00:00], ["username", "pixel"]]
+  [1m[35m (241.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'druhy' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'druhy@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO "users" ("created_at", "mail", "name", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 22 Feb 2014 16:09:34 UTC +00:00], ["mail", "druhy@gmail.com"], ["name", "Sudruh Druhy"], ["password", "asdasd"], ["updated_at", Sat, 22 Feb 2014 16:09:34 UTC +00:00], ["username", "druhy"]]
+  [1m[36m (262.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (1.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'treti' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'treti@gmail.com' LIMIT 1
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO "users" ("created_at", "mail", "password", "public_email", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sat, 22 Feb 2014 16:09:34 UTC +00:00], ["mail", "treti@gmail.com"], ["password", "asdasd"], ["public_email", true], ["updated_at", Sat, 22 Feb 2014 16:09:34 UTC +00:00], ["username", "treti"]]
+  [1m[35m (243.4ms)[0m  commit transaction
+  [1m[36mAdmin Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "admins" LIMIT 1[0m
+  [1m[35mDevice Exists (0.4ms)[0m  SELECT 1 AS one FROM "devices" LIMIT 1
+  [1m[36mFeed Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "feeds" LIMIT 1[0m
+  [1m[35mReader Exists (0.4ms)[0m  SELECT 1 AS one FROM "readers" LIMIT 1
+  [1m[36mReadingDevice Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "reading_devices" LIMIT 1[0m
+  [1m[35mSharedData Exists (0.4ms)[0m  SELECT 1 AS one FROM "shared_data" LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" LIMIT 1[0m
+  [1m[35mWriter Exists (0.3ms)[0m  SELECT 1 AS one FROM "writers" LIMIT 1
+  [1m[36mWritingDevice Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "writing_devices" LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "admins"
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "admins"[0m
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT "admins".* FROM "admins" LIMIT 2 OFFSET 0
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "devices"[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "devices"
+  [1m[36mDevice Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices" LIMIT 3 OFFSET 0[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "feeds"
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "feeds"[0m
+  [1m[35mFeed Load (0.2ms)[0m  SELECT "feeds".* FROM "feeds" LIMIT 2 OFFSET 0
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "readers"[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "readers"
+  [1m[36mReader Load (0.6ms)[0m  [1mSELECT "readers".* FROM "readers" LIMIT 2 OFFSET 0[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "shared_data"
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "shared_data"[0m
+  [1m[35mSharedData Load (0.2ms)[0m  SELECT "shared_data".* FROM "shared_data" LIMIT 4 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" LIMIT 3 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "writers"
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "writers"[0m
+  [1m[35mWriter Load (0.6ms)[0m  SELECT "writers".* FROM "writers" LIMIT 2 OFFSET 0
