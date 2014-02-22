@@ -5,7 +5,7 @@ class CreateDevices < ActiveRecord::Migration
       t.string :name
       t.string :password
       t.string :comment
-      t.integer :current_track, default: 0
+      t.integer :current_track, default: 1
       t.boolean :public, default: false
       t.references :user, index: true
 

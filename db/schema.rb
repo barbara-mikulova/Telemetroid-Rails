@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140122182040) do
+ActiveRecord::Schema.define(version: 20140222115100) do
 
   create_table "admins", force: true do |t|
     t.integer  "user_id"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140122182040) do
     t.string   "name"
     t.string   "password"
     t.string   "comment"
-    t.integer  "current_track", default: 0
+    t.integer  "current_track", default: 1
     t.boolean  "public",        default: false
     t.integer  "user_id"
     t.datetime "created_at"
@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(version: 20140122182040) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "feeds_shared_data", force: true do |t|
+    t.integer "shared_data_id"
+    t.integer "feed_id"
+  end
+
+  add_index "feeds_shared_data", ["feed_id"], name: "index_feeds_shared_data_on_feed_id"
+  add_index "feeds_shared_data", ["shared_data_id"], name: "index_feeds_shared_data_on_shared_data_id"
 
   create_table "readers", force: true do |t|
     t.integer  "user_id"
@@ -67,6 +75,17 @@ ActiveRecord::Schema.define(version: 20140122182040) do
 
   add_index "reading_devices", ["device_id"], name: "index_reading_devices_on_device_id"
   add_index "reading_devices", ["feed_id"], name: "index_reading_devices_on_feed_id"
+
+  create_table "shared_data", force: true do |t|
+    t.string   "time_stamp"
+    t.text     "json_data"
+    t.integer  "track_id"
+    t.integer  "device_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shared_data", ["device_id"], name: "index_shared_data_on_device_id"
 
   create_table "users", force: true do |t|
     t.string   "username"

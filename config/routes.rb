@@ -47,7 +47,10 @@ Telemetroid::Application.routes.draw do
   get '/feeds' => 'feeds#full_index'
   get '/params' => 'params#show'
   post '/params' => 'params#show'
-  
+
+  get '/data' => 'shared_data#full_index'
+  post '/data/insert' => 'shared_data#insert'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
