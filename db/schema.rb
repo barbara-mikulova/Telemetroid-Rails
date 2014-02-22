@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140122182040) do
+ActiveRecord::Schema.define(version: 20140222113013) do
 
   create_table "admins", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "feed_id"
+    t.integer "user_id"
+    t.integer "feed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(version: 20140122182040) do
   add_index "admins", ["user_id"], name: "index_admins_on_user_id"
 
   create_table "devices", force: true do |t|
-    t.string   "identifier"
-    t.string   "name"
-    t.string   "password"
-    t.string   "comment"
-    t.integer  "current_track", default: 0
-    t.boolean  "public",        default: false
-    t.integer  "user_id"
+    t.string "identifier"
+    t.string "name"
+    t.string "password"
+    t.string "comment"
+    t.integer "current_track", default: 0
+    t.boolean "public", default: false
+    t.integer "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -38,19 +38,19 @@ ActiveRecord::Schema.define(version: 20140122182040) do
   add_index "devices", ["user_id"], name: "index_devices_on_user_id"
 
   create_table "feeds", force: true do |t|
-    t.string   "name"
-    t.string   "comment"
-    t.boolean  "public",     default: true
-    t.string   "identifier"
-    t.string   "read_key"
-    t.string   "write_key"
+    t.string "name"
+    t.string "comment"
+    t.boolean "public", default: true
+    t.string "identifier"
+    t.string "read_key"
+    t.string "write_key"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "readers", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "feed_id"
+    t.integer "user_id"
+    t.integer "feed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 20140122182040) do
   add_index "readers", ["user_id"], name: "index_readers_on_user_id"
 
   create_table "reading_devices", force: true do |t|
-    t.integer  "device_id"
-    t.integer  "feed_id"
+    t.integer "device_id"
+    t.integer "feed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -68,20 +68,35 @@ ActiveRecord::Schema.define(version: 20140122182040) do
   add_index "reading_devices", ["device_id"], name: "index_reading_devices_on_device_id"
   add_index "reading_devices", ["feed_id"], name: "index_reading_devices_on_feed_id"
 
+  create_table "shared_data", force: true do |t|
+    t.string "time_stamp"
+    t.string "json_data"
+    t.integer "device_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shared_data", ["device_id"], name: "index_shared_data_on_device_id"
+
+  create_table "shared_data_feeds", force: true do |t|
+    t.integer "shared_data_id"
+    t.integer "feed_id"
+  end
+
   create_table "users", force: true do |t|
-    t.string   "username"
-    t.string   "password"
-    t.string   "mail"
-    t.string   "name"
-    t.string   "comment"
-    t.boolean  "public_email", default: false
+    t.string "username"
+    t.string "password"
+    t.string "mail"
+    t.string "name"
+    t.string "comment"
+    t.boolean "public_email", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "writers", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "feed_id"
+    t.integer "user_id"
+    t.integer "feed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -90,8 +105,8 @@ ActiveRecord::Schema.define(version: 20140122182040) do
   add_index "writers", ["user_id"], name: "index_writers_on_user_id"
 
   create_table "writing_devices", force: true do |t|
-    t.integer  "device_id"
-    t.integer  "feed_id"
+    t.integer "device_id"
+    t.integer "feed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
