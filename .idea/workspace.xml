@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47a59c33-59c8-4909-849c-d9667f2c748b" name="Default" comment="Vytvoreny model pre zdielane data aj s controllerom. Vytvorena routa na full index a insert.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/development.sqlite3" afterPath="$PROJECT_DIR$/db/development.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/development.log" afterPath="$PROJECT_DIR$/log/development.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/shared_data_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/shared_data_controller.rb" />
-    </list>
+    <list default="true" id="47a59c33-59c8-4909-849c-d9667f2c748b" name="Default" comment="Vytvoreny model pre zdielane data aj s controllerom. Vytvorena routa na full index a insert." />
     <ignored path="telemetroid.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,7 +35,7 @@
       <file leaf-file-name="shared_data_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/shared_data_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="0" selection-start="998" selection-end="998" vertical-scroll-proportion="0.8425532" vertical-offset="0" max-vertical-offset="1656">
+            <state line="61" column="10" selection-start="1569" selection-end="1569" vertical-scroll-proportion="0.5361702" vertical-offset="594" max-vertical-offset="1656">
               <folding />
             </state>
           </provider>
@@ -775,7 +771,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/shared_data_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="0" selection-start="998" selection-end="998" vertical-scroll-proportion="0.8425532" vertical-offset="0" max-vertical-offset="1656">
+        <state line="61" column="10" selection-start="1569" selection-end="1569" vertical-scroll-proportion="0.5361702" vertical-offset="594" max-vertical-offset="1656">
           <folding />
         </state>
       </provider>
