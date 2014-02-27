@@ -41,6 +41,10 @@ Telemetroid::Application.routes.draw do
   get '/feeds/:identifier/users/not_involved/' => 'feeds#not_involved_users'
   get '/feeds/:identifier/users/not_involved/:username' => 'feeds#not_involved_users'
 
+  get '/messages' => 'messages#full_index'
+  post '/messages/new' => 'messages#insert'
+  get '/messages/get' => 'messages#get_new'
+
   get '/who' => 'sessions#who'
   get '/users' => 'users#index'
   get '/devices' => 'devices#full_index'
