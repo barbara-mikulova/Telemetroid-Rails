@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222115100) do
+ActiveRecord::Schema.define(version: 20140227141328) do
 
   create_table "admins", force: true do |t|
     t.integer  "user_id"
@@ -55,6 +55,19 @@ ActiveRecord::Schema.define(version: 20140222115100) do
 
   add_index "feeds_shared_data", ["feed_id"], name: "index_feeds_shared_data_on_feed_id"
   add_index "feeds_shared_data", ["shared_data_id"], name: "index_feeds_shared_data_on_shared_data_id"
+
+  create_table "messages", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "device_id"
+    t.string   "message"
+    t.boolean  "read_by_user",   default: false
+    t.boolean  "read_by_device", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["device_id"], name: "index_messages_on_device_id"
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
 
   create_table "readers", force: true do |t|
     t.integer  "user_id"
