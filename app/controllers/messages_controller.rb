@@ -2,10 +2,9 @@ class MessagesController < ApplicationController
 
   protect_from_forgery except: [:insert]
 
-  before_action :require_device_existence, only: :insert
-  before_action :require_user_existence, only: :insert
-  before_action :require_authenticity, only: :insert
-  before_action :require_ownership, only: :insert
+  before_action :require_device_existence, only: [:insert]
+  before_action :require_user_existence, only: [:insert]
+  before_action :require_ownership, only: [:insert]
 
   def full_index
     render json: Message.all
@@ -15,6 +14,12 @@ class MessagesController < ApplicationController
     message = Message.new(message_params)
     message.user = @user
     message.device = @device
+    if session[:type] == 'user'
+      message.read_by_user = true;
+    end
+    if session[:type] == 'device'
+      message.read_by_device = true;
+    end
     if message.save
       response_ok
     else
@@ -23,6 +28,14 @@ class MessagesController < ApplicationController
   end
 
   def get_new
+    if session[:type] == 'device'
+      show_unread_by_device
+      return
+    end
+    if session[:type] == 'user'
+      show_unread_by_user
+      return
+    end
     render text: 'get new'
   end
 
@@ -49,14 +62,6 @@ class MessagesController < ApplicationController
     end
   end
 
-  def require_authenticity
-    if session[:type] == 'user'
-      unless session[:id] == @user.id
-        error_denied(['Not your username'])
-      end
-    end
-  end
-
   def require_ownership
     unless @device.user == @user
       error_denied(["Can't send orders to devices / users which you do not own / belongs to"])
@@ -65,5 +70,29 @@ class MessagesController < ApplicationController
 
   def message_params
     params.permit(:message)
+  end
+
+  def show_unread_by_device
+    device = Device.find(session[:id])
+    messages = Message.find_all_by_device_id_and_read_by_device_and_read_by_user(device.id, false, true)
+    response = []
+    messages.each do |message|
+      message.read_by_device = true;
+      message.save
+      response.push(message.message)
+    end
+    render json: response
+  end
+
+  def show_unread_by_user
+    device = Device.find(session[:id])
+    messages = Message.find_all_by_device_id_and_read_by_user_and_read_by_device(device.id, false, true)
+    response = []
+    messages.each do |message|
+      message.read_by_user = true;
+      message.save
+      response.push(message.message)
+    end
+    render json: response
   end
 end

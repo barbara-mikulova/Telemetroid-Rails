@@ -33865,3 +33865,548 @@ Processing by MessagesController#full_index as */*
   Parameters: {"message"=>{}}
   [1m[35mMessage Load (0.6ms)[0m  SELECT "messages".* FROM "messages"
 Completed 200 OK in 14ms (Views: 10.7ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/messages/get" for 127.0.0.1 at 2014-02-27 15:59:08 +0100
+
+ActionController::RoutingError (No route matches [POST] "/messages/get"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (30.8ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (55.0ms)
+
+
+Started GET "/messages/get" for 127.0.0.1 at 2014-02-27 15:59:15 +0100
+Processing by MessagesController#get_new as */*
+  [1m[36mDevice Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 1]]
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from show_unread_by_device at /mnt/windows_data/Ruby/telemetroid/app/controllers/messages_controller.rb:71)
+  [1m[35mMessage Load (0.3ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."device_id" = 1 AND "messages"."read_by_device" = 'f'
+Completed 200 OK in 32ms (Views: 1.1ms | ActiveRecord: 3.6ms)
+  [1m[36m (323.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (210.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140106105426)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password" varchar(255), "mail" varchar(255), "name" varchar(255), "comment" varchar(255), "public_email" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140106105426"]]
+  [1m[36m (239.3ms)[0m  [1mcommit transaction[0m
+Migrating to CreateDevices (20140110143652)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "identifier" varchar(255), "name" varchar(255), "password" varchar(255), "comment" varchar(255), "current_track" integer DEFAULT 1, "public" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_devices_on_user_id" ON "devices" ("user_id")
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140110143652"]]
+  [1m[35m (239.4ms)[0m  commit transaction
+Migrating to CreateFeeds (20140111163612)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "feeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "comment" varchar(255), "public" boolean DEFAULT 't', "identifier" varchar(255), "read_key" varchar(255), "write_key" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111163612"]]
+  [1m[35m (226.8ms)[0m  commit transaction
+Migrating to CreateAdmins (20140111174657)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_admins_on_user_id" ON "admins" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_admins_on_feed_id" ON "admins" ("feed_id")
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111174657"]]
+  [1m[35m (247.3ms)[0m  commit transaction
+Migrating to CreateWriters (20140111220236)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "writers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_writers_on_user_id" ON "writers" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_writers_on_feed_id" ON "writers" ("feed_id")
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111220236"]]
+  [1m[35m (272.0ms)[0m  commit transaction
+Migrating to CreateReaders (20140111222952)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "readers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_readers_on_user_id" ON "readers" ("user_id")[0m
+  [1m[35m (0.6ms)[0m  CREATE INDEX "index_readers_on_feed_id" ON "readers" ("feed_id")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140111222952"]]
+  [1m[35m (222.9ms)[0m  commit transaction
+Migrating to CreateWritingDevices (20140122165438)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "writing_devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "device_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.3ms)[0m  [1mCREATE INDEX "index_writing_devices_on_device_id" ON "writing_devices" ("device_id")[0m
+  [1m[35m (0.4ms)[0m  CREATE INDEX "index_writing_devices_on_feed_id" ON "writing_devices" ("feed_id")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140122165438"]]
+  [1m[35m (250.9ms)[0m  commit transaction
+Migrating to CreateReadingDevices (20140122182040)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "reading_devices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "device_id" integer, "feed_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.3ms)[0m  [1mCREATE INDEX "index_reading_devices_on_device_id" ON "reading_devices" ("device_id")[0m
+  [1m[35m (0.8ms)[0m  CREATE INDEX "index_reading_devices_on_feed_id" ON "reading_devices" ("feed_id")
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140122182040"]]
+  [1m[35m (290.2ms)[0m  commit transaction
+Migrating to CreateSharedData (20140222113013)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "shared_data" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "time_stamp" varchar(255), "json_data" text, "track_id" integer, "device_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.3ms)[0m  [1mCREATE INDEX "index_shared_data_on_device_id" ON "shared_data" ("device_id")[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140222113013"]]
+  [1m[36m (243.0ms)[0m  [1mcommit transaction[0m
+Migrating to FeedsSharedData (20140222115100)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "feeds_shared_data" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "shared_data_id" integer, "feed_id" integer) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_feeds_shared_data_on_shared_data_id" ON "feeds_shared_data" ("shared_data_id")
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_feeds_shared_data_on_feed_id" ON "feeds_shared_data" ("feed_id")[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140222115100"]]
+  [1m[36m (248.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateMessages (20140227141328)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "device_id" integer, "message" varchar(255), "read_by_user" boolean DEFAULT 'f', "read_by_device" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.4ms)[0m  CREATE INDEX "index_messages_on_user_id" ON "messages" ("user_id")
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_messages_on_device_id" ON "messages" ("device_id")[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140227141328"]]
+  [1m[36m (293.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.5ms)[0m  [1mINSERT INTO "admins" ("created_at", "feed_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 27 Feb 2014 15:00:47 UTC +00:00], ["feed_id", 1], ["updated_at", Thu, 27 Feb 2014 15:00:47 UTC +00:00], ["user_id", 1]]
+  [1m[35m (272.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.2ms)[0m  INSERT INTO "admins" ("created_at", "feed_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", Thu, 27 Feb 2014 15:00:47 UTC +00:00], ["feed_id", 2], ["updated_at", Thu, 27 Feb 2014 15:00:47 UTC +00:00], ["user_id", 1]]
+  [1m[36m (225.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mDevice Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '123' LIMIT 1[0m
+  [1m[35mDevice Exists (0.1ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie zariadenie' AND "devices"."user_id" = 2) LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "devices" ("created_at", "current_track", "identifier", "name", "password", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Thu, 27 Feb 2014 15:00:48 UTC +00:00], ["current_track", 0], ["identifier", "123"], ["name", "testovacie zariadenie"], ["password", "HAgzOTMcf6MIf1UibWQgNJrNb4A="], ["updated_at", Thu, 27 Feb 2014 15:00:48 UTC +00:00], ["user_id", 2]]
+  [1m[35m (217.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mDevice Exists (0.6ms)[0m  SELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '1234' LIMIT 1
+  [1m[36mDevice Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'druhe testovacie zariadenie' AND "devices"."user_id" = 1) LIMIT 1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO "devices" ("created_at", "current_track", "identifier", "name", "password", "public", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Thu, 27 Feb 2014 15:00:48 UTC +00:00], ["current_track", 0], ["identifier", "1234"], ["name", "druhe testovacie zariadenie"], ["password", "IBRYreJ0oY/BIm8Ck73q24Ujjm8="], ["public", true], ["updated_at", Thu, 27 Feb 2014 15:00:48 UTC +00:00], ["user_id", 1]]
+  [1m[36m (211.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mDevice Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "devices" WHERE "devices"."identifier" = '1235' LIMIT 1[0m
+  [1m[35mDevice Exists (0.1ms)[0m  SELECT 1 AS one FROM "devices" WHERE ("devices"."name" = 'testovacie' AND "devices"."user_id" = 1) LIMIT 1
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "devices" ("created_at", "current_track", "identifier", "name", "password", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Thu, 27 Feb 2014 15:00:48 UTC +00:00], ["current_track", 0], ["identifier", "1235"], ["name", "testovacie"], ["password", "7t+LvIeQm+sNzlQAVAEIDW7nmjE="], ["updated_at", Thu, 27 Feb 2014 15:00:48 UTC +00:00], ["user_id", 1]]
+  [1m[35m (240.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFeed Exists (0.3ms)[0m  SELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "feeds" ("created_at", "identifier", "name", "read_key", "updated_at", "write_key") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Thu, 27 Feb 2014 15:00:48 UTC +00:00], ["identifier", "wO4gwNRcUtQNSiSLia26QrGtwjI="], ["name", "1feed"], ["read_key", "rNBOF_93HELCRv_Zo9PHbcLB6QQ"], ["updated_at", Thu, 27 Feb 2014 15:00:48 UTC +00:00], ["write_key", "EKtZrSOzihrdU01RrLq_KBt1JHU"]]
+  [1m[35m (220.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mFeed Exists (0.6ms)[0m  SELECT 1 AS one FROM "feeds" WHERE "feeds"."identifier" = 'O_3Jt-B522nnA6ySStrBxlQ5YwY' LIMIT 1
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "feeds" ("comment", "created_at", "identifier", "name", "read_key", "updated_at", "write_key") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["comment", ""], ["created_at", Thu, 27 Feb 2014 15:00:49 UTC +00:00], ["identifier", "O_3Jt-B522nnA6ySStrBxlQ5YwY"], ["name", "2. feed"], ["read_key", "Rl2-fmT7Lk_W_t3vmih7ii4c-sY"], ["updated_at", Thu, 27 Feb 2014 15:00:49 UTC +00:00], ["write_key", "eP9wbfJEcnwAgUCdg72afIZQ4cM"]]
+  [1m[35m (222.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO "readers" ("created_at", "feed_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", Thu, 27 Feb 2014 15:00:49 UTC +00:00], ["feed_id", 1], ["updated_at", Thu, 27 Feb 2014 15:00:49 UTC +00:00], ["user_id", 1]]
+  [1m[36m (260.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.3ms)[0m  [1mINSERT INTO "readers" ("created_at", "feed_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 27 Feb 2014 15:00:49 UTC +00:00], ["feed_id", 2], ["updated_at", Thu, 27 Feb 2014 15:00:49 UTC +00:00], ["user_id", 1]]
+  [1m[35m (242.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Thu, 27 Feb 2014 15:00:49 UTC +00:00], ["device_id", 1], ["json_data", "---\nlat: 48.12315\nlong: 17.123456\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:24\n"], ["time_stamp", "2014-02-22 12:26"], ["track_id", 0], ["updated_at", Thu, 27 Feb 2014 15:00:49 UTC +00:00]]
+  [1m[36m (228.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Thu, 27 Feb 2014 15:00:50 UTC +00:00], ["device_id", 1], ["json_data", "---\nlat: 48.12145\nlong: 17.123789\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:25\n"], ["time_stamp", "2014-02-22 12:27"], ["track_id", 0], ["updated_at", Thu, 27 Feb 2014 15:00:50 UTC +00:00]]
+  [1m[35m (225.8ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Thu, 27 Feb 2014 15:00:50 UTC +00:00], ["device_id", 1], ["json_data", "---\nlat: 48.12315\nlong: 17.123456\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:24\n"], ["time_stamp", "2014-02-22 12:26"], ["track_id", 0], ["updated_at", Thu, 27 Feb 2014 15:00:50 UTC +00:00]]
+  [1m[36m (223.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "shared_data" ("created_at", "device_id", "json_data", "time_stamp", "track_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Thu, 27 Feb 2014 15:00:50 UTC +00:00], ["device_id", 1], ["json_data", "---\nlat: 48.12145\nlong: 17.123789\nbattPercentage: 49\ntimeStamp: 2014-02-22 12:25\n"], ["time_stamp", "2014-02-22 12:27"], ["track_id", 0], ["updated_at", Thu, 27 Feb 2014 15:00:50 UTC +00:00]]
+  [1m[35m (219.3ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'm.r@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("created_at", "mail", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?)  [["created_at", Thu, 27 Feb 2014 15:00:50 UTC +00:00], ["mail", "m.r@gmail.com"], ["password", "asdasd"], ["updated_at", Thu, 27 Feb 2014 15:00:50 UTC +00:00], ["username", "pixel"]]
+  [1m[36m (226.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'druhy' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."mail" = 'druhy@gmail.com' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("created_at", "mail", "name", "password", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Thu, 27 Feb 2014 15:00:50 UTC +00:00], ["mail", "druhy@gmail.com"], ["name", "Sudruh Druhy"], ["password", "asdasd"], ["updated_at", Thu, 27 Feb 2014 15:00:50 UTC +00:00], ["username", "druhy"]]
+  [1m[35m (226.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'treti' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."mail" = 'treti@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "users" ("created_at", "mail", "password", "public_email", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Thu, 27 Feb 2014 15:00:51 UTC +00:00], ["mail", "treti@gmail.com"], ["password", "asdasd"], ["public_email", true], ["updated_at", Thu, 27 Feb 2014 15:00:51 UTC +00:00], ["username", "treti"]]
+  [1m[36m (218.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (3.1ms)[0m  [1mINSERT INTO "writers" ("created_at", "feed_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 27 Feb 2014 15:00:51 UTC +00:00], ["feed_id", 1], ["updated_at", Thu, 27 Feb 2014 15:00:51 UTC +00:00], ["user_id", 1]]
+  [1m[35m (231.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "writers" ("created_at", "feed_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", Thu, 27 Feb 2014 15:00:51 UTC +00:00], ["feed_id", 2], ["updated_at", Thu, 27 Feb 2014 15:00:51 UTC +00:00], ["user_id", 1]]
+  [1m[36m (283.0ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/messages/get" for 127.0.0.1 at 2014-02-27 16:00:56 +0100
+Processing by MessagesController#get_new as */*
+  [1m[36mDevice Load (0.2ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 1]]
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from show_unread_by_device at /mnt/windows_data/Ruby/telemetroid/app/controllers/messages_controller.rb:77)
+  [1m[35mMessage Load (0.4ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."device_id" = 1 AND "messages"."read_by_device" = 'f' AND "messages"."read_by_user" = 't'
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/messages/new" for 127.0.0.1 at 2014-02-27 16:01:31 +0100
+Error occurred while parsing request parameters.
+Contents:
+
+------WebKitFormBoundarywZZ8NZEGEcxEVyvK
+Content-Disposition: form-data; name="device_identifier"
+
+1234
+------WebKitFormBoundarywZZ8NZEGEcxEVyvK
+Content-Disposition: form-data; name="message "
+
+turn off
+------WebKitFormBoundarywZZ8NZEGEcxEVyvK--
+
+
+ActionDispatch::ParamsParser::ParseError (795: unexpected token at '------WebKitFormBoundarywZZ8NZEGEcxEVyvK
+Content-Disposition: form-data; name="device_identifier"
+
+1234
+------WebKitFormBoundarywZZ8NZEGEcxEVyvK
+Content-Disposition: form-data; name="message "
+
+turn off
+------WebKitFormBoundarywZZ8NZEGEcxEVyvK--
+'):
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:53:in `rescue in parse_formatted_parameters'
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:32:in `parse_formatted_parameters'
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:23:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.1) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__4089156774035456933__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.5ms)
+
+
+Started POST "/messages/new" for 127.0.0.1 at 2014-02-27 16:02:22 +0100
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "device_identifier":"1234"
+  "message":"message for device"
+}
+
+ActionDispatch::ParamsParser::ParseError (795: unexpected token at '{
+  "device_identifier":"1234"
+  "message":"message for device"
+}'):
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:53:in `rescue in parse_formatted_parameters'
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:32:in `parse_formatted_parameters'
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:23:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.1) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__4089156774035456933__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.1ms)
+
+
+Started POST "/messages/new" for 127.0.0.1 at 2014-02-27 16:02:29 +0100
+Processing by MessagesController#insert as */*
+  Parameters: {"device_identifier"=>"1234", "message"=>"message for device"}
+  [1m[36mDevice Load (0.7ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT 1
+Completed 500 Internal Server Error in 13ms
+
+TypeError (can't convert nil into String):
+  app/controllers/messages_controller.rb:60:in `+'
+  app/controllers/messages_controller.rb:60:in `require_user_existence'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.3ms)
+
+
+Started POST "/messages/new" for 127.0.0.1 at 2014-02-27 16:03:00 +0100
+Processing by MessagesController#insert as */*
+  Parameters: {"username"=>"pixel", "message"=>"message for owner"}
+  [1m[36mDevice Load (1.4ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+Filter chain halted as :require_ownership rendered or redirected
+Completed 200 OK in 24ms (Views: 0.4ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/messages/new" for 127.0.0.1 at 2014-02-27 16:03:09 +0100
+Processing by MessagesController#insert as */*
+  Parameters: {"username"=>"druhy", "message"=>"message for owner"}
+  [1m[35mDevice Load (0.5ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'druhy' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+Unpermitted parameters: username
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "messages" ("created_at", "device_id", "message", "read_by_device", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Thu, 27 Feb 2014 15:03:09 UTC +00:00], ["device_id", 1], ["message", "message for owner"], ["read_by_device", true], ["updated_at", Thu, 27 Feb 2014 15:03:09 UTC +00:00], ["user_id", 2]]
+  [1m[36m (274.7ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 314ms (Views: 0.7ms | ActiveRecord: 278.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2014-02-27 16:03:32 +0100
+Processing by SessionsController#login as */*
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 1.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/messages/new" for 127.0.0.1 at 2014-02-27 16:04:04 +0100
+Processing by MessagesController#insert as */*
+  Parameters: {"devce_identifier"=>"1234", "message"=>"message for device"}
+  [1m[36mDevice Load (0.4ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" IS NULL LIMIT 1[0m
+Completed 500 Internal Server Error in 3ms
+
+TypeError (can't convert nil into String):
+  app/controllers/messages_controller.rb:47:in `+'
+  app/controllers/messages_controller.rb:47:in `require_device_existence'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.7ms)
+
+
+Started POST "/messages/new" for 127.0.0.1 at 2014-02-27 16:04:12 +0100
+Processing by MessagesController#insert as */*
+  Parameters: {"device_identifier"=>"1234", "message"=>"message for device"}
+  [1m[35mDevice Load (0.6ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '1234' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Unpermitted parameters: device_identifier
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "messages" ("created_at", "device_id", "message", "read_by_user", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Thu, 27 Feb 2014 15:04:12 UTC +00:00], ["device_id", 2], ["message", "message for device"], ["read_by_user", true], ["updated_at", Thu, 27 Feb 2014 15:04:12 UTC +00:00], ["user_id", 1]]
+  [1m[36m (319.5ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.1ms)
+Completed 200 OK in 338ms (Views: 1.5ms | ActiveRecord: 322.3ms)
+
+
+Started GET "/messages/get" for 127.0.0.1 at 2014-02-27 16:04:24 +0100
+Processing by MessagesController#get_new as */*
+Completed 500 Internal Server Error in 3ms
+
+NameError (undefined local variable or method `show_unread_by_user' for #<MessagesController:0x007f23a0f2a420>):
+  app/controllers/messages_controller.rb:36:in `get_new'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (44.4ms)
+
+
+Started GET "/devics" for 127.0.0.1 at 2014-02-27 16:04:37 +0100
+
+ActionController::RoutingError (No route matches [GET] "/devics"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (35.0ms)
+
+
+Started GET "/devices" for 127.0.0.1 at 2014-02-27 16:04:39 +0100
+Processing by DevicesController#full_index as */*
+  [1m[35mDevice Load (0.6ms)[0m  SELECT "devices".* FROM "devices"
+Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/devices/login" for 127.0.0.1 at 2014-02-27 16:04:57 +0100
+Processing by SessionsController#device_login as */*
+  Parameters: {"identifier"=>"1234", "password"=>"[FILTERED]"}
+  [1m[36mDevice Load (0.4ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."identifier" = '1234' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/messages/get" for 127.0.0.1 at 2014-02-27 16:05:07 +0100
+Processing by MessagesController#get_new as */*
+  [1m[35mDevice Load (0.6ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 2]]
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from show_unread_by_device at /mnt/windows_data/Ruby/telemetroid/app/controllers/messages_controller.rb:77)
+  [1m[36mMessage Load (2.4ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."device_id" = 2 AND "messages"."read_by_device" = 'f' AND "messages"."read_by_user" = 't'[0m
+Completed 200 OK in 10ms (Views: 1.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/messages/get" for 127.0.0.1 at 2014-02-27 16:05:11 +0100
+Processing by MessagesController#get_new as */*
+  [1m[35mDevice Load (0.5ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 2]]
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from show_unread_by_device at /mnt/windows_data/Ruby/telemetroid/app/controllers/messages_controller.rb:77)
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."device_id" = 2 AND "messages"."read_by_device" = 'f' AND "messages"."read_by_user" = 't'[0m
+Completed 200 OK in 7ms (Views: 0.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/messages/get" for 127.0.0.1 at 2014-02-27 16:06:52 +0100
+Processing by MessagesController#get_new as */*
+  [1m[35mDevice Load (0.2ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 2]]
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from show_unread_by_device at /mnt/windows_data/Ruby/telemetroid/app/controllers/messages_controller.rb:77)
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."device_id" = 2 AND "messages"."read_by_device" = 'f' AND "messages"."read_by_user" = 't'[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "messages" SET "read_by_device" = ?, "updated_at" = ? WHERE "messages"."id" = 2[0m  [["read_by_device", true], ["updated_at", Thu, 27 Feb 2014 15:06:52 UTC +00:00]]
+  [1m[35m (298.5ms)[0m  commit transaction
+Completed 200 OK in 357ms (Views: 0.3ms | ActiveRecord: 301.9ms)
+
+
+Started GET "/messages/get" for 127.0.0.1 at 2014-02-27 16:07:03 +0100
+Processing by MessagesController#get_new as */*
+  [1m[36mDevice Load (0.6ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 2]]
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from show_unread_by_device at /mnt/windows_data/Ruby/telemetroid/app/controllers/messages_controller.rb:77)
+  [1m[35mMessage Load (0.5ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."device_id" = 2 AND "messages"."read_by_device" = 'f' AND "messages"."read_by_user" = 't'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/messages/get" for 127.0.0.1 at 2014-02-27 16:07:04 +0100
+Processing by MessagesController#get_new as */*
+  [1m[36mDevice Load (0.5ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 2]]
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from show_unread_by_device at /mnt/windows_data/Ruby/telemetroid/app/controllers/messages_controller.rb:77)
+  [1m[35mMessage Load (0.5ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."device_id" = 2 AND "messages"."read_by_device" = 'f' AND "messages"."read_by_user" = 't'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2014-02-27 16:07:45 +0100
+Processing by SessionsController#login as */*
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 14ms (Views: 0.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/messages/get" for 127.0.0.1 at 2014-02-27 16:07:53 +0100
+Processing by MessagesController#get_new as */*
+  [1m[35mDevice Load (0.3ms)[0m  SELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1  [["id", 1]]
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from show_unread_by_user at /mnt/windows_data/Ruby/telemetroid/app/controllers/messages_controller.rb:89)
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."device_id" = 1 AND "messages"."read_by_user" = 'f' AND "messages"."read_by_device" = 't'[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "messages" SET "read_by_user" = ?, "updated_at" = ? WHERE "messages"."id" = 1[0m  [["read_by_user", true], ["updated_at", Thu, 27 Feb 2014 15:07:53 UTC +00:00]]
+  [1m[35m (369.7ms)[0m  commit transaction
+Completed 200 OK in 408ms (Views: 0.2ms | ActiveRecord: 373.1ms)
+
+
+Started GET "/messages/get" for 127.0.0.1 at 2014-02-27 16:07:55 +0100
+Processing by MessagesController#get_new as */*
+  [1m[36mDevice Load (0.4ms)[0m  [1mSELECT "devices".* FROM "devices" WHERE "devices"."id" = ? LIMIT 1[0m  [["id", 1]]
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from show_unread_by_user at /mnt/windows_data/Ruby/telemetroid/app/controllers/messages_controller.rb:89)
+  [1m[35mMessage Load (0.5ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."device_id" = 1 AND "messages"."read_by_user" = 'f' AND "messages"."read_by_device" = 't'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2014-02-27 16:08:01 +0100
+Processing by MessagesController#full_index as */*
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT "messages".* FROM "messages"[0m
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.6ms)
