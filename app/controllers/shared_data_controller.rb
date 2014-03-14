@@ -42,7 +42,7 @@ class SharedDataController < ApplicationController
     if @errors.length > 0
       error_denied(@errors)
     else
-      response_ok
+      redirect_to '/messages/get'
     end
   end
 
