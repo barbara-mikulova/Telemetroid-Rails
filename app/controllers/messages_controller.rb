@@ -15,11 +15,11 @@ class MessagesController < ApplicationController
     message.user = @user
     message.device = @device
     if session[:type] == 'user'
-      message.read_by_user = true;
+      message.read_by_user = false;
     end
-    if session[:type] == 'device'
-      message.read_by_device = true;
-    end
+    #if session[:type] == 'device'
+    #  message.read_by_device = true;
+    #end
     if message.save
       response_ok
     else
@@ -85,11 +85,11 @@ class MessagesController < ApplicationController
   end
 
   def show_unread_by_user
-    device = Device.find(session[:id])
-    messages = Message.find_all_by_device_id_and_read_by_user_and_read_by_device(device.id, false, true)
+    user = User.find(session[:id])
+    messages = Message.find_all_by_user_id_and_read_by_user_and_read_by_device(user.id, false, false)
     response = []
     messages.each do |message|
-      message.read_by_user = true;
+      message.read_by_user = true
       message.save
       response.push(message.message)
     end
