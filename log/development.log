@@ -34410,3 +34410,7 @@ Started GET "/messages" for 127.0.0.1 at 2014-02-27 16:08:01 +0100
 Processing by MessagesController#full_index as */*
   [1m[36mMessage Load (0.6ms)[0m  [1mSELECT "messages".* FROM "messages"[0m
 Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.6ms)
+  [1m[36mFeed Load (16.3ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  [1m[36mFeed Load (64.9ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  [1m[36mFeed Load (2.5ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  [1m[36mFeed Load (5.0ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
