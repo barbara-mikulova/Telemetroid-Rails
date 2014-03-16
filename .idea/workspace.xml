@@ -4,7 +4,6 @@
     <list default="true" id="47a59c33-59c8-4909-849c-d9667f2c748b" name="Default" comment="Vytvoreny model pre zdielane data aj s controllerom. Vytvorena routa na full index a insert.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/data_sharing_socket.rb" afterPath="$PROJECT_DIR$/config/initializers/data_sharing_socket.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/development.log" afterPath="$PROJECT_DIR$/log/development.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="telemetroid.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,7 +38,7 @@
       <file leaf-file-name="data_sharing_socket.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/initializers/data_sharing_socket.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="0" selection-start="2274" selection-end="2274" vertical-scroll-proportion="2.5306122" vertical-offset="60" max-vertical-offset="1728">
+            <state line="87" column="48" selection-start="2332" selection-end="2332" vertical-scroll-proportion="0.81632656" vertical-offset="1086" max-vertical-offset="1818">
               <folding />
             </state>
           </provider>
@@ -767,7 +766,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/data_sharing_socket.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="0" selection-start="2274" selection-end="2274" vertical-scroll-proportion="2.5306122" vertical-offset="60" max-vertical-offset="1728">
+        <state line="87" column="48" selection-start="2332" selection-end="2332" vertical-scroll-proportion="0.81632656" vertical-offset="1086" max-vertical-offset="1818">
           <folding />
         </state>
       </provider>

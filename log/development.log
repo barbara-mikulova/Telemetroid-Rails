@@ -34740,3 +34740,19 @@ Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.4ms)
   [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
   [1m[35mFeed Load (0.2ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
   [1m[36mReader Load (0.4ms)[0m  [1mSELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 1 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" IS NULL LIMIT 1[0m
+
+
+Started GET "/feeds/" for 127.0.0.1 at 2014-03-16 15:05:30 +0100
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by FeedsController#full_index as */*
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+Completed 200 OK in 49ms (Views: 8.6ms | ActiveRecord: 0.4ms)
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mFeed Load (0.8ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (20.8ms)[0m  SELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 1 LIMIT 1  [["feed_id", 1]]

@@ -63,7 +63,7 @@ def login(handshake, ws)
         return
       end
       if @channelMap[path[3]]
-        sid = @channelMap[path[3]].subscribe{ |msg| ws.send msg }
+        sid = @channelMap[path[3]].subscribe { |msg| ws.send msg }
         @channelMap[path[3]].push "#{sid} connected!"
       else
         channel = EventMachine::Channel.new
@@ -84,8 +84,13 @@ def login(handshake, ws)
           ws.send "#{feed.name} can't be written"
         end
       end
+    else
+      ws.send "Unknown connection type: #{path[2]}"
+      ws.close
     end
   elsif path[1] == 'device'
     puts 'login device'
+  else
+    ws.close
   end
 end
