@@ -5,24 +5,29 @@ Thread.abort_on_exception = true
 Thread.new {
   EventMachine.run {
     @logged_users = Array.new
+    #Maps feedIDs to channels
     @channelMap = {}
+    #Maps WebSockets to channels
+    @socketMap = {}
+    #Maps WebSockets to ids
+    @sidMap = {}
 
     EventMachine::WebSocket.start(:host => '0.0.0.0', :port => '8080') do |ws|
       ws.onopen do |handshake|
         login(handshake, ws)
-        puts @channelMap
       end
 
       ws.onclose do
+        @socketMap[ws].unsubscribe(2)
+        @socketMap.delete(ws)
+        @sidMap.delete(ws)
         puts "close"
       end
 
       ws.onmessage do |msg|
         json = JSON.parse(msg)
         puts json
-        @channelMap[json['feedID']].each do |ws|
-          ws.send 'send something'
-        end
+        @channelMap[json['feedID']].push('test message for channel')
       end
 
       ws.onerror do |error|
@@ -37,9 +42,7 @@ private
 def login(handshake, ws)
   uri = URI(handshake.path)
   query = handshake.query
-  puts query
   path = uri.path.split('/')
-  puts path.size
   if path[1] == 'user'
     user = User.find_by_username(query['username'])
     unless user && user.password == query['password']
@@ -60,12 +63,16 @@ def login(handshake, ws)
         return
       end
       if @channelMap[path[3]]
-        puts 'Map contains ID'
-        @channelMap[path[3]].push(ws)
+        sid = @channelMap[path[3]].subscribe{ |msg| ws.send msg }
+        @channelMap[path[3]].push "#{sid} connected!"
       else
-        puts 'Map does not contain feedID'
-        @channelMap.merge!(path[3] => [ws])
+        channel = EventMachine::Channel.new
+        sid = channel.subscribe { |msg| ws.send msg }
+        channel.push "#{sid} connected!"
+        @channelMap.merge!(path[3] => channel)
       end
+      @socketMap.merge!(ws => @channelMap[path[3]])
+      @sidMap.merge!(ws => sid)
     elsif path[2] == 'write'
       feed_ids = query['feed_ids'].split(',')
       feed_ids.each do |feed_id|
@@ -77,7 +84,6 @@ def login(handshake, ws)
           ws.send "#{feed.name} can't be written"
         end
       end
-      puts feed_ids
     end
   elsif path[1] == 'device'
     puts 'login device'
