@@ -5,12 +5,12 @@ Thread.abort_on_exception = true
 Thread.new {
   EventMachine.run {
     @logged_users = Array.new
-    @logged_user_map = {}
     @channelMap = {}
 
     EventMachine::WebSocket.start(:host => '0.0.0.0', :port => '8080') do |ws|
       ws.onopen do |handshake|
-        login_user(handshake, ws)
+        login(handshake, ws)
+        puts @channelMap
       end
 
       ws.onclose do
@@ -20,6 +20,13 @@ Thread.new {
       ws.onmessage do |msg|
         json = JSON.parse(msg)
         puts json
+        @channelMap[json['feedID']].each do |ws|
+          ws.send 'send something'
+        end
+      end
+
+      ws.onerror do |error|
+        puts error.to_json
       end
     end
   }
@@ -27,7 +34,7 @@ Thread.new {
 
 private
 
-def login_user(handshake, ws)
+def login(handshake, ws)
   uri = URI(handshake.path)
   query = handshake.query
   puts query
@@ -52,22 +59,26 @@ def login_user(handshake, ws)
         ws.close
         return
       end
+      if @channelMap[path[3]]
+        puts 'Map contains ID'
+        @channelMap[path[3]].push(ws)
+      else
+        puts 'Map does not contain feedID'
+        @channelMap.merge!(path[3] => [ws])
+      end
     elsif path[2] == 'write'
       feed_ids = query['feed_ids'].split(',')
       feed_ids.each do |feed_id|
         feed = Feed.find_by_identifier(feed_id)
         unless feed
           ws.send "Feed with id '#{feed_id}' does not exist"
-          return
         end
         unless feed.writers.find_by_user_id(user.id)
           ws.send "#{feed.name} can't be written"
-          return
         end
       end
       puts feed_ids
     end
-    puts 'login user'
   elsif path[1] == 'device'
     puts 'login device'
   end
