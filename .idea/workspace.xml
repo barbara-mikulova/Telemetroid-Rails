@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47a59c33-59c8-4909-849c-d9667f2c748b" name="Default" comment="Vytvoreny model pre zdielane data aj s controllerom. Vytvorena routa na full index a insert.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/initializers/data_sharing_socket.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/development.sqlite3" afterPath="$PROJECT_DIR$/db/development.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/data_sharing_socket.rb" afterPath="$PROJECT_DIR$/config/initializers/data_sharing_socket.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/development.log" afterPath="$PROJECT_DIR$/log/development.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/telemetroid.iml" afterPath="$PROJECT_DIR$/.idea/telemetroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="telemetroid.iws" />
@@ -42,7 +40,16 @@
       <file leaf-file-name="data_sharing_socket.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/initializers/data_sharing_socket.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="25" selection-start="403" selection-end="403" vertical-scroll-proportion="0.5507246" vertical-offset="0" max-vertical-offset="621">
+            <state line="63" column="19" selection-start="1505" selection-end="1505" vertical-scroll-proportion="0.5362319" vertical-offset="801" max-vertical-offset="1422">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sessions_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="7" selection-start="214" selection-end="456" vertical-scroll-proportion="0.0" vertical-offset="61" max-vertical-offset="954">
               <folding />
             </state>
           </provider>
@@ -90,6 +97,7 @@
         <option value="$PROJECT_DIR$/app/models/message.rb" />
         <option value="$PROJECT_DIR$/app/controllers/messages_controller.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/config/initializers/session_store.rb" />
         <option value="$PROJECT_DIR$/config/initializers/data_sharing_socket.rb" />
       </list>
     </option>
@@ -126,7 +134,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="RailsProjectView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -178,8 +185,59 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemetroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemetroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemetroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemetroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemetroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telemetroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -189,6 +247,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="SearchEverywhereHistory" value="" />
     <property name="LayoutCode.rearrangeEntriesRuby" value="false" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager" selected="Rails.Development: telemetroid">
     <configuration default="true" type="RakeRunConfigurationType" factoryName="Rake">
@@ -433,13 +492,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140111163612_create_feeds.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="23" selection-start="156" selection-end="156" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="360">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/feeds_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="185" column="7" selection-start="5540" selection-end="5540" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5562" />
@@ -452,9 +504,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="18" selection-start="468" selection-end="468" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1962">
-          <folding />
-        </state>
+        <state line="13" column="18" selection-start="468" selection-end="468" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1962" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/feeds_controller.rb">
@@ -469,9 +519,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="58" selection-start="699" selection-end="699" vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="1602">
-          <folding />
-        </state>
+        <state line="25" column="58" selection-start="699" selection-end="699" vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="1602" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/feeds_controller.rb">
@@ -506,9 +554,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="51" selection-start="626" selection-end="626" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1962">
-          <folding />
-        </state>
+        <state line="15" column="51" selection-start="626" selection-end="626" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1962" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/devices_controller.rb">
@@ -553,9 +599,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/device.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="40" selection-start="481" selection-end="481" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
-          <folding />
-        </state>
+        <state line="14" column="40" selection-start="481" selection-end="481" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/drop_and_seed.sh">
@@ -611,18 +655,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="912" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/feed.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="27" selection-start="118" selection-end="118" vertical-scroll-proportion="0.076595746" vertical-offset="0" max-vertical-offset="1026">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="371" selection-end="389" vertical-scroll-proportion="0.19148937" vertical-offset="0" max-vertical-offset="954" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/params_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="940" />
@@ -676,16 +708,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="23" selection-start="1705" selection-end="1705" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1584">
-          <folding />
-        </state>
+        <state line="70" column="23" selection-start="1705" selection-end="1705" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1584" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="36" selection-start="2157" selection-end="2401" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="2142">
-          <folding />
-        </state>
+        <state line="44" column="36" selection-start="2157" selection-end="2401" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="2142" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
@@ -695,9 +723,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/message.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="38" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252">
-          <folding />
-        </state>
+        <state line="6" column="38" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140227141328_create_messages.rb">
@@ -709,9 +735,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/messages_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="26" selection-start="2334" selection-end="2334" vertical-scroll-proportion="0.0" vertical-offset="1251" max-vertical-offset="1872">
-          <folding />
-        </state>
+        <state line="91" column="26" selection-start="2334" selection-end="2334" vertical-scroll-proportion="0.0" vertical-offset="1251" max-vertical-offset="1872" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
@@ -721,9 +745,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/feed.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="48" selection-start="437" selection-end="467" vertical-scroll-proportion="0.4830918" vertical-offset="24" max-vertical-offset="1026">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/initializers/session_store.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="60" selection-end="60" vertical-scroll-proportion="0.028985508" vertical-offset="0" max-vertical-offset="621">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="7" selection-start="214" selection-end="456" vertical-scroll-proportion="0.0" vertical-offset="61" max-vertical-offset="954">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/data_sharing_socket.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="25" selection-start="403" selection-end="403" vertical-scroll-proportion="0.5507246" vertical-offset="0" max-vertical-offset="621">
+        <state line="63" column="19" selection-start="1505" selection-end="1505" vertical-scroll-proportion="0.5362319" vertical-offset="801" max-vertical-offset="1422">
           <folding />
         </state>
       </provider>
