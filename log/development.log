@@ -34756,3 +34756,9 @@ Completed 200 OK in 49ms (Views: 8.6ms | ActiveRecord: 0.4ms)
   [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
   [1m[36mFeed Load (0.8ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
   [1m[35mReader Load (20.8ms)[0m  SELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 1 LIMIT 1  [["feed_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.2ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (2.6ms)[0m  [1mSELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 1 LIMIT 1[0m  [["feed_id", 1]]
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'pixel' LIMIT 1
+  [1m[36mFeed Load (0.6ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."identifier" = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (0.5ms)[0m  SELECT "readers".* FROM "readers" WHERE "readers"."feed_id" = ? AND "readers"."user_id" = 1 LIMIT 1  [["feed_id", 1]]

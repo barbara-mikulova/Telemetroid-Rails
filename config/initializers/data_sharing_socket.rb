@@ -43,17 +43,20 @@ def login(handshake, ws)
   uri = URI(handshake.path)
   query = handshake.query
   path = uri.path.split('/')
-  if path[1] == 'user'
+  login_type = path[1]
+  if login_type == 'user'
     user = User.find_by_username(query['username'])
     unless user && user.password == query['password']
       ws.send 'Wrong username or password'
       ws.close
       return
     end
-    if path[2] == 'read'
-      feed = Feed.find_by_identifier(path[3])
+    connection_type = path[2]
+    if connection_type == 'read'
+      feed_id = path[3]
+      feed = Feed.find_by_identifier(feed_id)
       unless feed
-        ws.send "Feed with id '#{path[3]}' does not exist"
+        ws.send "Feed with id '#{feed_id}' does not exist"
         ws.close
         return
       end
@@ -62,18 +65,18 @@ def login(handshake, ws)
         ws.close
         return
       end
-      if @channelMap[path[3]]
-        sid = @channelMap[path[3]].subscribe { |msg| ws.send msg }
-        @channelMap[path[3]].push "#{sid} connected!"
+      if @channelMap[feed_id]
+        sid = @channelMap[feed_id].subscribe { |msg| ws.send msg }
+        @channelMap[feed_id].push "#{sid} connected!"
       else
         channel = EventMachine::Channel.new
         sid = channel.subscribe { |msg| ws.send msg }
         channel.push "#{sid} connected!"
-        @channelMap.merge!(path[3] => channel)
+        @channelMap.merge!(feed_id => channel)
       end
-      @socketMap.merge!(ws => @channelMap[path[3]])
+      @socketMap.merge!(ws => @channelMap[feed_id])
       @sidMap.merge!(ws => sid)
-    elsif path[2] == 'write'
+    elsif connection_type == 'write'
       feed_ids = query['feed_ids'].split(',')
       feed_ids.each do |feed_id|
         feed = Feed.find_by_identifier(feed_id)
@@ -85,10 +88,10 @@ def login(handshake, ws)
         end
       end
     else
-      ws.send "Unknown connection type: #{path[2]}"
+      ws.send "Unknown connection type: #{connection_type}"
       ws.close
     end
-  elsif path[1] == 'device'
+  elsif login_type == 'device'
     puts 'login device'
   else
     ws.close
