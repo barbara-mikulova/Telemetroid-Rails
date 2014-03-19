@@ -11,6 +11,8 @@ Thread.new {
     @socketMap = {}
     #Maps WebSockets to ids
     @sidMap = {}
+    #Maps transmitters to arrays of channels, to which they send data
+    @transmittersMap = {}
 
     EventMachine::WebSocket.start(:host => '0.0.0.0', :port => '8080') do |ws|
       ws.onopen do |handshake|
@@ -18,16 +20,26 @@ Thread.new {
       end
 
       ws.onclose do
-        @socketMap[ws].unsubscribe(2)
-        @socketMap.delete(ws)
-        @sidMap.delete(ws)
+        if @socketMap[ws]
+          @socketMap[ws].unsubscribe(2)
+          @socketMap.delete(ws)
+          @sidMap.delete(ws)
+        end
+        if @transmittersMap[ws]
+          @transmittersMap.delete(ws)
+        end
         puts "close"
       end
 
       ws.onmessage do |msg|
-        json = JSON.parse(msg)
-        puts json
-        @channelMap[json['feedID']].push('test message for channel')
+        if @transmittersMap[ws]
+          channels = @transmittersMap[ws]
+          if channels
+            channels.each do |channel|
+              channel.push(msg)
+            end
+          end
+        end
       end
 
       ws.onerror do |error|
@@ -71,22 +83,31 @@ def login(handshake, ws)
       else
         channel = EventMachine::Channel.new
         sid = channel.subscribe { |msg| ws.send msg }
-        channel.push "#{sid} connected!"
         @channelMap.merge!(feed_id => channel)
       end
       @socketMap.merge!(ws => @channelMap[feed_id])
       @sidMap.merge!(ws => sid)
     elsif connection_type == 'write'
       feed_ids = query['feed_ids'].split(',')
+      channels = Array.new
       feed_ids.each do |feed_id|
         feed = Feed.find_by_identifier(feed_id)
         unless feed
           ws.send "Feed with id '#{feed_id}' does not exist"
+          next
         end
         unless feed.writers.find_by_user_id(user.id)
           ws.send "#{feed.name} can't be written"
+          next
         end
+        unless @channelMap[feed_id]
+          channel = EventMachine::Channel.new
+          @channelMap.merge!(feed_id => channel)
+        end
+        channel = @channelMap[feed_id]
+        channels.push(channel)
       end
+      @transmittersMap.merge!(ws => channels)
     else
       ws.send "Unknown connection type: #{connection_type}"
       ws.close
