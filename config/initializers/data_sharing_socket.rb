@@ -4,7 +4,6 @@ Thread.abort_on_exception = true
 
 Thread.new {
   EventMachine.run {
-    @logged_users = Array.new
     #Maps feedIDs to channels
     @channelMap = {}
     #Maps WebSockets to channels
@@ -21,7 +20,7 @@ Thread.new {
 
       ws.onclose do
         if @socketMap[ws]
-          @socketMap[ws].unsubscribe(2)
+          @socketMap[ws].unsubscribe(@sidMap[ws])
           @socketMap.delete(ws)
           @sidMap.delete(ws)
         end
@@ -79,7 +78,6 @@ def login(handshake, ws)
       end
       if @channelMap[feed_id]
         sid = @channelMap[feed_id].subscribe { |msg| ws.send msg }
-        @channelMap[feed_id].push "#{sid} connected!"
       else
         channel = EventMachine::Channel.new
         sid = channel.subscribe { |msg| ws.send msg }
