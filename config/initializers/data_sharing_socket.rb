@@ -13,7 +13,7 @@ Thread.new {
     #Maps transmitters to arrays of channels, to which they send data
     @transmittersMap = {}
 
-    EventMachine::WebSocket.start(:host => '0.0.0.0', :port => '8080') do |ws|
+    EventMachine::WebSocket.start(:host => '0.0.0.0', :port => '8080', :debug => true) do |ws|
       ws.onopen do |handshake|
         login(handshake, ws)
       end
@@ -56,9 +56,10 @@ def login(handshake, ws)
   path = uri.path.split('/')
   login_type = path[1]
   if login_type == 'user'
+    puts query
     user = User.find_by_username(query['username'])
     unless user && user.password == query['password']
-      ws.send 'Wrong username or password'
+      ws.send({:code => 3, :messages => ['Wrong username or password']}.to_json)
       ws.close
       return
     end
@@ -67,20 +68,20 @@ def login(handshake, ws)
       feed_id = path[3]
       feed = Feed.find_by_identifier(feed_id)
       unless feed
-        ws.send "Feed with id '#{feed_id}' does not exist"
+        ws.send({:code => 4, :messages => ["Feed with id '#{feed_id}' does not exist"]}.to_json)
         ws.close
         return
       end
       unless feed.readers.find_by_user_id(user.id)
-        ws.send "Feed #{feed.name} can't be read"
+        ws.send({:code => 4, :messages => ["Feed #{feed.name} can't be read"]}.to_json)
         ws.close
         return
       end
       if @channelMap[feed_id]
-        sid = @channelMap[feed_id].subscribe { |msg| ws.send msg }
+        sid = @channelMap[feed_id].subscribe { |msg| ws.send(msg) }
       else
         channel = EventMachine::Channel.new
-        sid = channel.subscribe { |msg| ws.send msg }
+        sid = channel.subscribe { |msg| ws.send(msg) }
         @channelMap.merge!(feed_id => channel)
       end
       @socketMap.merge!(ws => @channelMap[feed_id])
@@ -91,11 +92,11 @@ def login(handshake, ws)
       feed_ids.each do |feed_id|
         feed = Feed.find_by_identifier(feed_id)
         unless feed
-          ws.send "Feed with id '#{feed_id}' does not exist"
+          ws.send({:code => 4, :messages => ["Feed with id '#{feed_id}' does not exist"]}.to_json)
           next
         end
         unless feed.writers.find_by_user_id(user.id)
-          ws.send "#{feed.name} can't be written"
+          ws.send({:code => 3, :messages => ["#{feed.name} can't be written"]}.to_json)
           next
         end
         unless @channelMap[feed_id]
@@ -107,7 +108,7 @@ def login(handshake, ws)
       end
       @transmittersMap.merge!(ws => channels)
     else
-      ws.send "Unknown connection type: #{connection_type}"
+      ws.send({:code => 1, :messages => ["Unknown connection type: #{connection_type}"]}.to_json)
       ws.close
     end
   elsif login_type == 'device'
@@ -115,4 +116,5 @@ def login(handshake, ws)
   else
     ws.close
   end
+
 end
