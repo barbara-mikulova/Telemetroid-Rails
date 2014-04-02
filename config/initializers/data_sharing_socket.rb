@@ -13,7 +13,7 @@ Thread.new {
     #Maps transmitters to arrays of channels, to which they send data
     @transmittersMap = {}
 
-    EventMachine::WebSocket.start(:host => '0.0.0.0', :port => '8080', :debug => true) do |ws|
+    EventMachine::WebSocket.start(:host => '0.0.0.0', :port => '8080') do |ws|
       ws.onopen do |handshake|
         login(handshake, ws)
       end

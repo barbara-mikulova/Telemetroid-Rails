@@ -3,8 +3,10 @@
   <component name="DataSourceManagerImpl" format="xml" hash="3251421308">
     <data-source source="LOCAL" name="Rails telemetroid: development" uuid="e20df3d4-317e-4fdb-831a-5bc3f45609ba">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1:3306/telemetroid</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>dfe8dfcbdfd8dfc8dfcbdfd8dfc1dfcbdf98df9bdf9adf98df98df9adf9bdf9a</user-password>
       <libraries />
     </data-source>
   </component>

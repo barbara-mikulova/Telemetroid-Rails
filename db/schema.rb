@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20140227141328) do
     t.datetime "updated_at"
   end
 
-  add_index "admins", ["feed_id"], name: "index_admins_on_feed_id"
-  add_index "admins", ["user_id"], name: "index_admins_on_user_id"
+  add_index "admins", ["feed_id"], name: "index_admins_on_feed_id", using: :btree
+  add_index "admins", ["user_id"], name: "index_admins_on_user_id", using: :btree
 
   create_table "devices", force: true do |t|
     t.string   "identifier"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20140227141328) do
     t.datetime "updated_at"
   end
 
-  add_index "devices", ["user_id"], name: "index_devices_on_user_id"
+  add_index "devices", ["user_id"], name: "index_devices_on_user_id", using: :btree
 
   create_table "feeds", force: true do |t|
     t.string   "name"
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20140227141328) do
     t.integer "feed_id"
   end
 
-  add_index "feeds_shared_data", ["feed_id"], name: "index_feeds_shared_data_on_feed_id"
-  add_index "feeds_shared_data", ["shared_data_id"], name: "index_feeds_shared_data_on_shared_data_id"
+  add_index "feeds_shared_data", ["feed_id"], name: "index_feeds_shared_data_on_feed_id", using: :btree
+  add_index "feeds_shared_data", ["shared_data_id"], name: "index_feeds_shared_data_on_shared_data_id", using: :btree
 
   create_table "messages", force: true do |t|
     t.integer  "user_id"
@@ -66,8 +66,8 @@ ActiveRecord::Schema.define(version: 20140227141328) do
     t.datetime "updated_at"
   end
 
-  add_index "messages", ["device_id"], name: "index_messages_on_device_id"
-  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
+  add_index "messages", ["device_id"], name: "index_messages_on_device_id", using: :btree
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
   create_table "readers", force: true do |t|
     t.integer  "user_id"
@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 20140227141328) do
     t.datetime "updated_at"
   end
 
-  add_index "readers", ["feed_id"], name: "index_readers_on_feed_id"
-  add_index "readers", ["user_id"], name: "index_readers_on_user_id"
+  add_index "readers", ["feed_id"], name: "index_readers_on_feed_id", using: :btree
+  add_index "readers", ["user_id"], name: "index_readers_on_user_id", using: :btree
 
   create_table "reading_devices", force: true do |t|
     t.integer  "device_id"
@@ -86,8 +86,8 @@ ActiveRecord::Schema.define(version: 20140227141328) do
     t.datetime "updated_at"
   end
 
-  add_index "reading_devices", ["device_id"], name: "index_reading_devices_on_device_id"
-  add_index "reading_devices", ["feed_id"], name: "index_reading_devices_on_feed_id"
+  add_index "reading_devices", ["device_id"], name: "index_reading_devices_on_device_id", using: :btree
+  add_index "reading_devices", ["feed_id"], name: "index_reading_devices_on_feed_id", using: :btree
 
   create_table "shared_data", force: true do |t|
     t.string   "time_stamp"
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20140227141328) do
     t.datetime "updated_at"
   end
 
-  add_index "shared_data", ["device_id"], name: "index_shared_data_on_device_id"
+  add_index "shared_data", ["device_id"], name: "index_shared_data_on_device_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username"
@@ -118,8 +118,8 @@ ActiveRecord::Schema.define(version: 20140227141328) do
     t.datetime "updated_at"
   end
 
-  add_index "writers", ["feed_id"], name: "index_writers_on_feed_id"
-  add_index "writers", ["user_id"], name: "index_writers_on_user_id"
+  add_index "writers", ["feed_id"], name: "index_writers_on_feed_id", using: :btree
+  add_index "writers", ["user_id"], name: "index_writers_on_user_id", using: :btree
 
   create_table "writing_devices", force: true do |t|
     t.integer  "device_id"
@@ -128,7 +128,7 @@ ActiveRecord::Schema.define(version: 20140227141328) do
     t.datetime "updated_at"
   end
 
-  add_index "writing_devices", ["device_id"], name: "index_writing_devices_on_device_id"
-  add_index "writing_devices", ["feed_id"], name: "index_writing_devices_on_feed_id"
+  add_index "writing_devices", ["device_id"], name: "index_writing_devices_on_device_id", using: :btree
+  add_index "writing_devices", ["feed_id"], name: "index_writing_devices_on_feed_id", using: :btree
 
 end
