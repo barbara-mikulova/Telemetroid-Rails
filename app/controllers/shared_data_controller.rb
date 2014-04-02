@@ -15,11 +15,11 @@ class SharedDataController < ApplicationController
       return
     end
     @errors = []
-    data = []
     @not_written_feed_names = []
+    get_writable_ids
+    data = []
     saved = false
     entries = params['entries']
-    puts '*******************************' + entries.length.to_s
     if entries
       entries.each do |entry|
         feed_ids = entry['feedIdentifiers']
@@ -28,7 +28,7 @@ class SharedDataController < ApplicationController
           json_data = entry['jsonData']
           track_type = entry['trackType']
           share_data = SharedData.new
-          share_data.device = @device
+          share_data.device_id = @device.id
           share_data.json_data = json_data
           track_id = get_track_type(track_type)
           if track_id == -2
@@ -50,7 +50,6 @@ class SharedDataController < ApplicationController
       error_denied(["No feeds were updated"])
       return
     end
-    SharedData.import data
     if @not_written_feed_names.length > 0
       @errors.push("These feeds were not updated: " + @not_written_feed_names.to_sentence)
     end
@@ -59,6 +58,7 @@ class SharedDataController < ApplicationController
     else
       response_ok
     end
+    SharedData.import data
   end
 
   private
@@ -83,26 +83,30 @@ class SharedDataController < ApplicationController
   def get_savable_feeds(feed_ids)
     result = []
     feed_ids.each do |feed_id|
-      feed = Feed.find_by_identifier(feed_id)
-      if feed
-        if session[:type] == 'user'
-          if Writer.find_by_feed_id_and_user_id(feed.id, session[:id])
-            result.push(feed)
-          else
-            push_not_written_feed(feed)
-          end
-        elsif session[:type] == 'device'
-          if WritingDevice.find_by_feed_id_and_user_id(feed.id, session[:id])
-            result.push(feed)
-          else
-            push_not_written_feed(feed)
-          end
+      @writable_feeds.each do |writable_feed|
+        if (writable_feed.identifier == feed_id)
+          feed = Feed.find_by_identifier(feed_id)
+          result.push(feed)
         end
-      else
-        @errors.push("Can't find feed with id #{feed_id}")
       end
     end
     return result
+  end
+
+  def get_writable_ids
+    @writable_feeds = []
+    if session[:type] == 'user'
+      writers = Writer.find_all_by_user_id(session[:id])
+      writers.each do |writer|
+        @writable_feeds.push(writer.feed)
+      end
+    end
+    if session[:type] == 'device'
+      writers = WritingDevice.find_all_by_device_id(session[:id])
+      writers.each do |writer|
+        @writable_feeds.push(writer.feed)
+      end
+    end
   end
 
   def push_not_written_feed(feed)

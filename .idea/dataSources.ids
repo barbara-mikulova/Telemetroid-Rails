@@ -3,4 +3,10 @@
   <data-source source="LOCAL" name="Rails telemetroid: development" uuid="e20df3d4-317e-4fdb-831a-5bc3f45609ba">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source source="LOCAL" name="Rails telemetroid: test" uuid="94ba81ae-1c57-46a4-b1ae-a5df78a4cc33">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails telemetroid: production" uuid="744d941c-8bdf-402b-9ad5-4125a4fb5c45">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>
