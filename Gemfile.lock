@@ -35,11 +35,18 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    em-websocket (0.5.0)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0.5.3)
     email_validator (1.4.0)
       activemodel
     erubis (2.7.0)
+    eventmachine (1.0.3)
+    eventmachine (1.0.3-x86-mingw32)
     execjs (2.0.2)
     hike (1.2.3)
+    http_parser.rb (0.5.3)
+    http_parser.rb (0.5.3-x86-mingw32)
     i18n (0.6.9)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -55,6 +62,8 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.2)
     polyglot (0.3.3)
+    puma (2.8.1)
+      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -116,9 +125,11 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  em-websocket
   email_validator
   jbuilder (~> 1.2)
   jquery-rails
+  puma
   rails (= 4.0.1)
   sass-rails (~> 4.0.0)
   sdoc

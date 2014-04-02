@@ -47,3 +47,7 @@ end
 gem 'email_validator', :require => 'email_validator/strict'
 
 gem 'seed_dump'
+
+gem 'em-websocket'
+
+gem 'puma'
