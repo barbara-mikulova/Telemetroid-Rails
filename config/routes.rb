@@ -40,10 +40,16 @@ Telemetroid::Application.routes.draw do
   get '/feeds/:identifier/keys/read' => 'feeds#show_read_key'
   get '/feeds/:identifier/users/not_involved/' => 'feeds#not_involved_users'
   get '/feeds/:identifier/users/not_involved/:username' => 'feeds#not_involved_users'
+  get '/feeds/:identifier/tracks/read' => 'tracks#index_for_feed'
+  get '/feeds/:identifier/tracks/write' => 'tracks#index_write_for_feed'
 
   get '/messages' => 'messages#full_index'
   post '/messages/new' => 'messages#insert'
   get '/messages/get' => 'messages#get_new'
+
+  get '/tracks' => 'tracks#full_index'
+  post '/tracks/new' => 'tracks#create'
+  get '/tracks/:identifier/data' => 'tracks#get_data'
 
   get '/who' => 'sessions#who'
   get '/users' => 'users#index'

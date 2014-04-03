@@ -79,4 +79,18 @@ class ApplicationController < ActionController::Base
     error_missing_params(model.errors.full_messages)
   end
 
+  def can_read(feed)
+    if session[:type] == 'user'
+      unless feed.readers.find_by_user_id(session[:id])
+        return false
+      end
+    end
+    if session[:type] == 'device'
+      unless feed.reading_devices.find_by_device_id(session[:id])
+        return false
+      end
+    end
+    return true
+  end
+
 end

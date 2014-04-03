@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227141328) do
+ActiveRecord::Schema.define(version: 20140403100832) do
 
   create_table "admins", force: true do |t|
     t.integer  "user_id"
@@ -28,8 +28,7 @@ ActiveRecord::Schema.define(version: 20140227141328) do
     t.string   "name"
     t.string   "password"
     t.string   "comment"
-    t.integer  "current_track", default: 1
-    t.boolean  "public",        default: false
+    t.boolean  "public",     default: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -55,6 +54,14 @@ ActiveRecord::Schema.define(version: 20140227141328) do
 
   add_index "feeds_shared_data", ["feed_id"], name: "index_feeds_shared_data_on_feed_id", using: :btree
   add_index "feeds_shared_data", ["shared_data_id"], name: "index_feeds_shared_data_on_shared_data_id", using: :btree
+
+  create_table "feeds_tracks", force: true do |t|
+    t.integer "track_id"
+    t.integer "feed_id"
+  end
+
+  add_index "feeds_tracks", ["feed_id"], name: "index_feeds_tracks_on_feed_id", using: :btree
+  add_index "feeds_tracks", ["track_id"], name: "index_feeds_tracks_on_track_id", using: :btree
 
   create_table "messages", force: true do |t|
     t.integer  "user_id"
@@ -92,13 +99,34 @@ ActiveRecord::Schema.define(version: 20140227141328) do
   create_table "shared_data", force: true do |t|
     t.string   "time_stamp"
     t.text     "json_data"
-    t.integer  "track_id"
     t.integer  "device_id"
+    t.integer  "track_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "shared_data", ["device_id"], name: "index_shared_data_on_device_id", using: :btree
+  add_index "shared_data", ["track_id"], name: "index_shared_data_on_track_id", using: :btree
+
+  create_table "shared_data_tracks", force: true do |t|
+    t.integer "track_id"
+    t.integer "shared_data_id"
+  end
+
+  add_index "shared_data_tracks", ["shared_data_id"], name: "index_shared_data_tracks_on_shared_data_id", using: :btree
+  add_index "shared_data_tracks", ["track_id"], name: "index_shared_data_tracks_on_track_id", using: :btree
+
+  create_table "tracks", force: true do |t|
+    t.string   "name"
+    t.string   "identifier"
+    t.integer  "feed_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tracks", ["feed_id"], name: "index_tracks_on_feed_id", using: :btree
+  add_index "tracks", ["user_id"], name: "index_tracks_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username"

@@ -5,6 +5,7 @@ class Feed < ActiveRecord::Base
   has_many :writing_devices
   has_many :reading_devices
   has_and_belongs_to_many :shared_datas
+  has_and_belongs_to_many :tracks
 
   validates :name, presence: true
   validates :identifier, presence: true, uniqueness: true

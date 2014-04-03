@@ -18,6 +18,7 @@ class SharedDataController < ApplicationController
     @not_written_feed_names = []
     get_writable_ids
     data = []
+    tracks = []
     saved = false
     entries = params['entries']
     if entries
@@ -26,23 +27,28 @@ class SharedDataController < ApplicationController
         savable_feeds = get_savable_feeds(feed_ids)
         if savable_feeds.length > 0
           json_data = entry['jsonData']
-          track_type = entry['trackType']
           share_data = SharedData.new
           share_data.device_id = @device.id
           share_data.json_data = json_data
-          track_id = get_track_type(track_type)
-          if track_id == -2
-            error_missing_params(["Wrong track type: #{track_type}"])
-            return
-          else
-            share_data.track_id = track_id
-          end
           savable_feeds.each do |feed|
             share_data.feeds.push(feed)
           end
+          track = Track.find_by_identifier(entry['trackIdentifier'])
+          if track
+            if track.user_id == @device.user_id
+              share_data.tracks.push(track)
+              track.shared_datas.push(share_data)
+              tracks << track
+            else
+              error_denied(["Only owner can write tracks. You are not owner of '#{track.name}'"])
+              return
+            end
+          else
+            error_missing_entry(["Track with identifier: '#{entry['trackIdentifier']}' can't be found"])
+            return
+          end
           data << share_data
           saved = true
-          @device.save
         end
       end
     end
@@ -59,6 +65,7 @@ class SharedDataController < ApplicationController
       response_ok
     end
     SharedData.import data
+    Track.import tracks
   end
 
   private
@@ -67,26 +74,12 @@ class SharedDataController < ApplicationController
     @device = Device.find_by_identifier(params[:deviceIdentifier])
   end
 
-  def get_track_type(type)
-    if type == 'new'
-      return @device.current_track + 1;
-    end
-    if type == 'append'
-      return @device.current_track
-    end
-    if type == 'standalone'
-      return -1
-    end
-    return WRONG_TRACK_TYPE
-  end
-
   def get_savable_feeds(feed_ids)
     result = []
     feed_ids.each do |feed_id|
       @writable_feeds.each do |writable_feed|
-        if (writable_feed.identifier == feed_id)
-          feed = Feed.find_by_identifier(feed_id)
-          result.push(feed)
+        if writable_feed.identifier == feed_id
+          result.push(writable_feed)
         end
       end
     end
