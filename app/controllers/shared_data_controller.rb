@@ -32,13 +32,20 @@ class SharedDataController < ApplicationController
           share_data.json_data = json_data
           track_id = get_track_type(track_type)
           if track_id == -2
-            error_missing_params(["Wrong track type: #{track_type}"])
+            error_missing_params(["Wrong track type: '#{track_type}'"])
             return
           else
             share_data.track_id = track_id
           end
           savable_feeds.each do |feed|
             share_data.feeds.push(feed)
+          end
+          track = Track.find_by_identifier(entry['trackIdentifier'])
+          if track
+            share_data.tracks.push(track)
+          else
+            error_missing_entry(["Track with identifier: '#{entry['trackIdentifier']}' can't be found"])
+            return
           end
           data << share_data
           saved = true
@@ -85,8 +92,7 @@ class SharedDataController < ApplicationController
     feed_ids.each do |feed_id|
       @writable_feeds.each do |writable_feed|
         if (writable_feed.identifier == feed_id)
-          feed = Feed.find_by_identifier(feed_id)
-          result.push(feed)
+          result.push(writable_feed)
         end
       end
     end

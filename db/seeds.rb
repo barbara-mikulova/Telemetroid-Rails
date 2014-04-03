@@ -5,7 +5,8 @@ Admin.create!([
 Device.create!([
   {identifier: "123", name: "testovacie zariadenie", password: "HAgzOTMcf6MIf1UibWQgNJrNb4A=", comment: nil, current_track: 0, public: false, user_id: 2},
   {identifier: "1234", name: "druhe testovacie zariadenie", password: "IBRYreJ0oY/BIm8Ck73q24Ujjm8=", comment: nil, current_track: 0, public: true, user_id: 1},
-  {identifier: "1235", name: "testovacie", password: "7t+LvIeQm+sNzlQAVAEIDW7nmjE=", comment: nil, current_track: 0, public: false, user_id: 1}
+  {identifier: "1235", name: "testovacie", password: "7t+LvIeQm+sNzlQAVAEIDW7nmjE=", comment: nil, current_track: 0, public: false, user_id: 1},
+  {identifier: "352816054311082", name: "tablet", password: "9SIYdCb0aKaOT5+kWy9ODdHRuQo=", comment: nil, current_track: 1, public: false, user_id: 1}
 ])
 Feed.create!([
   {name: "1feed", comment: nil, public: true, identifier: "wO4gwNRcUtQNSiSLia26QrGtwjI=", read_key: "rNBOF_93HELCRv_Zo9PHbcLB6QQ", write_key: "EKtZrSOzihrdU01RrLq_KBt1JHU"},

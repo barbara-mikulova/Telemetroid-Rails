@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403095439) do
+ActiveRecord::Schema.define(version: 20140403100832) do
 
   create_table "admins", force: true do |t|
     t.integer  "user_id"
@@ -55,6 +55,14 @@ ActiveRecord::Schema.define(version: 20140403095439) do
 
   add_index "feeds_shared_data", ["feed_id"], name: "index_feeds_shared_data_on_feed_id", using: :btree
   add_index "feeds_shared_data", ["shared_data_id"], name: "index_feeds_shared_data_on_shared_data_id", using: :btree
+
+  create_table "feeds_tracks", force: true do |t|
+    t.integer "track_id"
+    t.integer "feed_id"
+  end
+
+  add_index "feeds_tracks", ["feed_id"], name: "index_feeds_tracks_on_feed_id", using: :btree
+  add_index "feeds_tracks", ["track_id"], name: "index_feeds_tracks_on_track_id", using: :btree
 
   create_table "messages", force: true do |t|
     t.integer  "user_id"
@@ -100,6 +108,14 @@ ActiveRecord::Schema.define(version: 20140403095439) do
 
   add_index "shared_data", ["device_id"], name: "index_shared_data_on_device_id", using: :btree
   add_index "shared_data", ["track_id"], name: "index_shared_data_on_track_id", using: :btree
+
+  create_table "shared_data_tracks", force: true do |t|
+    t.integer "track_id"
+    t.integer "shared_data_id"
+  end
+
+  add_index "shared_data_tracks", ["shared_data_id"], name: "index_shared_data_tracks_on_shared_data_id", using: :btree
+  add_index "shared_data_tracks", ["track_id"], name: "index_shared_data_tracks_on_track_id", using: :btree
 
   create_table "tracks", force: true do |t|
     t.string   "name"
