@@ -14,58 +14,61 @@ class SharedDataController < ApplicationController
       error_missing_entry(["Device with identifier #{params[:deviceIdentifier]} can't be found"])
       return
     end
-    @errors = []
-    @not_written_feed_names = []
     get_writable_ids
-    data = []
-    tracks = []
-    saved = false
-    entries = params['entries']
-    if entries
-      entries.each do |entry|
-        feed_ids = entry['feedIdentifiers']
-        savable_feeds = get_savable_feeds(feed_ids)
-        if savable_feeds.length > 0
-          json_data = entry['jsonData']
-          share_data = SharedData.new
-          share_data.device_id = @device.id
-          share_data.json_data = json_data
-          savable_feeds.each do |feed|
-            share_data.feeds.push(feed)
-          end
-          track = Track.find_by_identifier(entry['trackIdentifier'])
-          if track
-            if track.user_id == @device.user_id
-              share_data.tracks.push(track)
-              track.shared_datas.push(share_data)
-              tracks << track
-            else
-              error_denied(["Only owner can write tracks. You are not owner of '#{track.name}'"])
-              return
-            end
-          else
-            error_missing_entry(["Track with identifier: '#{entry['trackIdentifier']}' can't be found"])
-            return
-          end
-          data << share_data
-          saved = true
-        end
-      end
-    end
-    unless saved
-      error_denied(["No feeds were updated"])
+    unless @writable_feeds.length > 0
+      error_denied(['No feeds can be written'])
       return
     end
-    if @not_written_feed_names.length > 0
-      @errors.push("These feeds were not updated: " + @not_written_feed_names.to_sentence)
+    @errors = []
+    save_data = []
+    time_stamp = params[:timeStamp]
+    entries = params[:entries]
+    entries.each do |entry|
+      feeds_identifiers = entry['feedsIdentifiers']
+      writable_feeds = []
+      feeds_identifiers.each do |feed_id|
+        feed = Feed.find_by_identifier(feed_id)
+        if @writable_feeds.include?(feed_id)
+          writable_feeds << feed
+        else
+          @errors << "Can't write feed: '#{feed.name}'"
+        end
+      end
+      unless writable_feeds.length > 0
+        next
+      end
+      track = Track.find_by_identifier(entry['trackIdentifier'])
+      unless track
+        error_missing_params(["Can't find track with identifier: '#{entry['trackIdentifier']}'"])
+        return
+      end
+      unless track.user_id == @device.user_id
+        @errors << "Only owner can write tracks. Track '#{track.name}' can't be written"
+      end
+      writable_feeds.each do |feed|
+        unless feed.tracks.where('track_id = ?', track.id).length > 0
+          error_missing_entry(["Feed '#{feed.name}' doesn't contain track '#{track.name}'"])
+          return
+        end
+      end
+      data = entry['data']
+      data.each do |d|
+        sharedData = SharedData.new
+        sharedData.device_id = @device.id
+        sharedData.json_data = d
+        sharedData.track_id = track.id
+        writable_feeds.each do |feed|
+          sharedData.feeds.push(feed)
+        end
+        save_data << sharedData
+      end
     end
+    SharedData.import save_data
     if @errors.length > 0
-      render_error_code(13, @errors)
+      error_missing_params(@errors)
     else
       response_ok
     end
-    SharedData.import data
-    Track.import tracks
   end
 
   private
@@ -78,7 +81,7 @@ class SharedDataController < ApplicationController
     result = []
     feed_ids.each do |feed_id|
       @writable_feeds.each do |writable_feed|
-        if writable_feed.identifier == feed_id
+        if writable_feed == feed_id
           result.push(writable_feed)
         end
       end
@@ -91,13 +94,13 @@ class SharedDataController < ApplicationController
     if session[:type] == 'user'
       writers = Writer.find_all_by_user_id(session[:id])
       writers.each do |writer|
-        @writable_feeds.push(writer.feed)
+        @writable_feeds.push(writer.feed.identifier)
       end
     end
     if session[:type] == 'device'
       writers = WritingDevice.find_all_by_device_id(session[:id])
       writers.each do |writer|
-        @writable_feeds.push(writer.feed)
+        @writable_feeds.push(writer.feed.identifier)
       end
     end
   end
