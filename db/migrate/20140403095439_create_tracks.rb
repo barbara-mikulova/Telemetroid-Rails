@@ -4,6 +4,7 @@ class CreateTracks < ActiveRecord::Migration
       t.string :name
       t.string :identifier
       t.references :feed, index: true
+      t.references :user, index: true
 
       t.timestamps
     end

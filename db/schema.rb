@@ -28,8 +28,7 @@ ActiveRecord::Schema.define(version: 20140403100832) do
     t.string   "name"
     t.string   "password"
     t.string   "comment"
-    t.integer  "current_track", default: 1
-    t.boolean  "public",        default: false
+    t.boolean  "public",     default: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -100,8 +99,8 @@ ActiveRecord::Schema.define(version: 20140403100832) do
   create_table "shared_data", force: true do |t|
     t.string   "time_stamp"
     t.text     "json_data"
-    t.integer  "track_id"
     t.integer  "device_id"
+    t.integer  "track_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -121,11 +120,13 @@ ActiveRecord::Schema.define(version: 20140403100832) do
     t.string   "name"
     t.string   "identifier"
     t.integer  "feed_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "tracks", ["feed_id"], name: "index_tracks_on_feed_id", using: :btree
+  add_index "tracks", ["user_id"], name: "index_tracks_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username"

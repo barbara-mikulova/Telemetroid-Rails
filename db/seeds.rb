@@ -3,10 +3,10 @@ Admin.create!([
   {user_id: 1, feed_id: 2}
 ])
 Device.create!([
-  {identifier: "123", name: "testovacie zariadenie", password: "HAgzOTMcf6MIf1UibWQgNJrNb4A=", comment: nil, current_track: 0, public: false, user_id: 2},
-  {identifier: "1234", name: "druhe testovacie zariadenie", password: "IBRYreJ0oY/BIm8Ck73q24Ujjm8=", comment: nil, current_track: 0, public: true, user_id: 1},
-  {identifier: "1235", name: "testovacie", password: "7t+LvIeQm+sNzlQAVAEIDW7nmjE=", comment: nil, current_track: 0, public: false, user_id: 1},
-  {identifier: "352816054311082", name: "tablet", password: "9SIYdCb0aKaOT5+kWy9ODdHRuQo=", comment: nil, current_track: 1, public: false, user_id: 1}
+  {identifier: "123", name: "testovacie zariadenie", password: "HAgzOTMcf6MIf1UibWQgNJrNb4A=", comment: nil, public: false, user_id: 2},
+  {identifier: "1234", name: "druhe testovacie zariadenie", password: "IBRYreJ0oY/BIm8Ck73q24Ujjm8=", comment: nil, public: true, user_id: 1},
+  {identifier: "1235", name: "testovacie", password: "7t+LvIeQm+sNzlQAVAEIDW7nmjE=", comment: nil, public: false, user_id: 1},
+  {identifier: "352816054311082", name: "tablet", password: "9SIYdCb0aKaOT5+kWy9ODdHRuQo=", comment: nil, public: false, user_id: 1}
 ])
 Feed.create!([
   {name: "1feed", comment: nil, public: true, identifier: "wO4gwNRcUtQNSiSLia26QrGtwjI=", read_key: "rNBOF_93HELCRv_Zo9PHbcLB6QQ", write_key: "EKtZrSOzihrdU01RrLq_KBt1JHU"},
@@ -15,12 +15,6 @@ Feed.create!([
 Reader.create!([
   {user_id: 1, feed_id: 1},
   {user_id: 1, feed_id: 2}
-])
-SharedData.create!([
-  {time_stamp: "2014-02-22 12:26", json_data: {"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}, track_id: 0, device_id: 1},
-  {time_stamp: "2014-02-22 12:27", json_data: {"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}, track_id: 0, device_id: 1},
-  {time_stamp: "2014-02-22 12:26", json_data: {"lat"=>48.12315, "long"=>17.123456, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:24"}, track_id: 0, device_id: 1},
-  {time_stamp: "2014-02-22 12:27", json_data: {"lat"=>48.12145, "long"=>17.123789, "battPercentage"=>49, "timeStamp"=>"2014-02-22 12:25"}, track_id: 0, device_id: 1}
 ])
 User.create!([
   {username: "pixel", password: "asdasd", mail: "m.r@gmail.com", name: nil, comment: nil, public_email: false},
