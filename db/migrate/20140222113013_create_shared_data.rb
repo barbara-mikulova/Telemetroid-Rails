@@ -5,6 +5,7 @@ class CreateSharedData < ActiveRecord::Migration
       t.text :json_data
       t.integer :track_id
       t.references :device, index: true
+      t.references :track, index: true
 
       t.timestamps
     end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227141328) do
+ActiveRecord::Schema.define(version: 20140403095439) do
 
   create_table "admins", force: true do |t|
     t.integer  "user_id"
@@ -99,6 +99,17 @@ ActiveRecord::Schema.define(version: 20140227141328) do
   end
 
   add_index "shared_data", ["device_id"], name: "index_shared_data_on_device_id", using: :btree
+  add_index "shared_data", ["track_id"], name: "index_shared_data_on_track_id", using: :btree
+
+  create_table "tracks", force: true do |t|
+    t.string   "name"
+    t.string   "identifier"
+    t.integer  "feed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tracks", ["feed_id"], name: "index_tracks_on_feed_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username"
