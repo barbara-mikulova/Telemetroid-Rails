@@ -119,13 +119,11 @@ ActiveRecord::Schema.define(version: 20140403100832) do
   create_table "tracks", force: true do |t|
     t.string   "name"
     t.string   "identifier"
-    t.integer  "feed_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "tracks", ["feed_id"], name: "index_tracks_on_feed_id", using: :btree
   add_index "tracks", ["user_id"], name: "index_tracks_on_user_id", using: :btree
 
   create_table "users", force: true do |t|

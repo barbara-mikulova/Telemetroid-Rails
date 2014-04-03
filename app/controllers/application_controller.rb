@@ -93,4 +93,18 @@ class ApplicationController < ActionController::Base
     return true
   end
 
+  def can_write(feed)
+    if session[:type] == 'user'
+      unless feed.writers.find_by_user_id(session[:id])
+        return false
+      end
+    end
+    if session[:type] == 'device'
+      unless feed.writing_devices.find_by_device_id(session[:id])
+        return false
+      end
+    end
+    return true
+  end
+
 end

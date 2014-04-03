@@ -8,19 +8,39 @@ class TracksController < ApplicationController
 
   def create
     track = Track.new(track_params)
-    feed = Feed.find_by_identifier(params[:feed_identifier])
-    unless feed
-      error_missing_entry(["Feed with identifier: '#{params[:feed_identifier]}' can't be found"])
+    feed_ids = params[:feed_identifiers].split(',')
+    feeds = []
+    errors = []
+    save = false
+    feed_ids.each do |feed_id|
+      feed = Feed.find_by_identifier(feed_id)
+      unless feed
+        cant_find_feed(feed_id)
+        return
+      end
+      unless can_write(feed)
+        errors.push("Can't read feed: '#{feed.name}'")
+        next
+      end
+      if session[:type] == 'user'
+        track.user_id = session[:id]
+      end
+      if session[:type] == 'device'
+        device = Device.find(session[:id])
+        track.user_id = device.user.id
+      end
+      save = true;
+      track.feeds.push(feed)
+    end
+    track.save
+    unless save
+      error_denied(["No feeds can be written"])
       return
     end
-    track.feed = feed
-    track.user_id = session[:id]
-    if track.save
-      feed.tracks.push(track)
-      feed.save
-      response_ok
+    if errors && errors.length > 0
+      render_error_code(13, errors)
     else
-      render_save_errors(track)
+      render json: track
     end
   end
 
@@ -40,7 +60,7 @@ class TracksController < ApplicationController
   def index_for_feed
     feed = Feed.find_by_identifier(params[:identifier])
     unless feed
-      error_missing_params(["Can't find feed with identifier: '#{params[:identifier]}'"])
+      cant_find_feed(params[:identifier])
       return
     end
     unless can_read(feed)
@@ -50,10 +70,14 @@ class TracksController < ApplicationController
     render json: feed.tracks
   end
 
+  def cant_find_feed(identifier)
+    error_missing_params(["Can't find feed with identifier: '#{identifier}'"])
+  end
+
   def index_write_for_feed
     feed = Feed.find_by_identifier(params[:identifier])
     unless feed
-      error_missing_params(["Can't find feed with identifier: '#{params[:identifier]}'"])
+      cant_find_feed(params[:identifier])
       return
     end
     unless can_read(feed)
