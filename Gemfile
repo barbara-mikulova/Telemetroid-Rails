@@ -55,3 +55,6 @@ gem 'em-websocket'
 gem 'puma'
 
 gem 'activerecord-import'
+
+gem 'oj'
+gem 'oj_mimic_json'

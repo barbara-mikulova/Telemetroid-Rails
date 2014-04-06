@@ -5,7 +5,7 @@ class SharedDataController < ApplicationController
 
   def full_index
     data = SharedData.all
-    render json: data
+    render json: Oj.dump(data)
   end
 
   def insert
@@ -55,8 +55,9 @@ class SharedDataController < ApplicationController
       data.each do |d|
         sharedData = SharedData.new
         sharedData.device_id = @device.id
-        sharedData.json_data = d
+        sharedData.json_data = d['jsonData']
         sharedData.track_id = track.id
+        sharedData.time_stamp = d['timeStamp']
         writable_feeds.each do |feed|
           sharedData.feeds.push(feed)
         end

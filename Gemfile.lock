@@ -65,6 +65,8 @@ GEM
     multi_json (1.8.2)
     mysql (2.9.1)
     mysql (2.9.1-x86-mingw32)
+    oj (2.7.1)
+    oj_mimic_json (1.0.0)
     polyglot (0.3.3)
     puma (2.8.1)
       rack (>= 1.1, < 2.0)
@@ -135,6 +137,8 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   mysql
+  oj
+  oj_mimic_json
   puma
   rails (= 4.0.1)
   sass-rails (~> 4.0.0)

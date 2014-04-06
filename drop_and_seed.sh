@@ -1,2 +1,1 @@
-rake db:drop && rake db:migrate && rake db:seed && clear && echo "Migration successful"
-
+clear && rake db:drop && rake db:create && rake db:migrate && rake db:seed && clear && run-telemetroid

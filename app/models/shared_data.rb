@@ -1,6 +1,6 @@
 class SharedData < ActiveRecord::Base
 
-  serialize :json_data, Hash
+  serialize :json_data, JSON
 
   belongs_to :device
   belongs_to :track

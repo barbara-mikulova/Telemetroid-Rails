@@ -93,6 +93,24 @@ class ApplicationController < ActionController::Base
     return true
   end
 
+  def can_read_at_least_one(feeds)
+    if session[:type] == 'user'
+      feeds.each do |feed|
+        if feed.readers.find_by_user_id(session[:id])
+          return true
+        end
+      end
+    end
+    if session[:type] == 'device'
+      feeds.each do |feed|
+        if feed.reading_devices.find_by_device_id(session[:id])
+          return true
+        end
+      end
+    end
+    return false
+  end
+
   def can_write(feed)
     if session[:type] == 'user'
       unless feed.writers.find_by_user_id(session[:id])

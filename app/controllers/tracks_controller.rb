@@ -50,7 +50,7 @@ class TracksController < ApplicationController
       error_missing_entry(["Track with identifier: '#{params[:identifier]}' can't be found"])
       return
     end
-    unless can_read(track.feed)
+    unless can_read_at_least_one(track.feeds)
       error_denied(["Can't read feed"])
       return
     end
