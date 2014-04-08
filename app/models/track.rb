@@ -13,9 +13,9 @@ class Track < ActiveRecord::Base
     if self.identifier
       return
     end
-    identifier = SecureRandom.urlsafe_base64(20)
+    identifier = SecureRandom.hex(20)
     while Track.find_by_identifier(identifier) != nil
-      identifier = SecureRandom.urlsafe_base64(20)
+      identifier = SecureRandom.hex(20)
     end
     self.identifier = identifier
   end

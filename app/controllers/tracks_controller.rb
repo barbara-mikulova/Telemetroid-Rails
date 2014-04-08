@@ -54,7 +54,20 @@ class TracksController < ApplicationController
       error_denied(["Can't read feed"])
       return
     end
-    render json: track.shared_datas
+    result = []
+    device_name_map = {}
+    track.shared_datas.each do |d|
+      entry = {}
+      entry['timeStamp'] = d.time_stamp
+      entry['jsonData'] = d.json_data
+      device_id = d.device_id
+      unless device_name_map[device_id]
+        device_name_map[device_id] = d.device.name
+      end
+      entry['deviceName'] = device_name_map[d.device_id]
+      result << entry
+    end
+    render json: result
   end
 
   def index_for_feed

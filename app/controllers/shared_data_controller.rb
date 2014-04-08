@@ -5,7 +5,7 @@ class SharedDataController < ApplicationController
 
   def full_index
     data = SharedData.all
-    render json: Oj.dump(data)
+    render json: data.count
   end
 
   def insert
@@ -19,10 +19,18 @@ class SharedDataController < ApplicationController
       error_denied(['No feeds can be written'])
       return
     end
+    begin
+      if @device.device_requests.find(params[:requestIdentifier])
+        response_ok
+        return
+      end
+    rescue ActiveRecord::RecordNotFound
+    end
     @errors = []
     save_data = []
     time_stamp = params[:timeStamp]
     entries = params[:entries]
+    device_id = @device.id
     entries.each do |entry|
       feeds_identifiers = entry['feedsIdentifiers']
       writable_feeds = []
@@ -54,7 +62,7 @@ class SharedDataController < ApplicationController
       data = entry['data']
       data.each do |d|
         sharedData = SharedData.new
-        sharedData.device_id = @device.id
+        sharedData.device_id = device_id
         sharedData.json_data = d['jsonData']
         sharedData.track_id = track.id
         sharedData.time_stamp = d['timeStamp']
@@ -64,9 +72,16 @@ class SharedDataController < ApplicationController
         save_data << sharedData
       end
     end
+    if save_data.length == 0
+      error_denied(['Permission denied in all feeds'])
+      return
+    end
     SharedData.import save_data
+    device_request = DeviceRequest.new(:identifier => params[:requestIdentifier], :device_id => device_id)
+    device_request.save
+    @device.device_requests << device_request
     if @errors.length > 0
-      error_missing_params(@errors)
+      render_error_code(13, @errors)
     else
       response_ok
     end

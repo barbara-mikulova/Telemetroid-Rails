@@ -17,9 +17,9 @@ class Feed < ActiveRecord::Base
     if self.identifier
       return
     end
-    identifier = SecureRandom.urlsafe_base64(20)
+    identifier = SecureRandom.hex(20)
     while Feed.find_by_identifier(identifier) != nil
-      identifier = SecureRandom.urlsafe_base64(20)
+      identifier = SecureRandom.hex(20)
     end
     self.identifier = identifier
   end
@@ -31,9 +31,9 @@ class Feed < ActiveRecord::Base
 
   def generate_write_key
     if !self.write_key
-      key = SecureRandom.urlsafe_base64(20)
+      key = SecureRandom.hex(20)
       while Feed.find_by_write_key(key) != nil
-        key = SecureRandom.urlsafe_base64(20)
+        key = SecureRandom.hex(20)
       end
       self.write_key = key
     end
@@ -41,9 +41,9 @@ class Feed < ActiveRecord::Base
 
   def generate_read_key
     if !self.read_key
-      key = SecureRandom.urlsafe_base64(20)
+      key = SecureRandom.hex(20)
       while Feed.find_by_read_key(key) != nil
-        key = SecureRandom.urlsafe_base64(20)
+        key = SecureRandom.hex(20)
       end
       self.read_key = key
     end
