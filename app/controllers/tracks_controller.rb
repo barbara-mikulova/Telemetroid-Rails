@@ -85,7 +85,7 @@ class TracksController < ApplicationController
       entry = {}
       entry[:name] = track.name
       entry[:identifier] = track.identifier
-      entry[:ownerName] = track.user.name
+      entry[:ownerName] = track.user.username
       result << entry
     end
     render json: result
