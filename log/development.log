@@ -501,3 +501,352 @@ Processing by TracksController#index_for_feed as HTML
   [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1  [["id", 1]]
   [1m[36mCACHE (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1[0m  [["id", 1]]
 Completed 200 OK in 80ms (Views: 1.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/tracks/read" for 109.230.49.193 at 2014-04-09 13:01:36 +0200
+Processing by TracksController#index_for_feed as HTML
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.2ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.3ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35mTrack Load (0.2ms)[0m  SELECT `tracks`.* FROM `tracks` INNER JOIN `feeds_tracks` ON `tracks`.`id` = `feeds_tracks`.`track_id` WHERE `feeds_tracks`.`feed_id` = ?  [["feed_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 282ms (Views: 0.3ms | ActiveRecord: 212.4ms)
+
+
+Started POST "/login" for 109.230.49.193 at 2014-04-09 13:03:04 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (0.6ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/tracks/read" for 109.230.49.193 at 2014-04-09 13:03:22 +0200
+Processing by TracksController#index_for_feed as HTML
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (0.4ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+  [1m[36mTrack Load (0.2ms)[0m  [1mSELECT `tracks`.* FROM `tracks` INNER JOIN `feeds_tracks` ON `tracks`.`id` = `feeds_tracks`.`track_id` WHERE `feeds_tracks`.`feed_id` = ?[0m  [["feed_id", 2]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 14ms (Views: 0.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/tracks/84b4de428113b7cc74cd58f31f563857ce3e61d2/data" for 109.230.49.193 at 2014-04-09 13:03:27 +0200
+Processing by TracksController#get_data as HTML
+  Parameters: {"identifier"=>"84b4de428113b7cc74cd58f31f563857ce3e61d2"}
+  [1m[35mTrack Load (0.4ms)[0m  SELECT `tracks`.* FROM `tracks` WHERE `tracks`.`identifier` = '84b4de428113b7cc74cd58f31f563857ce3e61d2' LIMIT 1
+  [1m[36mFeed Load (127.7ms)[0m  [1mSELECT `feeds`.* FROM `feeds` INNER JOIN `feeds_tracks` ON `feeds`.`id` = `feeds_tracks`.`feed_id` WHERE `feeds_tracks`.`track_id` = ?[0m  [["track_id", 4]]
+  [1m[35mReader Load (1.0ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 1]]
+  [1m[36mSharedData Load (2.5ms)[0m  [1mSELECT `shared_data`.* FROM `shared_data` WHERE `shared_data`.`track_id` = ?[0m  [["track_id", 4]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT `devices`.* FROM `devices` WHERE `devices`.`id` = ? ORDER BY `devices`.`id` ASC LIMIT 1  [["id", 4]]
+Completed 200 OK in 286ms (Views: 4.6ms | ActiveRecord: 131.7ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/tracks/read" for 109.230.49.193 at 2014-04-09 13:03:40 +0200
+Processing by TracksController#index_for_feed as HTML
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.8ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (1.3ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+  [1m[36mTrack Load (0.8ms)[0m  [1mSELECT `tracks`.* FROM `tracks` INNER JOIN `feeds_tracks` ON `tracks`.`id` = `feeds_tracks`.`track_id` WHERE `feeds_tracks`.`feed_id` = ?[0m  [["feed_id", 2]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 31ms (Views: 1.1ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/tracks/6NnH9p36le6h-L76t9fu4CrmEag/data" for 109.230.49.193 at 2014-04-09 13:03:41 +0200
+Processing by TracksController#get_data as HTML
+  Parameters: {"identifier"=>"6NnH9p36le6h-L76t9fu4CrmEag"}
+  [1m[35mTrack Load (0.5ms)[0m  SELECT `tracks`.* FROM `tracks` WHERE `tracks`.`identifier` = '6NnH9p36le6h-L76t9fu4CrmEag' LIMIT 1
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT `feeds`.* FROM `feeds` INNER JOIN `feeds_tracks` ON `feeds`.`id` = `feeds_tracks`.`feed_id` WHERE `feeds_tracks`.`track_id` = ?[0m  [["track_id", 3]]
+  [1m[35mReader Load (0.4ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+  [1m[36mSharedData Load (57.3ms)[0m  [1mSELECT `shared_data`.* FROM `shared_data` WHERE `shared_data`.`track_id` = ?[0m  [["track_id", 3]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT `devices`.* FROM `devices` WHERE `devices`.`id` = ? ORDER BY `devices`.`id` ASC LIMIT 1  [["id", 4]]
+Completed 200 OK in 1845ms (Views: 1425.3ms | ActiveRecord: 58.9ms)
+
+
+Started POST "/login" for 109.230.49.193 at 2014-04-09 13:09:34 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  Rendered text template (0.1ms)
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 0.6ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (0.4ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/tracks/read" for 109.230.49.193 at 2014-04-09 13:09:48 +0200
+Processing by TracksController#index_for_feed as HTML
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (0.4ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+  [1m[36mTrack Load (0.4ms)[0m  [1mSELECT `tracks`.* FROM `tracks` INNER JOIN `feeds_tracks` ON `tracks`.`id` = `feeds_tracks`.`track_id` WHERE `feeds_tracks`.`feed_id` = ?[0m  [["feed_id", 2]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 19ms (Views: 1.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/tracks/6NnH9p36le6h-L76t9fu4CrmEag/data" for 109.230.49.193 at 2014-04-09 13:09:52 +0200
+Processing by TracksController#get_data as HTML
+  Parameters: {"identifier"=>"6NnH9p36le6h-L76t9fu4CrmEag"}
+  [1m[35mTrack Load (0.2ms)[0m  SELECT `tracks`.* FROM `tracks` WHERE `tracks`.`identifier` = '6NnH9p36le6h-L76t9fu4CrmEag' LIMIT 1
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT `feeds`.* FROM `feeds` INNER JOIN `feeds_tracks` ON `feeds`.`id` = `feeds_tracks`.`feed_id` WHERE `feeds_tracks`.`track_id` = ?[0m  [["track_id", 3]]
+  [1m[35mReader Load (0.2ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+  [1m[36mSharedData Load (50.2ms)[0m  [1mSELECT `shared_data`.* FROM `shared_data` WHERE `shared_data`.`track_id` = ?[0m  [["track_id", 3]]
+  [1m[35mDevice Load (0.4ms)[0m  SELECT `devices`.* FROM `devices` WHERE `devices`.`id` = ? ORDER BY `devices`.`id` ASC LIMIT 1  [["id", 4]]
+Completed 200 OK in 1803ms (Views: 1400.5ms | ActiveRecord: 51.2ms)
+
+
+Started POST "/login" for 109.230.49.193 at 2014-04-09 13:22:18 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (13.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 17ms (Views: 1.2ms | ActiveRecord: 13.4ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  [1m[36mFeed Load (0.6ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (0.5ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/tracks/read" for 109.230.49.193 at 2014-04-09 13:22:30 +0200
+Processing by TracksController#index_for_feed as HTML
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (0.4ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+  [1m[36mTrack Load (0.5ms)[0m  [1mSELECT `tracks`.* FROM `tracks` INNER JOIN `feeds_tracks` ON `tracks`.`id` = `feeds_tracks`.`track_id` WHERE `feeds_tracks`.`feed_id` = ?[0m  [["feed_id", 2]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 20ms (Views: 0.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/tracks/6NnH9p36le6h-L76t9fu4CrmEag/data" for 109.230.49.193 at 2014-04-09 13:22:35 +0200
+Processing by TracksController#get_data as HTML
+  Parameters: {"identifier"=>"6NnH9p36le6h-L76t9fu4CrmEag"}
+  [1m[35mTrack Load (0.8ms)[0m  SELECT `tracks`.* FROM `tracks` WHERE `tracks`.`identifier` = '6NnH9p36le6h-L76t9fu4CrmEag' LIMIT 1
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT `feeds`.* FROM `feeds` INNER JOIN `feeds_tracks` ON `feeds`.`id` = `feeds_tracks`.`feed_id` WHERE `feeds_tracks`.`track_id` = ?[0m  [["track_id", 3]]
+  [1m[35mReader Load (0.2ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+  [1m[36mSharedData Load (119.0ms)[0m  [1mSELECT `shared_data`.* FROM `shared_data` WHERE `shared_data`.`track_id` = ?[0m  [["track_id", 3]]
+  [1m[35mDevice Load (0.3ms)[0m  SELECT `devices`.* FROM `devices` WHERE `devices`.`id` = ? ORDER BY `devices`.`id` ASC LIMIT 1  [["id", 4]]
+Completed 200 OK in 1845ms (Views: 1438.8ms | ActiveRecord: 120.6ms)
+
+
+Started POST "/login" for 109.230.49.193 at 2014-04-09 13:29:18 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (38.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 52ms (Views: 0.9ms | ActiveRecord: 38.8ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (0.6ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/tracks/read" for 109.230.49.193 at 2014-04-09 13:30:11 +0200
+Processing by TracksController#index_for_feed as HTML
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (0.7ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+  [1m[36mTrack Load (0.5ms)[0m  [1mSELECT `tracks`.* FROM `tracks` INNER JOIN `feeds_tracks` ON `tracks`.`id` = `feeds_tracks`.`track_id` WHERE `feeds_tracks`.`feed_id` = ?[0m  [["feed_id", 2]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 22ms (Views: 0.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/tracks/84b4de428113b7cc74cd58f31f563857ce3e61d2/data" for 109.230.49.193 at 2014-04-09 13:30:12 +0200
+Processing by TracksController#get_data as HTML
+  Parameters: {"identifier"=>"84b4de428113b7cc74cd58f31f563857ce3e61d2"}
+  [1m[35mTrack Load (0.4ms)[0m  SELECT `tracks`.* FROM `tracks` WHERE `tracks`.`identifier` = '84b4de428113b7cc74cd58f31f563857ce3e61d2' LIMIT 1
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT `feeds`.* FROM `feeds` INNER JOIN `feeds_tracks` ON `feeds`.`id` = `feeds_tracks`.`feed_id` WHERE `feeds_tracks`.`track_id` = ?[0m  [["track_id", 4]]
+  [1m[35mReader Load (0.1ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 1]]
+  [1m[36mSharedData Load (0.6ms)[0m  [1mSELECT `shared_data`.* FROM `shared_data` WHERE `shared_data`.`track_id` = ?[0m  [["track_id", 4]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT `devices`.* FROM `devices` WHERE `devices`.`id` = ? ORDER BY `devices`.`id` ASC LIMIT 1  [["id", 4]]
+Completed 200 OK in 20ms (Views: 6.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tracks/6NnH9p36le6h-L76t9fu4CrmEag/data" for 109.230.49.193 at 2014-04-09 13:30:14 +0200
+Processing by TracksController#get_data as HTML
+  Parameters: {"identifier"=>"6NnH9p36le6h-L76t9fu4CrmEag"}
+  [1m[36mTrack Load (0.5ms)[0m  [1mSELECT `tracks`.* FROM `tracks` WHERE `tracks`.`identifier` = '6NnH9p36le6h-L76t9fu4CrmEag' LIMIT 1[0m
+  [1m[35mFeed Load (0.4ms)[0m  SELECT `feeds`.* FROM `feeds` INNER JOIN `feeds_tracks` ON `feeds`.`id` = `feeds_tracks`.`feed_id` WHERE `feeds_tracks`.`track_id` = ?  [["track_id", 3]]
+  [1m[36mReader Load (0.5ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35mSharedData Load (137.3ms)[0m  SELECT `shared_data`.* FROM `shared_data` WHERE `shared_data`.`track_id` = ?  [["track_id", 3]]
+  [1m[36mDevice Load (1.4ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`id` = ? ORDER BY `devices`.`id` ASC LIMIT 1[0m  [["id", 4]]
+Completed 200 OK in 1791ms (Views: 1372.8ms | ActiveRecord: 140.1ms)
+
+
+Started POST "/login" for 109.230.49.193 at 2014-04-09 13:31:33 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.1ms)
+Completed 200 OK in 10ms (Views: 2.9ms | ActiveRecord: 0.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.6ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.5ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/tracks/read" for 109.230.49.193 at 2014-04-09 13:32:54 +0200
+Processing by TracksController#index_for_feed as HTML
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.6ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35mTrack Load (0.6ms)[0m  SELECT `tracks`.* FROM `tracks` INNER JOIN `feeds_tracks` ON `tracks`.`id` = `feeds_tracks`.`track_id` WHERE `feeds_tracks`.`feed_id` = ?  [["feed_id", 2]]
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 25ms (Views: 0.9ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/tracks/6NnH9p36le6h-L76t9fu4CrmEag/data" for 109.230.49.193 at 2014-04-09 13:32:56 +0200
+Processing by TracksController#get_data as HTML
+  Parameters: {"identifier"=>"6NnH9p36le6h-L76t9fu4CrmEag"}
+  [1m[36mTrack Load (0.5ms)[0m  [1mSELECT `tracks`.* FROM `tracks` WHERE `tracks`.`identifier` = '6NnH9p36le6h-L76t9fu4CrmEag' LIMIT 1[0m
+  [1m[35mFeed Load (0.5ms)[0m  SELECT `feeds`.* FROM `feeds` INNER JOIN `feeds_tracks` ON `feeds`.`id` = `feeds_tracks`.`feed_id` WHERE `feeds_tracks`.`track_id` = ?  [["track_id", 3]]
+  [1m[36mReader Load (0.5ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35mSharedData Load (126.9ms)[0m  SELECT `shared_data`.* FROM `shared_data` WHERE `shared_data`.`track_id` = ?  [["track_id", 3]]
+  [1m[36mDevice Load (0.4ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`id` = ? ORDER BY `devices`.`id` ASC LIMIT 1[0m  [["id", 4]]
+Completed 200 OK in 1748ms (Views: 1337.2ms | ActiveRecord: 128.7ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/tracks/read" for 109.230.49.193 at 2014-04-09 13:33:59 +0200
+Processing by TracksController#index_for_feed as HTML
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.1ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35mTrack Load (0.2ms)[0m  SELECT `tracks`.* FROM `tracks` INNER JOIN `feeds_tracks` ON `tracks`.`id` = `feeds_tracks`.`track_id` WHERE `feeds_tracks`.`feed_id` = ?  [["feed_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 257ms (Views: 0.3ms | ActiveRecord: 163.6ms)
+
+
+Started GET "/tracks/6NnH9p36le6h-L76t9fu4CrmEag/data" for 109.230.49.193 at 2014-04-09 13:34:01 +0200
+Processing by TracksController#get_data as HTML
+  Parameters: {"identifier"=>"6NnH9p36le6h-L76t9fu4CrmEag"}
+  [1m[36mTrack Load (0.6ms)[0m  [1mSELECT `tracks`.* FROM `tracks` WHERE `tracks`.`identifier` = '6NnH9p36le6h-L76t9fu4CrmEag' LIMIT 1[0m
+  [1m[35mFeed Load (1.5ms)[0m  SELECT `feeds`.* FROM `feeds` INNER JOIN `feeds_tracks` ON `feeds`.`id` = `feeds_tracks`.`feed_id` WHERE `feeds_tracks`.`track_id` = ?  [["track_id", 3]]
+  [1m[36mReader Load (0.5ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35mSharedData Load (257.4ms)[0m  SELECT `shared_data`.* FROM `shared_data` WHERE `shared_data`.`track_id` = ? ORDER BY `shared_data`.`time_stamp` ASC  [["track_id", 3]]
+  [1m[36mDevice Load (0.2ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`id` = ? ORDER BY `devices`.`id` ASC LIMIT 1[0m  [["id", 4]]
+Completed 200 OK in 1909ms (Views: 1312.8ms | ActiveRecord: 260.2ms)
+
+
+Started GET "/tracks/6NnH9p36le6h-L76t9fu4CrmEag/data" for 127.0.0.1 at 2014-04-09 13:34:46 +0200
+Processing by TracksController#get_data as HTML
+  Parameters: {"identifier"=>"6NnH9p36le6h-L76t9fu4CrmEag"}
+  [1m[35mTrack Load (0.2ms)[0m  SELECT `tracks`.* FROM `tracks` WHERE `tracks`.`identifier` = '6NnH9p36le6h-L76t9fu4CrmEag' LIMIT 1
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT `feeds`.* FROM `feeds` INNER JOIN `feeds_tracks` ON `feeds`.`id` = `feeds_tracks`.`feed_id` WHERE `feeds_tracks`.`track_id` = ?[0m  [["track_id", 3]]
+  [1m[35mReader Load (0.1ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+  [1m[36mSharedData Load (278.1ms)[0m  [1mSELECT `shared_data`.* FROM `shared_data` WHERE `shared_data`.`track_id` = ? ORDER BY `shared_data`.`time_stamp` ASC[0m  [["track_id", 3]]
+  [1m[35mDevice Load (1.0ms)[0m  SELECT `devices`.* FROM `devices` WHERE `devices`.`id` = ? ORDER BY `devices`.`id` ASC LIMIT 1  [["id", 4]]
+Completed 200 OK in 1979ms (Views: 1379.5ms | ActiveRecord: 321.2ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/tracks/read" for 109.230.49.193 at 2014-04-09 13:35:50 +0200
+Processing by TracksController#index_for_feed as HTML
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (0.4ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+  [1m[36mTrack Load (0.4ms)[0m  [1mSELECT `tracks`.* FROM `tracks` INNER JOIN `feeds_tracks` ON `tracks`.`id` = `feeds_tracks`.`track_id` WHERE `feeds_tracks`.`feed_id` = ?[0m  [["feed_id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/tracks/6NnH9p36le6h-L76t9fu4CrmEag/data" for 109.230.49.193 at 2014-04-09 13:35:52 +0200
+Processing by TracksController#get_data as HTML
+  Parameters: {"identifier"=>"6NnH9p36le6h-L76t9fu4CrmEag"}
+  [1m[35mTrack Load (0.6ms)[0m  SELECT `tracks`.* FROM `tracks` WHERE `tracks`.`identifier` = '6NnH9p36le6h-L76t9fu4CrmEag' LIMIT 1
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT `feeds`.* FROM `feeds` INNER JOIN `feeds_tracks` ON `feeds`.`id` = `feeds_tracks`.`feed_id` WHERE `feeds_tracks`.`track_id` = ?[0m  [["track_id", 3]]
+  [1m[35mReader Load (0.4ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+  [1m[36mSharedData Load (174.7ms)[0m  [1mSELECT `shared_data`.* FROM `shared_data` WHERE `shared_data`.`track_id` = ? ORDER BY `shared_data`.`time_stamp` ASC[0m  [["track_id", 3]]
+  [1m[35mDevice Load (0.5ms)[0m  SELECT `devices`.* FROM `devices` WHERE `devices`.`id` = ? ORDER BY `devices`.`id` ASC LIMIT 1  [["id", 4]]
+Completed 200 OK in 1805ms (Views: 1340.3ms | ActiveRecord: 176.7ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/tracks/read" for 109.230.49.193 at 2014-04-09 13:36:33 +0200
+Processing by TracksController#index_for_feed as HTML
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (0.3ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+  [1m[36mTrack Load (0.2ms)[0m  [1mSELECT `tracks`.* FROM `tracks` INNER JOIN `feeds_tracks` ON `tracks`.`id` = `feeds_tracks`.`track_id` WHERE `feeds_tracks`.`feed_id` = ?[0m  [["feed_id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/tracks/read" for 109.230.49.193 at 2014-04-09 13:36:44 +0200
+Processing by TracksController#index_for_feed as HTML
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.6ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.6ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35mTrack Load (0.6ms)[0m  SELECT `tracks`.* FROM `tracks` INNER JOIN `feeds_tracks` ON `tracks`.`id` = `feeds_tracks`.`track_id` WHERE `feeds_tracks`.`feed_id` = ?  [["feed_id", 2]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 23ms (Views: 0.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/tracks/6NnH9p36le6h-L76t9fu4CrmEag/data" for 109.230.49.193 at 2014-04-09 13:36:46 +0200
+Processing by TracksController#get_data as HTML
+  Parameters: {"identifier"=>"6NnH9p36le6h-L76t9fu4CrmEag"}
+  [1m[36mTrack Load (0.5ms)[0m  [1mSELECT `tracks`.* FROM `tracks` WHERE `tracks`.`identifier` = '6NnH9p36le6h-L76t9fu4CrmEag' LIMIT 1[0m
+  [1m[35mFeed Load (0.5ms)[0m  SELECT `feeds`.* FROM `feeds` INNER JOIN `feeds_tracks` ON `feeds`.`id` = `feeds_tracks`.`feed_id` WHERE `feeds_tracks`.`track_id` = ?  [["track_id", 3]]
+  [1m[36mReader Load (0.4ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35mSharedData Load (154.6ms)[0m  SELECT `shared_data`.* FROM `shared_data` WHERE `shared_data`.`track_id` = ? ORDER BY `shared_data`.`time_stamp` ASC  [["track_id", 3]]
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`id` = ? ORDER BY `devices`.`id` ASC LIMIT 1[0m  [["id", 4]]
+Completed 200 OK in 1769ms (Views: 1337.2ms | ActiveRecord: 156.3ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/tracks/read" for 109.230.49.193 at 2014-04-09 13:37:15 +0200
+Processing by TracksController#index_for_feed as HTML
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.4ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35mTrack Load (0.6ms)[0m  SELECT `tracks`.* FROM `tracks` INNER JOIN `feeds_tracks` ON `tracks`.`id` = `feeds_tracks`.`track_id` WHERE `feeds_tracks`.`feed_id` = ?  [["feed_id", 2]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 20ms (Views: 1.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/pixel/show" for 109.230.49.193 at 2014-04-09 13:37:27 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/feeds/wO4gwNRcUtQNSiSLia26QrGtwjI%3D/tracks/read" for 109.230.49.193 at 2014-04-09 13:37:35 +0200
+Processing by TracksController#index_for_feed as HTML
+  Parameters: {"identifier"=>"wO4gwNRcUtQNSiSLia26QrGtwjI="}
+  [1m[36mFeed Load (0.8ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (0.4ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+  [1m[36mTrack Load (0.5ms)[0m  [1mSELECT `tracks`.* FROM `tracks` INNER JOIN `feeds_tracks` ON `tracks`.`id` = `feeds_tracks`.`track_id` WHERE `feeds_tracks`.`feed_id` = ?[0m  [["feed_id", 2]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 29ms (Views: 0.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/tracks/6NnH9p36le6h-L76t9fu4CrmEag/data" for 109.230.49.193 at 2014-04-09 13:37:37 +0200
+Processing by TracksController#get_data as HTML
+  Parameters: {"identifier"=>"6NnH9p36le6h-L76t9fu4CrmEag"}
+  [1m[35mTrack Load (0.5ms)[0m  SELECT `tracks`.* FROM `tracks` WHERE `tracks`.`identifier` = '6NnH9p36le6h-L76t9fu4CrmEag' LIMIT 1
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT `feeds`.* FROM `feeds` INNER JOIN `feeds_tracks` ON `feeds`.`id` = `feeds_tracks`.`feed_id` WHERE `feeds_tracks`.`track_id` = ?[0m  [["track_id", 3]]
+  [1m[35mReader Load (0.5ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+  [1m[36mSharedData Load (97.2ms)[0m  [1mSELECT `shared_data`.* FROM `shared_data` WHERE `shared_data`.`track_id` = ? ORDER BY `shared_data`.`time_stamp` ASC[0m  [["track_id", 3]]
+  [1m[35mDevice Load (0.2ms)[0m  SELECT `devices`.* FROM `devices` WHERE `devices`.`id` = ? ORDER BY `devices`.`id` ASC LIMIT 1  [["id", 4]]
+Completed 200 OK in 1689ms (Views: 1280.9ms | ActiveRecord: 98.9ms)
+
+
+Started GET "/tracks/6NnH9p36le6h-L76t9fu4CrmEag/data" for 127.0.0.1 at 2014-04-09 13:39:17 +0200
+Processing by TracksController#get_data as HTML
+  Parameters: {"identifier"=>"6NnH9p36le6h-L76t9fu4CrmEag"}
+  [1m[36mTrack Load (0.2ms)[0m  [1mSELECT `tracks`.* FROM `tracks` WHERE `tracks`.`identifier` = '6NnH9p36le6h-L76t9fu4CrmEag' LIMIT 1[0m
+  [1m[35mFeed Load (0.3ms)[0m  SELECT `feeds`.* FROM `feeds` INNER JOIN `feeds_tracks` ON `feeds`.`id` = `feeds_tracks`.`feed_id` WHERE `feeds_tracks`.`track_id` = ?  [["track_id", 3]]
+  [1m[36mReader Load (0.2ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+  [1m[35mSharedData Load (121.1ms)[0m  SELECT `shared_data`.* FROM `shared_data` WHERE `shared_data`.`track_id` = ? ORDER BY `shared_data`.`time_stamp` DESC  [["track_id", 3]]
+  [1m[36mDevice Load (0.5ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`id` = ? ORDER BY `devices`.`id` ASC LIMIT 1[0m  [["id", 4]]
+Completed 200 OK in 1792ms (Views: 1308.6ms | ActiveRecord: 130.0ms)

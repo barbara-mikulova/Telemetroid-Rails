@@ -56,7 +56,7 @@ class TracksController < ApplicationController
     end
     result = []
     device_name_map = {}
-    track.shared_datas.each do |d|
+    track.shared_datas.order(time_stamp: :asc).each do |d|
       entry = {}
       entry['timeStamp'] = d.time_stamp
       entry['jsonData'] = d.json_data

@@ -4,7 +4,6 @@
     <list default="true" id="47a59c33-59c8-4909-849c-d9667f2c748b" name="Default" comment="Vytvoreny model pre zdielane data aj s controllerom. Vytvorena routa na full index a insert.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/development.log" afterPath="$PROJECT_DIR$/log/development.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/tracks_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/tracks_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="telemetroid.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,7 +59,7 @@
       <file leaf-file-name="tracks_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/tracks_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="45" selection-start="2233" selection-end="2233" vertical-scroll-proportion="0.69453377" vertical-offset="918" max-vertical-offset="2214">
+            <state line="58" column="45" selection-start="1470" selection-end="1470" vertical-scroll-proportion="0.36655948" vertical-offset="702" max-vertical-offset="2214">
               <folding />
             </state>
           </provider>
@@ -906,7 +905,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/tracks_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="45" selection-start="2233" selection-end="2233" vertical-scroll-proportion="0.69453377" vertical-offset="918" max-vertical-offset="2214">
+        <state line="58" column="45" selection-start="1470" selection-end="1470" vertical-scroll-proportion="0.36655948" vertical-offset="702" max-vertical-offset="2214">
           <folding />
         </state>
       </provider>
