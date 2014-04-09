@@ -457,3 +457,14 @@ Processing by TracksController#index_for_feed as HTML
   [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1  [["id", 1]]
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1[0m  [["id", 1]]
 Completed 200 OK in 68ms (Views: 0.3ms | ActiveRecord: 6.3ms)
+
+
+Started POST "/login" for 109.230.49.193 at 2014-04-09 12:53:51 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (61.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.1ms)
+Completed 200 OK in 90ms (Views: 2.2ms | ActiveRecord: 61.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.2ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (36.0ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
