@@ -80,7 +80,15 @@ class TracksController < ApplicationController
       error_denied(["Can't read feed"])
       return
     end
-    render json: feed.tracks
+    result = []
+    feed.tracks.each do |track|
+      entry = {}
+      entry[:name] = track.name
+      entry[:identifier] = track.identifier
+      entry[:ownerName] = track.user.name
+      result << entry
+    end
+    render json: result
   end
 
   def cant_find_feed(identifier)
