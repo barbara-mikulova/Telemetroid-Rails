@@ -850,3 +850,61 @@ Processing by TracksController#get_data as HTML
   [1m[35mSharedData Load (121.1ms)[0m  SELECT `shared_data`.* FROM `shared_data` WHERE `shared_data`.`track_id` = ? ORDER BY `shared_data`.`time_stamp` DESC  [["track_id", 3]]
   [1m[36mDevice Load (0.5ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`id` = ? ORDER BY `devices`.`id` ASC LIMIT 1[0m  [["id", 4]]
 Completed 200 OK in 1792ms (Views: 1308.6ms | ActiveRecord: 130.0ms)
+
+
+Started GET "/devices" for 127.0.0.1 at 2014-04-13 16:29:18 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (14.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by DevicesController#full_index as */*
+  [1m[35mDevice Load (0.4ms)[0m  SELECT `devices`.* FROM `devices`
+Completed 200 OK in 84ms (Views: 32.8ms | ActiveRecord: 2.9ms)
+  [1m[36mDevice Load (0.6ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` IS NULL LIMIT 1[0m
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = '352816054311082' LIMIT 1[0m
+  [1m[36mDevice Load (0.6ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = '352816054311082' LIMIT 1[0m
+  [1m[35mUser Load (1.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1  [["id", 1]]
+  [1m[36mDevice Load (0.6ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = '352816054311082' LIMIT 1[0m
+  [1m[36mDevice Load (0.4ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = '352816054311082' LIMIT 1[0m
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = '352816054311082' LIMIT 1[0m
+  [1m[36mDevice Load (0.6ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = '352816054311082' LIMIT 1[0m
+  [1m[35mDevice Load (0.7ms)[0m  SELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = '352816054311082' LIMIT 1
+  [1m[36mDevice Load (0.4ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = '352816054311082' LIMIT 1[0m
+  [1m[35mDevice Load (0.4ms)[0m  SELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = '352816054311082' LIMIT 1
+  [1m[36mDevice Load (0.4ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = '352816054311082' LIMIT 1[0m
+  [1m[36mDevice Load (0.7ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = '352816054311082' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? ORDER BY `users`.`id` ASC LIMIT 1  [["id", 1]]
+  [1m[36mDevice Load (0.6ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = '352816054311082' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = '352816054311082' LIMIT 1[0m
+  [1m[35mDevice Load (0.7ms)[0m  SELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` IS NULL LIMIT 1
+  [1m[36mDevice Load (0.5ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = '352816054311082' LIMIT 1[0m
+  [1m[35mDevice Load (0.6ms)[0m  SELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = '359465045255629' LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mDevice Load (0.5ms)[0m  SELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = '359465045255629' LIMIT 1
+  [1m[36mDevice Load (2.8ms)[0m  [1mSELECT `devices`.* FROM `devices`[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users`
+  [1m[36mSQL (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (23.2ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`username` = BINARY 'barbarka' LIMIT 1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`mail` = BINARY 'b.m@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (33.4ms)[0m  INSERT INTO `users` (`created_at`, `mail`, `password`, `updated_at`, `username`) VALUES (?, ?, ?, ?, ?)  [["created_at", Sun, 13 Apr 2014 15:06:20 UTC +00:00], ["mail", "b.m@gmail.com"], ["password", "asdasd"], ["updated_at", Sun, 13 Apr 2014 15:06:20 UTC +00:00], ["username", "barbarka"]]
+  [1m[36m (53.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT `users`.* FROM `users`
+  [1m[36mDevice Load (1.7ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`id` = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mDevice Load (1.3ms)[0m  SELECT `devices`.* FROM `devices` WHERE `devices`.`id` = ? LIMIT 1  [["id", 2]]
+  [1m[36mDevice Load (0.7ms)[0m  [1mSELECT `devices`.* FROM `devices`[0m
+  [1m[35mDevice Load (0.8ms)[0m  SELECT `devices`.* FROM `devices` WHERE `devices`.`id` = ? LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mSQL (0.6ms)[0m  BEGIN
+  [1m[36mDevice Exists (1.8ms)[0m  [1mSELECT 1 AS one FROM `devices` WHERE (`devices`.`identifier` = BINARY '359465045255629' AND `devices`.`id` != 4) LIMIT 1[0m
+  [1m[35mDevice Exists (0.9ms)[0m  SELECT 1 AS one FROM `devices` WHERE (`devices`.`name` = BINARY 'Wildfire' AND `devices`.`id` != 4 AND `devices`.`user_id` = 2) LIMIT 1
+  [1m[36mSQL (21.8ms)[0m  [1mUPDATE `devices` SET `user_id` = ?, `updated_at` = ? WHERE `devices`.`id` = 4[0m  [["user_id", 2], ["updated_at", Sun, 13 Apr 2014 15:07:17 UTC +00:00]]
+  [1m[35m (59.1ms)[0m  COMMIT
+
+
+Started GET "/devices" for 127.0.0.1 at 2014-04-13 17:07:40 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (3.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by DevicesController#full_index as */*
+  [1m[35mDevice Load (1.5ms)[0m  SELECT `devices`.* FROM `devices`
+Completed 200 OK in 45ms (Views: 10.1ms | ActiveRecord: 2.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mDevice Load (0.4ms)[0m  SELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = '359465045255629' LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mDevice Load (0.4ms)[0m  SELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = '352816054311082' LIMIT 1
