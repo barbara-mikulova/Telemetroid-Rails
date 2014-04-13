@@ -45,7 +45,10 @@ Telemetroid::Application.routes.draw do
 
   get '/messages' => 'messages#full_index'
   post '/messages/new' => 'messages#insert'
-  get '/messages/get' => 'messages#get_new'
+  get '/messages/device/:identifier/' => 'messages#get_new_for_device'
+  get '/messages/user/:username/' => 'messages#get_new_for_user'
+  post '/messages/:identifier/mark/device' => 'messages#mark_as_read_by_device'
+  post '/messages/:identifier/mark/user' => 'messages#mark_as_read_by_user'
 
   get '/tracks' => 'tracks#full_index'
   post '/tracks/new' => 'tracks#create'
