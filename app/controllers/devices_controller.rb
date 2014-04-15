@@ -1,8 +1,8 @@
 class DevicesController < ApplicationController
-  
+
   protect_from_forgery except: [:create, :edit]
   before_action :require_user_login
-  
+
   def create
     device = Device.create(device_params)
     device.user = User.find(session[:id])
@@ -13,7 +13,7 @@ class DevicesController < ApplicationController
       render_save_errors(device)
     end
   end
-  
+
   def edit
     device = Device.find_by_user_id_and_name(session[:id], params[:name])
     if (device)
@@ -43,22 +43,24 @@ class DevicesController < ApplicationController
       error_missing_entry("Device with given name couldn't be found")
     end
   end
-  
+
   def full_index
     render json: Device.all
   end
-  
+
   def index
     user = User.find_by_username(params[:username])
     if (user)
+      remove_identifier = false
       if (user.id == session[:id])
-        devices = Device.find_all_by_user_id(user.id)  
+        devices = Device.find_all_by_user_id(user.id)
       else
         devices = Device.find_all_by_user_id_and_public(user.id, true)
+        remove_identifier = true;
       end
       response = []
       devices.each do |device|
-        response.push(remove_fields(device))
+        response.push(remove_fields(device, remove_identifier))
       end
       render json: response
     else
@@ -95,9 +97,11 @@ class DevicesController < ApplicationController
   end
 
   private
-  def remove_fields(device)
+  def remove_fields(device, remove_identifier)
     hash = JSON.parse(device.to_json)
-    hash.delete("identifier")
+    if remove_identifier
+      hash.delete("identifier")
+    end
     hash.delete("password")
     hash.delete("created_at")
     hash.delete("updated_at")
@@ -105,9 +109,9 @@ class DevicesController < ApplicationController
     hash.delete("current_track")
     return hash
   end
-  
+
   def device_params
     params.permit(:name, :identifier, :comment, :public)
   end
-  
+
 end

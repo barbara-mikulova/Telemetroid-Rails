@@ -1079,3 +1079,564 @@ DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.whe
   [1m[35m (0.1ms)[0m  COMMIT
   Rendered text template (0.0ms)
 Completed 200 OK in 176ms (Views: 2.0ms | ActiveRecord: 79.5ms)
+
+
+Started GET "/devices" for 127.0.0.1 at 2014-04-15 10:01:37 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (33.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by DevicesController#full_index as */*
+  [1m[35mDevice Load (0.3ms)[0m  SELECT `devices`.* FROM `devices`
+Completed 200 OK in 126ms (Views: 21.6ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 10:23:34 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 108ms (Views: 72.5ms | ActiveRecord: 2.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  [1m[36mFeed Load (0.6ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (56.6ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.5ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.6ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 10:32:16 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 0.8ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 10:32:17 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 1.9ms | ActiveRecord: 0.5ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  [1m[36mFeed Load (0.6ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (0.6ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.5ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.5ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 10:34:16 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.2ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.3ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started GET "/users/pixel/feeds/read" for 10.42.0.17 at 2014-04-15 10:35:00 +0200
+Processing by UsersController#index_feeds_where_reader as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index_feeds_where_reader at /mnt/windows_data/Ruby/telemetroid/app/controllers/users_controller.rb:112)
+  [1m[36mReader Load (0.4ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`user_id` = 1[0m
+  [1m[35mFeed Load (0.5ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`id` = ? ORDER BY `feeds`.`id` ASC LIMIT 1  [["id", 1]]
+  [1m[36mFeed Load (0.9ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`id` = ? ORDER BY `feeds`.`id` ASC LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 64ms (Views: 1.0ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 10:37:23 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.5ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.3ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 10:40:08 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.1ms)
+Completed 200 OK in 8ms (Views: 2.0ms | ActiveRecord: 0.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.5ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.4ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 10:41:44 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.1ms)
+Completed 200 OK in 6ms (Views: 1.4ms | ActiveRecord: 0.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.3ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.5ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 10:43:23 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 1.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 10:45:15 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  Rendered text template (0.1ms)
+Completed 200 OK in 7ms (Views: 1.5ms | ActiveRecord: 0.9ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (0.5ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 10:45:25 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  [1m[36mFeed Load (0.7ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (0.8ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+
+
+Started POST "/logout" for 10.42.0.17 at 2014-04-15 10:47:20 +0200
+Processing by SessionsController#logout as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 10:47:34 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"barbarka", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'barbarka' LIMIT 1[0m
+  Rendered text template (0.1ms)
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 1.2ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'barbarka' LIMIT 1
+  [1m[36mFeed Load (0.6ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (1.4ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 2 LIMIT 1  [["feed_id", 2]]
+
+
+Started GET "/users/barbarka/feeds/read" for 10.42.0.17 at 2014-04-15 10:47:43 +0200
+Processing by UsersController#index_feeds_where_reader as HTML
+  Parameters: {"username"=>"barbarka"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'barbarka' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index_feeds_where_reader at /mnt/windows_data/Ruby/telemetroid/app/controllers/users_controller.rb:112)
+  [1m[35mReader Load (0.8ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`user_id` = 2
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/barbarka/feeds/admin" for 10.42.0.17 at 2014-04-15 10:47:47 +0200
+Processing by UsersController#index_feeds_where_admin as HTML
+  Parameters: {"username"=>"barbarka"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'barbarka' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index_feeds_where_admin at /mnt/windows_data/Ruby/telemetroid/app/controllers/users_controller.rb:98)
+  [1m[35mAdmin Load (0.9ms)[0m  SELECT `admins`.* FROM `admins` WHERE `admins`.`user_id` = 2
+Completed 200 OK in 23ms (Views: 0.4ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/users/barbarka/devices" for 10.42.0.17 at 2014-04-15 10:47:54 +0200
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"barbarka"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'barbarka' LIMIT 1[0m
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:55)
+  [1m[35mDevice Load (1.5ms)[0m  SELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 2
+Completed 200 OK in 11ms (Views: 0.5ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/logout" for 10.42.0.17 at 2014-04-15 10:47:59 +0200
+Processing by SessionsController#logout as HTML
+  Rendered text template (0.1ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 10:48:06 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 1.0ms | ActiveRecord: 0.6ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1[0m
+  [1m[35mReader Load (0.6ms)[0m  SELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1  [["feed_id", 2]]
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 10:54:49 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 10:56:34 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 0.8ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.6ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.5ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started GET "/users/pixel/devices" for 10.42.0.17 at 2014-04-15 10:56:41 +0200
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:55)
+  [1m[36mDevice Load (1.1ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 1[0m
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 10:59:16 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 0.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.5ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.6ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started GET "/users/pixel/devices" for 10.42.0.17 at 2014-04-15 10:59:26 +0200
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:55)
+  [1m[36mDevice Load (0.2ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 1[0m
+Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 11:01:12 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.6ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.6ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started GET "/users/pixel/devices" for 10.42.0.17 at 2014-04-15 11:01:34 +0200
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:55)
+  [1m[36mDevice Load (0.4ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 1[0m
+Completed 200 OK in 11ms (Views: 0.9ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 11:02:18 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.1ms)
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 0.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.5ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.5ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started GET "/users/pixel/devices" for 10.42.0.17 at 2014-04-15 11:02:24 +0200
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:55)
+  [1m[36mDevice Load (0.5ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 1[0m
+Completed 200 OK in 13ms (Views: 2.1ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 11:12:16 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.6ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.5ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started GET "/users/pixel/devices" for 10.42.0.17 at 2014-04-15 11:12:26 +0200
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:55)
+  [1m[36mDevice Load (0.2ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 1[0m
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 11:14:02 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.1ms)
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.5ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.6ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started GET "/users/pixel/devices" for 10.42.0.17 at 2014-04-15 11:14:12 +0200
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:55)
+  [1m[36mDevice Load (0.5ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 1[0m
+Completed 200 OK in 11ms (Views: 0.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 11:16:42 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.1ms)
+Completed 200 OK in 6ms (Views: 1.7ms | ActiveRecord: 0.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.6ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.6ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started GET "/users/pixel/devices" for 10.42.0.17 at 2014-04-15 11:16:53 +0200
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:55)
+  [1m[36mDevice Load (0.5ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 1[0m
+Completed 200 OK in 12ms (Views: 1.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 11:17:17 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.1ms)
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.6ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.6ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 11:17:40 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (1.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.1ms)
+Completed 200 OK in 10ms (Views: 1.9ms | ActiveRecord: 1.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.7ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.7ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started GET "/users/pixel/devices" for 10.42.0.17 at 2014-04-15 11:19:15 +0200
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:55)
+  [1m[36mDevice Load (0.6ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 1[0m
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 11:24:24 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.6ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.6ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started GET "/users/pixel/devices" for 10.42.0.17 at 2014-04-15 11:24:32 +0200
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:55)
+  [1m[36mDevice Load (0.1ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 1[0m
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 11:28:01 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.5ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.5ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started GET "/users/pixel/devices" for 10.42.0.17 at 2014-04-15 11:28:08 +0200
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:55)
+  [1m[36mDevice Load (0.5ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 1[0m
+Completed 200 OK in 12ms (Views: 1.6ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 11:28:36 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.4ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.5ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started GET "/users/pixel/devices" for 10.42.0.17 at 2014-04-15 11:28:48 +0200
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:55)
+  [1m[36mDevice Load (0.2ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 1[0m
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/pixel/devices" for 127.0.0.1 at 2014-04-15 11:31:16 +0200
+Processing by DevicesController#index as */*
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:55)
+  [1m[36mDevice Load (0.7ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 1[0m
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/pixel/devices" for 10.42.0.17 at 2014-04-15 11:40:48 +0200
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:55)
+  [1m[36mDevice Load (0.4ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 1[0m
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 11:48:27 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.5ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.5ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started GET "/users/pixel/devices" for 10.42.0.17 at 2014-04-15 11:48:39 +0200
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:55)
+  [1m[36mDevice Load (0.8ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 1[0m
+Completed 200 OK in 16ms (Views: 1.1ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 11:50:48 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.1ms)
+Completed 200 OK in 6ms (Views: 1.4ms | ActiveRecord: 0.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.4ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.4ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started GET "/users/pixel/devices" for 10.42.0.17 at 2014-04-15 11:51:01 +0200
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:55)
+  [1m[36mDevice Load (0.4ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 1[0m
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 12:02:51 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.7ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.7ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started GET "/users/pixel/devices" for 10.42.0.17 at 2014-04-15 12:02:59 +0200
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:55)
+  [1m[36mDevice Load (0.5ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 1[0m
+Completed 200 OK in 12ms (Views: 1.3ms | ActiveRecord: 1.1ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  [1m[36mDevice Load (1.0ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = 'null' LIMIT 1[0m
+
+
+Started POST "/login" for 10.42.0.17 at 2014-04-15 12:04:54 +0200
+Processing by SessionsController#login as HTML
+  Parameters: {"username"=>"pixel", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  Rendered text template (0.1ms)
+Completed 200 OK in 6ms (Views: 1.4ms | ActiveRecord: 0.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1[0m
+  [1m[35mFeed Load (0.6ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`identifier` = 'wO4gwNRcUtQNSiSLia26QrGtwjI=' LIMIT 1
+  [1m[36mReader Load (0.6ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`feed_id` = ? AND `readers`.`user_id` = 1 LIMIT 1[0m  [["feed_id", 2]]
+
+
+Started GET "/users/pixel/devices" for 10.42.0.17 at 2014-04-15 12:05:00 +0200
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:55)
+  [1m[36mDevice Load (0.2ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 1[0m
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.5ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  [1m[36mDevice Load (0.5ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = 'null' LIMIT 1[0m
+
+
+Started GET "/users/pixel/devices" for 127.0.0.1 at 2014-04-15 12:08:52 +0200
+Processing by DevicesController#index as */*
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:56)
+  [1m[36mDevice Load (0.2ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 1[0m
+Completed 200 OK in 69ms (Views: 0.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/pixel/feeds/read" for 10.42.0.17 at 2014-04-15 12:09:00 +0200
+Processing by UsersController#index_feeds_where_reader as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index_feeds_where_reader at /mnt/windows_data/Ruby/telemetroid/app/controllers/users_controller.rb:112)
+  [1m[36mReader Load (0.1ms)[0m  [1mSELECT `readers`.* FROM `readers` WHERE `readers`.`user_id` = 1[0m
+  [1m[35mFeed Load (0.1ms)[0m  SELECT `feeds`.* FROM `feeds` WHERE `feeds`.`id` = ? ORDER BY `feeds`.`id` ASC LIMIT 1  [["id", 1]]
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT `feeds`.* FROM `feeds` WHERE `feeds`.`id` = ? ORDER BY `feeds`.`id` ASC LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 35ms (Views: 0.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/pixel/devices" for 10.42.0.17 at 2014-04-15 12:09:07 +0200
+Processing by DevicesController#index as HTML
+  Parameters: {"username"=>"pixel"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+DEPRECATION WARNING: This dynamic method is deprecated. Please use e.g. Post.where(...).all instead. (called from index at /mnt/windows_data/Ruby/telemetroid/app/controllers/devices_controller.rb:56)
+  [1m[36mDevice Load (0.3ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`user_id` = 1[0m
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+  [1m[35mUser Load (1.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'pixel' LIMIT 1
+  [1m[36mDevice Load (1.0ms)[0m  [1mSELECT `devices`.* FROM `devices` WHERE `devices`.`identifier` = '352816054311082' LIMIT 1[0m
