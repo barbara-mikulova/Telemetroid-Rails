@@ -203,6 +203,11 @@ def login_data(handshake, ws)
         ws.send({:code => 3, :messages => ['Only allowed to owner']}.to_json)
         ws.close
       end
+      unless @device_id_to_read_socket[device.identifier]
+        ws.send({:code => 4, :messages => ["Device '#{device.name}' is not enabled for remote tracking"]}.to_json)
+        ws.close
+        return
+      end
       @device_id_to_write_socket.merge!(device.identifier => ws)
       @write_socket_to_device_id.merge!(ws => device.identifier)
     end
