@@ -1,17 +1,31 @@
 class DevicesController < ApplicationController
 
-  protect_from_forgery except: [:create, :edit]
+  protect_from_forgery except: [:create, :edit, :reset_password]
   before_action :require_user_login
 
   def create
     device = Device.create(device_params)
     device.user = User.find(session[:id])
     if (device.save)
-      response = {:password => device.password}
-      render json: response
+      render json: device, :only => :password
     else
       render_save_errors(device)
     end
+  end
+
+  def reset_password
+    device = Device.find_by_identifier(params[:identifier])
+    unless device
+      error_missing_entry(["Can't find device with identifier '#{params[:identifier]}'"])
+      return
+    end
+    unless device.user_id == session[:id]
+      error_denied(['Not your device'])
+      return
+    end
+    device.password = SecureRandom.hex(10)
+    device.save
+    render json: device, :only => :password
   end
 
   def edit

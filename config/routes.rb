@@ -14,6 +14,7 @@ Telemetroid::Application.routes.draw do
   post '/devices/:name/edit' => 'devices#edit'
   get '/devices/:identifier/feeds/read' => 'devices#index_feeds_where_reader'
   get '/devices/:identifier/feeds/write' => 'devices#index_feeds_where_writer'
+  post '/devices/:identifier/reset' => 'devices#reset_password'
 
   get '/users/:username/devices' => 'devices#index'
   get '/users/:username/feeds/admin' => 'users#index_feeds_where_admin'

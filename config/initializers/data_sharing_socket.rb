@@ -160,57 +160,57 @@ def login_data(handshake, ws)
   else
     ws.close
   end
+end
 
-  def login_messages(handshake, ws)
-    uri = URI(handshake.path)
-    query = handshake.query
-    path = uri.path.split('/')
-    login_type = path[1]
-    if login_type == 'read'
-      device = Device.find_by_identifier(query['identifier'])
-      unless device
-        ws.send({:code => 4, :messages => ["Can't find device with identifier '#{query['identifier']}'"]}.to_json)
-        ws.close
-        return
-      end
-      unless device.password == query['password']
-        ws.send({:code => 3, :messages => ['Wrong identifier or password']}.to_json)
-        ws.close
-        return
-      end
-      @device_id_to_read_socket.merge!(device.identifier => ws)
-      @read_socket_to_device_id.merge!(ws => device.identifier)
+def login_messages(handshake, ws)
+  uri = URI(handshake.path)
+  query = handshake.query
+  path = uri.path.split('/')
+  login_type = path[1]
+  if login_type == 'read'
+    device = Device.find_by_identifier(query['identifier'])
+    unless device
+      ws.send({:code => 4, :messages => ["Can't find device with identifier '#{query['identifier']}'"]}.to_json)
+      ws.close
+      return
     end
-    if login_type == 'write'
-      user = User.find_by_username(query['username'])
-      unless user
-        ws.send({:code => 4, :messages => ["Can't find user with username '#{query['username']}'"]}.to_json)
-        ws.close
-        return
-      end
-      unless user.password == query['password']
-        ws.send({:code => 3, :messages => ['Wrong username or password']}.to_json)
-        ws.close
-        return
-      end
-      device = Device.find_by_identifier(query['identifier'])
-      unless device
-        ws.send({:code => 4, :messages => ["Can't find device with identifier '#{query['identifier']}'"]}.to_json)
-        ws.close
-        return
-      end
-      unless device.user_id == user.id
-        ws.send({:code => 3, :messages => ['Only allowed to owner']}.to_json)
-        ws.close
-      end
-      unless @device_id_to_read_socket[device.identifier]
-        ws.send({:code => 4, :messages => ["Device '#{device.name}' is not enabled for remote tracking"]}.to_json)
-        ws.close
-        return
-      end
-      @device_id_to_write_socket.merge!(device.identifier => ws)
-      @write_socket_to_device_id.merge!(ws => device.identifier)
+    unless device.password == query['password']
+      puts query['password'] + "  " + device.password
+      ws.send({:code => 3, :messages => ['Wrong identifier or password']}.to_json)
+      ws.close
+      return
     end
+    @device_id_to_read_socket.merge!(device.identifier => ws)
+    @read_socket_to_device_id.merge!(ws => device.identifier)
   end
-
+  if login_type == 'write'
+    user = User.find_by_username(query['username'])
+    unless user
+      ws.send({:code => 4, :messages => ["Can't find user with username '#{query['username']}'"]}.to_json)
+      ws.close
+      return
+    end
+    unless user.password == query['password']
+      ws.send({:code => 3, :messages => ['Wrong username or password']}.to_json)
+      ws.close
+      return
+    end
+    device = Device.find_by_identifier(query['identifier'])
+    unless device
+      ws.send({:code => 4, :messages => ["Can't find device with identifier '#{query['identifier']}'"]}.to_json)
+      ws.close
+      return
+    end
+    unless device.user_id == user.id
+      ws.send({:code => 3, :messages => ['Only allowed to owner']}.to_json)
+      ws.close
+    end
+    unless @device_id_to_read_socket[device.identifier]
+      ws.send({:code => 4, :messages => ["Device '#{device.name}' is not enabled for remote tracking"]}.to_json)
+      ws.close
+      return
+    end
+    @device_id_to_write_socket.merge!(device.identifier => ws)
+    @write_socket_to_device_id.merge!(ws => device.identifier)
+  end
 end
