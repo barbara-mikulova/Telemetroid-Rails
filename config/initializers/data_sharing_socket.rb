@@ -13,6 +13,8 @@ Thread.new {
     #Maps transmitters to arrays of channels, to which they send data
     @transmittersMap = {}
 
+    @socket_to_device_name = {}
+
     EventMachine::WebSocket.start(:host => '0.0.0.0', :port => '8080') do |ws|
       ws.onopen do |handshake|
         login_data(handshake, ws)
@@ -94,69 +96,67 @@ Thread.new {
 
 private
 
+
 def login_data(handshake, ws)
   uri = URI(handshake.path)
   query = handshake.query
   path = uri.path.split('/')
-  login_type = path[1]
-  if login_type == 'user'
-    puts query
+  connection_type = path[1]
+  if connection_type == 'read'
     user = User.find_by_username(query['username'])
     unless user && user.password == query['password']
-      ws.send({:code => 3, :messages => ['Wrong username or password']}.to_json)
+      ws.send({:code => 4, :messages => ["User with username '#{query['username']}' does not exist"]}.to_json)
       ws.close
       return
     end
-    connection_type = path[2]
-    if connection_type == 'read'
-      feed_id = path[3]
+    feed_id = path[2]
+    feed = Feed.find_by_identifier(feed_id)
+    unless feed
+      ws.send({:code => 4, :messages => ["Feed with id '#{feed_id}' does not exist"]}.to_json)
+      ws.close
+      return
+    end
+    unless feed.readers.find_by_user_id(user.id)
+      ws.send({:code => 4, :messages => ["Feed #{feed.name} can't be read"]}.to_json)
+      ws.close
+      return
+    end
+    if @channelMap[feed_id]
+      sid = @channelMap[feed_id].subscribe { |msg| ws.send(msg) }
+    else
+      channel = EventMachine::Channel.new
+      sid = channel.subscribe { |msg| ws.send(msg) }
+      @channelMap.merge!(feed_id => channel)
+    end
+    @socketMap.merge!(ws => @channelMap[feed_id])
+    @sidMap.merge!(ws => sid)
+  elsif connection_type == 'write'
+    device = Device.find_by_identifier(query['identifier'])
+    unless device && device.password == query['password']
+      ws.send({:code => 4, :messages => ['Wrong identifier or password']}.to_json)
+      ws.close
+      return
+    end
+    feed_ids = query['feed_ids'].split(',')
+    channels = Array.new
+    feed_ids.each do |feed_id|
       feed = Feed.find_by_identifier(feed_id)
       unless feed
         ws.send({:code => 4, :messages => ["Feed with id '#{feed_id}' does not exist"]}.to_json)
-        ws.close
-        return
+        next
       end
-      unless feed.readers.find_by_user_id(user.id)
-        ws.send({:code => 4, :messages => ["Feed #{feed.name} can't be read"]}.to_json)
-        ws.close
-        return
+      unless feed.writing_devices.find_by_device_id(device.id)
+        ws.send({:code => 3, :messages => ["#{feed.name} can't be written"]}.to_json)
+        next
       end
-      if @channelMap[feed_id]
-        sid = @channelMap[feed_id].subscribe { |msg| ws.send(msg) }
-      else
+      unless @channelMap[feed_id]
         channel = EventMachine::Channel.new
-        sid = channel.subscribe { |msg| ws.send(msg) }
         @channelMap.merge!(feed_id => channel)
       end
-      @socketMap.merge!(ws => @channelMap[feed_id])
-      @sidMap.merge!(ws => sid)
-    elsif connection_type == 'write'
-      feed_ids = query['feed_ids'].split(',')
-      channels = Array.new
-      feed_ids.each do |feed_id|
-        feed = Feed.find_by_identifier(feed_id)
-        unless feed
-          ws.send({:code => 4, :messages => ["Feed with id '#{feed_id}' does not exist"]}.to_json)
-          next
-        end
-        unless feed.writers.find_by_user_id(user.id)
-          ws.send({:code => 3, :messages => ["#{feed.name} can't be written"]}.to_json)
-          next
-        end
-        unless @channelMap[feed_id]
-          channel = EventMachine::Channel.new
-          @channelMap.merge!(feed_id => channel)
-        end
-        channel = @channelMap[feed_id]
-        channels.push(channel)
-      end
-      @transmittersMap.merge!(ws => channels)
-    else
-      ws.send({:code => 1, :messages => ["Unknown connection type: #{connection_type}"]}.to_json)
-      ws.close
+      channel = @channelMap[feed_id]
+      channels.push(channel)
     end
-  elsif login_type == 'device'
-    puts 'login device'
+    @transmittersMap.merge!(ws => channels)
   else
     ws.close
   end

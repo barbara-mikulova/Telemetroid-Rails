@@ -8,6 +8,7 @@ Telemetroid::Application.routes.draw do
   post '/edit' => 'users#edit'
   get '/users/:username/show' => 'users#show'
   get '/users/find' => 'users#find'
+  get '/users' => 'users#index'
   
   post '/devices/new' => 'devices#create'
   post '/devices/login' => 'sessions#device_login'
@@ -17,6 +18,7 @@ Telemetroid::Application.routes.draw do
   post '/devices/:identifier/reset' => 'devices#reset_password'
 
   get '/users/:username/devices' => 'devices#index'
+  get '/users/:username/devices/permission/:feed_identifier' => 'devices#index_permissions'
   get '/users/:username/feeds/admin' => 'users#index_feeds_where_admin'
   get '/users/:username/feeds/read' => 'users#index_feeds_where_reader'
   get '/users/:username/feeds/write' => 'users#index_feeds_where_writer'
@@ -53,7 +55,7 @@ Telemetroid::Application.routes.draw do
   get '/tracks/:identifier/data' => 'tracks#get_data'
 
   get '/who' => 'sessions#who'
-  get '/users' => 'users#index'
+  get '/users_full' => 'users#full_index'
   get '/devices' => 'devices#full_index'
   get '/feeds' => 'feeds#full_index'
   get '/params' => 'params#show'

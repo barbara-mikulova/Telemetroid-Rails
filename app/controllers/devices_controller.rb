@@ -82,6 +82,32 @@ class DevicesController < ApplicationController
     end
   end
 
+  def index_permissions
+    user = User.find_by_username(params[:username])
+    unless user
+      error_missing_params(["Can't find user with username '#{params[:username]}'"])
+      return
+    end
+    feed = Feed.find_by_identifier(params[:feed_identifier])
+    unless feed
+      error_missing_params(["Can't find feed with identifier '#{params[:feed_identifier]}'"])
+      return
+    end
+    unless feed.admins.find_by_user_id(session[:id])
+      error_denied(['Only admin can do that'])
+      return
+    end
+    result = []
+    user.devices.each do |device|
+      write = false
+      if feed.writing_devices.find_by_device_id(device.id)
+        write = true
+      end
+      result.push({:name => device.name, :write => write})
+    end
+    render json: result
+  end
+
   def index_feeds_where_reader
     device = Device.find_by_identifier(params[:identifier])
     if device

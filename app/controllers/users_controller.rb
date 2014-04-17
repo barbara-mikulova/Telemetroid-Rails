@@ -28,8 +28,12 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
+  def full_index
     render json: User.all
+  end
+
+  def index
+    render json: User.all, :only => :username
   end
 
   def edit
