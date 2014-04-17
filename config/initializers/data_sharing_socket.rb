@@ -14,8 +14,9 @@ Thread.new {
     @transmittersMap = {}
 
     @socket_to_device_name = {}
+    @socket_to_owner_name = {}
 
-    EventMachine::WebSocket.start(:host => '0.0.0.0', :port => '8080') do |ws|
+    EventMachine::WebSocket.start(:host => '0.0.0.0', :port => '8080', :debug => true) do |ws|
       ws.onopen do |handshake|
         login_data(handshake, ws)
       end
@@ -36,8 +37,13 @@ Thread.new {
         if @transmittersMap[ws]
           channels = @transmittersMap[ws]
           if channels
+            message = JSON.parse(msg)
+            message.delete('device_id')
+            message['deviceName'] = @socket_to_device_name[ws]
+            message['owner'] = @socket_to_owner_name[ws]
+            puts channels.size
             channels.each do |channel|
-              channel.push(msg)
+              channel.push(message.to_json)
             end
           end
         end
@@ -138,7 +144,7 @@ def login_data(handshake, ws)
       return
     end
     feed_ids = query['feed_ids'].split(',')
-    channels = Array.new
+    channels = []
     feed_ids.each do |feed_id|
       feed = Feed.find_by_identifier(feed_id)
       unless feed
@@ -156,7 +162,14 @@ def login_data(handshake, ws)
       channel = @channelMap[feed_id]
       channels.push(channel)
     end
-    @transmittersMap.merge!(ws => channels)
+    if channels.size == 0
+      ws.send({:code => 3, :messages => ['No feeds can be written']}.to_json)
+      ws.close
+      return
+    end
+    @socket_to_device_name[ws] = device.name
+    @socket_to_owner_name[ws] = device.user.username
+    @transmittersMap[ws] = channels
   else
     ws.close
   end
