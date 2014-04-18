@@ -1,6 +1,6 @@
 class TracksController < ApplicationController
   protect_from_forgery :except => [:create]
-  before_action :require_user_login
+  before_action :require_login
 
   def full_index
     render json: Track.all

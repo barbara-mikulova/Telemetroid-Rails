@@ -1,7 +1,8 @@
 class DevicesController < ApplicationController
 
   protect_from_forgery except: [:create, :edit, :reset_password]
-  before_action :require_user_login
+  before_action :require_user_login, :except => [:index_feeds_where_writer]
+  before_action :require_login, :only => [:index_feeds_where_writer]
 
   def create
     device = Device.create(device_params)
