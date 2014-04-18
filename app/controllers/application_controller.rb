@@ -7,24 +7,24 @@ class ApplicationController < ActionController::Base
 
   def require_login
     if (session[:id] == nil)
-      error_denied('Please log in')
+      error_denied(['Please log in'])
     end
   end
 
   def require_user_login
     if (session[:type] != 'user')
-      error_denied('Please log in')
+      error_denied(['Please log in'])
     end
   end
 
   def remove_user_fields(user)
     hash = JSON.parse(user.to_json)
-    hash.delete("password")
-    hash.delete("created_at")
-    hash.delete("updated_at")
+    hash.delete('password')
+    hash.delete('created_at')
+    hash.delete('updated_at')
     current_user = User.find(session[:id])
     unless user.public_email || current_user.id == user.id
-      hash.delete("mail")
+      hash.delete('mail')
     end
     return hash
   end

@@ -272,7 +272,7 @@ class FeedsController < ApplicationController
     @feed = Feed.find_by_identifier(params[:identifier])
     @user = User.find(session[:id])
     if Reader.find_by_feed_id_and_user_id(@feed.id, @user.id) == nil
-      error_denied(["Can't show read key to someone who can't read that @feed"])
+      error_denied(["Can't show read key to someone who can't read that feed"])
       return false
     end
     return true
@@ -282,7 +282,7 @@ class FeedsController < ApplicationController
     @feed = Feed.find_by_identifier(params[:identifier])
     @user = User.find(session[:id])
     if Writer.find_by_feed_id_and_user_id(@feed.id, @user.id) == nil
-      error_denied(["Can't show write key to someone who can't write to that @feed"])
+      error_denied(["Can't show write key to someone who can't write to that feed"])
       return false
     end
     return true
@@ -306,16 +306,15 @@ class FeedsController < ApplicationController
   end
 
   def cant_find_user
-    error_missing_entry(["Can't find @user " + params[:username]])
+    error_missing_entry(["Can't find user '#{params[:username]}'"])
   end
 
   def cant_find_feed
-    error_missing_entry(["Can't find @feed"])
+    error_missing_entry(["Can't find feed"])
   end
 
   def cant_find_device
-    error_missing_entry(["Can't find @device " + params[:device_name] + ' of @user ' + @user.username])
-
+    error_missing_entry(["Can't find device '#{params[:device_name]}' of user '#{@user.username}'"])
   end
 
   def feed_params
