@@ -13,7 +13,6 @@ Telemetroid::Application.routes.draw do
   post '/devices/new' => 'devices#create'
   post '/devices/login' => 'sessions#device_login'
   post '/devices/:name/edit' => 'devices#edit'
-  get '/devices/:identifier/feeds/read' => 'devices#index_feeds_where_reader'
   get '/devices/:identifier/feeds/write' => 'devices#index_feeds_where_writer'
   post '/devices/:identifier/reset' => 'devices#reset_password'
 
@@ -36,9 +35,6 @@ Telemetroid::Application.routes.draw do
   get 'feeds/:identifier/devices/write' => 'feeds#index_writing_devices'
   post '/feeds/:identifier/devices/write/add' => 'feeds#add_writing_device'
   post '/feeds/:identifier/devices/write/remove' => 'feeds#remove_writing_device'
-  get 'feeds/:identifier/devices/read' => 'feeds#index_reading_devices'
-  post '/feeds/:identifier/devices/read/add' => 'feeds#add_reading_device'
-  post '/feeds/:identifier/devices/read/remove' => 'feeds#remove_reading_device'
   get '/feeds/:identifier/keys/write' => 'feeds#show_write_key'
   get '/feeds/:identifier/keys/read' => 'feeds#show_read_key'
   get '/feeds/:identifier/users/not_involved/' => 'feeds#not_involved_users'

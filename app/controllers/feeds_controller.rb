@@ -99,11 +99,6 @@ class FeedsController < ApplicationController
     print_device_array(writing_devices)
   end
 
-  def index_reading_devices
-    reading_devices = @feed.reading_devices
-    print_device_array(reading_devices)
-  end
-
   def add_admin
     admin = Admin.find_by_user_id_and_feed_id(@user.id, @feed.id)
     if admin
@@ -205,31 +200,6 @@ class FeedsController < ApplicationController
       response_ok
     else
       error_missing_params(["Device " + @device.name + " of @user " + @user.username + " can't write to this @feed"])
-    end
-  end
-
-  def add_reading_device
-    reader = ReadingDevice.find_by_device_id_and_feed_id(@device.id, @feed.id)
-    if reader
-      error_duplicity(["Device " + @device.name + " of @user " + @user.username + " can read @feed already"])
-    else
-      reader = ReadingDevice.new
-      reader.device = @device
-      @feed.reading_devices.push(reader)
-      @feed.save
-      response_ok
-    end
-  end
-
-  def remove_reading_device
-    reader = ReadingDevice.find_by_device_id_and_feed_id(@device.id, @feed.id)
-    if reader
-      @feed.reading_devices.delete(reader)
-      reader.delete
-      @feed.save
-      response_ok
-    else
-      error_missing_params(["Device " + @device.name + " of @user " + @user.username + " can't read this @feed"])
     end
   end
 
