@@ -41,10 +41,6 @@ class DevicesController < ApplicationController
         device.comment = params[:comment]
         change = true
       end
-      if (params[:public])
-        device.public = params[:public]
-        change = true
-      end
       if (change)
         if (device.save)
           response_ok
@@ -65,14 +61,10 @@ class DevicesController < ApplicationController
 
   def index
     user = User.find_by_username(params[:username])
-    if (user)
+    if user
       remove_identifier = false
-      if (user.id == session[:id])
-        devices = Device.find_all_by_user_id(user.id)
-      else
-        devices = Device.find_all_by_user_id_and_public(user.id, true)
-        remove_identifier = true;
-      end
+      devices = Device.find_all_by_user_id(user.id)
+      remove_identifier = true unless (user.id == session[:id])
       response = []
       devices.each do |device|
         response.push(remove_fields(device, remove_identifier))
@@ -146,13 +138,12 @@ class DevicesController < ApplicationController
     hash.delete("password")
     hash.delete("created_at")
     hash.delete("updated_at")
-    hash.delete("public")
     hash.delete("current_track")
     return hash
   end
 
   def device_params
-    params.permit(:name, :identifier, :comment, :public)
+    params.permit(:name, :identifier, :comment)
   end
 
 end

@@ -32,11 +32,7 @@ class ApplicationController < ActionController::Base
   def remove_device_fields(input)
     device = Device.find(input.device_id)
     user = User.find(device.user_id)
-    if (device.public)
-      name = device.name
-    else
-      name = "private"
-    end
+    name = device.name
     return {'owner_name' => user.username, 'device_name' => name}
   end
 

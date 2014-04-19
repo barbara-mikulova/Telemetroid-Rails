@@ -5,7 +5,6 @@ class CreateDevices < ActiveRecord::Migration
       t.string :name
       t.string :password
       t.string :comment
-      t.boolean :public, default: false
       t.references :user, index: true
 
       t.timestamps

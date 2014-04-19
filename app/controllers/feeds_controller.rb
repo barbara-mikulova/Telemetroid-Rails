@@ -288,7 +288,7 @@ class FeedsController < ApplicationController
   end
 
   def feed_params
-    params.permit(:name, :comment, :public)
+    params.permit(:name, :comment)
   end
 
 end

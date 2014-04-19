@@ -5,7 +5,7 @@ class Device < ActiveRecord::Base
   
   validates :identifier, presence: true, uniqueness: true
   validates :password, presence: true
-  validates :name, presence: true, uniqueness: { scope: :user, message: "must be unique" }
+  validates :name, presence: true, uniqueness: { scope: :user, message: 'must be unique'}
   
   before_validation :generate_name_and_password
   

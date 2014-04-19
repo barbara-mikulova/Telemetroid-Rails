@@ -39,20 +39,20 @@ class UsersController < ApplicationController
   def edit
     change = false;
     user = User.find(session[:id])
-    if (params[:name])
+    if params[:name]
       user.name = params[:name]
       change = true;
     end
-    if (params[:comment])
+    if params[:comment]
       user.comment = params[:comment]
       change = true;
     end
-    if (params[:public_email])
+    if params[:public_email]
       user.public_email = params[:public_email]
       change = true;
     end
-    if (change)
-      if (user.save)
+    if change
+      if user.save
         response_ok
       else
         render_save_errors(user)
