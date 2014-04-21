@@ -38,6 +38,27 @@ class FeedsController < ApplicationController
     end
   end
 
+  def edit
+    feed = Feed.find_by_identifier(params[:identifier])
+    unless feed
+      error_missing_entry(["Can't find feed with identifier '#{params[:identifier]}'"])
+      return
+    end
+    comment = params[:comment]
+    if comment
+      feed.comment = comment
+    end
+    name = params[:name]
+    if name
+      feed.name = name
+    end
+    if feed.save
+      response_ok
+    else
+      render_save_errors(feed)
+    end
+  end
+
   def not_involved_users
     if params[:username]
       users = User.where('username LIKE ?', "%#{params[:username]}%")

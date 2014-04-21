@@ -23,6 +23,7 @@ Telemetroid::Application.routes.draw do
   get '/users/:username/feeds/write' => 'users#index_feeds_where_writer'
   
   post '/feeds/new' => 'feeds#create'
+  post '/feeds/:identifier/edit' => 'feeds#edit'
   get 'feeds/:identifier/admins' => 'feeds#index_admins'
   post '/feeds/:identifier/admins/add' => 'feeds#add_admin'
   post '/feeds/:identifier/admins/remove' => 'feeds#remove_admin'
